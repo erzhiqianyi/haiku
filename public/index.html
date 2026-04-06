@@ -10,7 +10,7 @@
     <title>春の余韻 - 現代俳句絵巻 | Modern Haiku Scroll</title>
     <meta name="description" content="『春の余韻』——東京の四月を切り取った現代俳句集。指先で風と光を感じる、音律と色彩が流転するデジタル絵巻物。A digital interactive haiku scroll.">
     <meta name="keywords" content="俳句, 春, 東京, ポエトリー, 現代俳句, 詩集, インタラクティブアート, Haiku, Tokyo, Spring, Interactive Web Art">
-    <meta name="author" content="春の旅人">
+    <meta name="author" content="itsuki">
     <meta name="robots" content="index, follow">
 
     <!-- Open Graph / Facebook / Line / 微信 分享协议 -->
@@ -38,7 +38,7 @@
             --text-dim: #8b8682;
             --text-ruby: #a09b96;
             --accent-red: #c03531;
-            --watermark: rgba(0, 0, 0, 0.04);
+            --watermark: rgba(0, 0, 0, 0.06); /* 稍微提升基础透明度，增强呼吸对比 */
             --ripple-color: rgba(139, 134, 130, 0.4);
         }
 
@@ -48,7 +48,7 @@
             --text-dim: #9aa0a6;
             --text-ruby: #7a8086;
             --accent-red: #e64a45;
-            --watermark: rgba(255, 255, 255, 0.05);
+            --watermark: rgba(255, 255, 255, 0.07); /* 稍微提升基础透明度，增强呼吸对比 */
             --ripple-color: rgba(245, 242, 233, 0.3);
         }
 
@@ -92,10 +92,11 @@
             mix-blend-mode: overlay; pointer-events: none; z-index: 100;
         }
 
-        .line, .giant-keyword, .stamp, .date, .intro-title h1, .intro-title p, rt, .instruction {
+        .line, .giant-keyword, .stamp, .date, .intro-title h1, .intro-title p, rt, .instruction, .copyright {
             transition: color 1.2s ease-in-out, border-color 1.2s ease-in-out, opacity 1s ease-in-out;
         }
 
+        /* 引导文字 */
         .instruction {
             position: fixed; bottom: 40px; right: 40px;
             font-size: 0.8rem; letter-spacing: 0.2em; color: var(--text-dim);
@@ -103,6 +104,13 @@
             animation: pulse 3s infinite ease-in-out; flex-direction: row-reverse;
         }
         .instruction::before { content: ''; width: 35px; height: 1px; background-color: var(--text-dim); }
+
+        /* 版权信息 */
+        .copyright {
+            position: fixed; bottom: 40px; left: 40px;
+            font-size: 0.75rem; letter-spacing: 0.1em; color: var(--text-dim);
+            z-index: 50; font-family: 'Noto Serif JP', serif;
+        }
 
         /* 音乐播放器样式 */
         .music-toggle {
@@ -131,7 +139,7 @@
             writing-mode: vertical-rl; text-orientation: upright;
             display: flex; flex-direction: row-reverse; align-items: flex-start;
             gap: 2.5rem; height: 75vh; margin: 0 5vw; flex-shrink: 0;
-            padding-top: 15vh;
+            padding-top: 8vh; /* 优化：缩减顶部留白 */
             box-sizing: border-box;
         }
 
@@ -142,15 +150,26 @@
         .haiku-item {
             position: relative; height: 80vh; width: 450px;
             margin: 0 15vw; display: flex; justify-content: center;
-            align-items: flex-start; padding-top: 15vh; flex-shrink: 0;
+            align-items: flex-start;
+            padding-top: 8vh; /* 优化：缩减顶部留白，使整体视觉重心不再偏下 */
+            flex-shrink: 0;
             will-change: transform; transform-origin: bottom center;
             box-sizing: border-box;
         }
 
+        /* 背景意象大字 + 呼吸动画 */
         .giant-keyword {
             position: absolute; top: 45%; left: 50%; transform: translate(-50%, -50%);
             font-size: 55vh; font-weight: 800; color: var(--watermark);
             white-space: nowrap; z-index: -1; pointer-events: none; user-select: none;
+            /* 加入极其缓慢的呼吸动画 */
+            animation: breatheKanji 12s ease-in-out infinite;
+        }
+
+        /* 呼吸动画：包含微弱的透明度、位置与缩放变化，营造生命感 */
+        @keyframes breatheKanji {
+            0%, 100% { opacity: 0.25; transform: translate(-50%, -48%) scale(0.97); }
+            50% { opacity: 1; transform: translate(-50%, -50%) scale(1.02); }
         }
 
         .poem-content {
@@ -218,7 +237,7 @@
         }
 
         @media (max-width: 768px) {
-            .haiku-item { width: 300px; margin: 0 15vw; padding-top: 18vh; }
+            .haiku-item { width: 300px; margin: 0 15vw; padding-top: 10vh; }
             .line { font-size: 1.8rem; letter-spacing: 0.4em; }
             .poem-content { gap: 2.5rem; }
             .giant-keyword { font-size: 42vh; }
@@ -226,6 +245,8 @@
             .line.l1 { margin-top: 0; }
             .line.l2 { margin-top: 4rem; }
             .line.l3 { margin-top: 8rem; }
+            .instruction { bottom: 25px; right: 25px; }
+            .copyright { bottom: 25px; left: 25px; }
         }
     </style>
 </head>
@@ -234,6 +255,9 @@
 <div class="atmosphere" id="atmosphere"></div>
 <div class="water-flow"></div>
 <div class="noise-overlay"></div>
+
+<!-- 版权信息 -->
+<div class="copyright">&copy; itsuki</div>
 
 <!-- 音乐播放器 UI -->
 <div class="music-toggle" id="music-toggle" title="音楽を再生/停止">
@@ -247,7 +271,6 @@
 <div class="instruction" id="instruction">流れに身を任せ、あるいは左へ</div>
 
 <div class="scroll-track" id="track">
-    <!-- 将名字更新为具有日本诗集美感的『春の余韻』 -->
     <div class="intro-title track-item" data-color="#fcfbf8" data-theme="light">
         <h1>春の余韻</h1>
         <p>四月・東京</p>
@@ -292,7 +315,7 @@
     }
 
     function initGallery() {
-        haikuData.forEach((data) => {
+        haikuData.forEach((data, index) => {
             const item = document.createElement('div');
             item.className = 'haiku-item physics-item track-item';
             item.dataset.color = data.bgColor;
@@ -301,6 +324,8 @@
             const giant = document.createElement('div');
             giant.className = 'giant-keyword';
             giant.innerText = data.keyword;
+            // 错落有致的呼吸节奏：为每一个背景字设置不同的动画延迟
+            giant.style.animationDelay = `${index * -2.7}s`;
             item.appendChild(giant);
 
             const content = document.createElement('div');
@@ -457,7 +482,6 @@
         // --- 驻留算法 ---
         trackItems.forEach((item, index) => {
             const rect = item.getBoundingClientRect();
-            // 计算 item 的中心点在 targetX 到达后，将处于屏幕的哪个位置
             const expectedItemCenter = rect.left + rect.width / 2 + (targetX - currentX);
             const distToCenter = screenCenter - expectedItemCenter;
 
