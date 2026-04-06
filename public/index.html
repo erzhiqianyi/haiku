@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ========================================== -->
+    <!-- 🔍 SEO & 社交媒体分享优化 (Meta Tags) -->
+    <!-- ========================================== -->
+    <title>春の余韻 - 現代俳句絵巻 | Modern Haiku Scroll</title>
+    <meta name="description" content="『春の余韻』——東京の四月を切り取った現代俳句集。指先で風と光を感じる、音律と色彩が流転するデジタル絵巻物。A digital interactive haiku scroll.">
+    <meta name="keywords" content="俳句, 春, 東京, ポエトリー, 現代俳句, 詩集, インタラクティブアート, Haiku, Tokyo, Spring, Interactive Web Art">
+    <meta name="author" content="春の旅人">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook / Line / 微信 分享协议 -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://your-cloudflare-pages-url.pages.dev/"> <!-- 部署后替换为您的真实域名 -->
+    <meta property="og:title" content="春の余韻 | 東京四月・現代俳句集">
+    <meta property="og:description" content="指先で風と光を感じる、音律と色彩が流転するデジタル絵巻物。静かな音楽と共に、東京の春を歩く。">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=1200&auto=format&fit=crop"> <!-- 社交媒体分享时显示的精美缩略图 -->
+
+    <!-- Twitter 预览卡片 -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="春の余韻 | 東京四月・現代俳句集">
+    <meta name="twitter:description" content="指先で風と光を感じる、音律と色彩が流転するデジタル絵巻物。">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=1200&auto=format&fit=crop">
+
+    <!-- 字体引入 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;800&family=Noto+Serif+JP:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* 昼间模式 */
+        :root {
+            --text-ink: #1a1918;
+            --text-dim: #8b8682;
+            --text-ruby: #a09b96;
+            --accent-red: #c03531;
+            --watermark: rgba(0, 0, 0, 0.04);
+            --ripple-color: rgba(139, 134, 130, 0.4);
+        }
+
+        /* 夜间模式 */
+        body.dark-mode {
+            --text-ink: #f5f2e9;
+            --text-dim: #9aa0a6;
+            --text-ruby: #7a8086;
+            --accent-red: #e64a45;
+            --watermark: rgba(255, 255, 255, 0.05);
+            --ripple-color: rgba(245, 242, 233, 0.3);
+        }
+
+        body, html {
+            margin: 0; padding: 0;
+            width: 100%; height: 100vh;
+            color: var(--text-ink);
+            font-family: 'Shippori Mincho', 'Noto Serif JP', serif;
+            overflow: hidden;
+            overscroll-behavior: none;
+            background-color: #fcfbf8;
+            transition: background-color 1.5s ease-in-out;
+        }
+
+        .atmosphere {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            background-color: #fcfbf8;
+            transition: background-color 1.8s ease-in-out;
+            z-index: 0; pointer-events: none;
+        }
+
+        .water-flow {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='w'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.005 0.025' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23w)'/%3E%3C/svg%3E");
+            background-size: 800px 800px;
+            mix-blend-mode: soft-light; opacity: 0.45;
+            animation: flowWater 40s linear infinite;
+            pointer-events: none; z-index: 1;
+            transition: opacity 1.5s ease-in-out;
+        }
+        body.dark-mode .water-flow { opacity: 0.15; }
+
+        @keyframes flowWater {
+            0% { background-position: 0px 0px; }
+            100% { background-position: -800px 150px; }
+        }
+
+        .noise-overlay {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.06'/%3E%3C/svg%3E");
+            mix-blend-mode: overlay; pointer-events: none; z-index: 100;
+        }
+
+        .line, .giant-keyword, .stamp, .date, .intro-title h1, .intro-title p, rt, .instruction {
+            transition: color 1.2s ease-in-out, border-color 1.2s ease-in-out, opacity 1s ease-in-out;
+        }
+
+        .instruction {
+            position: fixed; bottom: 40px; right: 40px;
+            font-size: 0.8rem; letter-spacing: 0.2em; color: var(--text-dim);
+            z-index: 50; display: flex; align-items: center; gap: 12px;
+            animation: pulse 3s infinite ease-in-out; flex-direction: row-reverse;
+        }
+        .instruction::before { content: ''; width: 35px; height: 1px; background-color: var(--text-dim); }
+
+        /* 音乐播放器样式 */
+        .music-toggle {
+            position: fixed; top: 40px; right: 40px;
+            width: 32px; height: 32px;
+            color: var(--text-dim);
+            cursor: pointer; z-index: 50;
+            transition: color 1.5s ease-in-out, opacity 0.3s;
+            display: flex; justify-content: center; align-items: center;
+        }
+        .music-toggle:hover { opacity: 0.7; }
+        .music-toggle svg { width: 22px; height: 22px; position: absolute; transition: opacity 0.3s; }
+        .music-toggle .sound-on { opacity: 0; }
+        .music-toggle .sound-off { opacity: 1; }
+        .music-toggle.playing .sound-on { opacity: 1; }
+        .music-toggle.playing .sound-off { opacity: 0; }
+        body.dark-mode .music-toggle { color: var(--text-dim); }
+
+        .scroll-track {
+            display: flex; align-items: center; height: 100vh; width: max-content;
+            padding: 0 50vw; box-sizing: border-box; position: absolute;
+            right: 0; flex-direction: row-reverse; z-index: 10; will-change: transform;
+        }
+
+        .intro-title {
+            writing-mode: vertical-rl; text-orientation: upright;
+            display: flex; flex-direction: row-reverse; align-items: flex-start;
+            gap: 2.5rem; height: 75vh; margin: 0 5vw; flex-shrink: 0;
+            padding-top: 15vh;
+            box-sizing: border-box;
+        }
+
+        /* 网站主标题 */
+        .intro-title h1 { font-size: 3.5rem; font-weight: 400; letter-spacing: 0.4em; margin: 0; }
+        .intro-title p { color: var(--text-dim); letter-spacing: 0.3em; margin: 0; font-size: 1rem; }
+
+        .haiku-item {
+            position: relative; height: 80vh; width: 450px;
+            margin: 0 15vw; display: flex; justify-content: center;
+            align-items: flex-start; padding-top: 15vh; flex-shrink: 0;
+            will-change: transform; transform-origin: bottom center;
+            box-sizing: border-box;
+        }
+
+        .giant-keyword {
+            position: absolute; top: 45%; left: 50%; transform: translate(-50%, -50%);
+            font-size: 55vh; font-weight: 800; color: var(--watermark);
+            white-space: nowrap; z-index: -1; pointer-events: none; user-select: none;
+        }
+
+        .poem-content {
+            display: flex; flex-direction: row-reverse; gap: 3.8rem;
+            z-index: 2; cursor: pointer; position: relative;
+        }
+
+        .line {
+            writing-mode: vertical-rl; text-orientation: upright;
+            font-size: 2.2rem; line-height: 1.1; letter-spacing: 0.5em;
+            color: var(--text-ink); pointer-events: none; will-change: transform, filter;
+        }
+
+        ruby { ruby-position: over; ruby-align: center; }
+        rt {
+            font-size: 0.35em; color: var(--text-ruby);
+            letter-spacing: 0.05em; font-family: 'Noto Serif JP', serif;
+            font-weight: 300; transform: translateX(-0.15em);
+        }
+
+        .line.l1 { margin-top: 0; }
+        .line.l2 { margin-top: 6rem; }
+        .line.l3 { margin-top: 12rem; }
+
+        .meta {
+            position: absolute; bottom: 5vh; right: -30px;
+            writing-mode: vertical-rl; text-orientation: upright;
+            display: flex; align-items: center; gap: 20px; z-index: 3;
+        }
+
+        .date { color: var(--text-dim); font-size: 0.9rem; letter-spacing: 0.15em; }
+
+        .stamp {
+            color: var(--accent-red); font-size: 0.9rem; font-weight: 500;
+            letter-spacing: 0.15em; border: 1.5px solid var(--accent-red);
+            padding: 12px 6px; border-radius: 1px; font-family: 'Noto Serif JP', serif;
+            white-space: nowrap; background-color: transparent;
+        }
+
+        .ripple-anim { animation: waterRipple 1s cubic-bezier(0.22, 0.61, 0.36, 1) both; }
+
+        @keyframes waterRipple {
+            0% { transform: translate(0, 0) scale(1); filter: blur(0); }
+            15% { transform: translate(-5px, 4px) skewY(-2.5deg) scale(1.04); filter: blur(1.5px); }
+            40% { transform: translate(3px, -2px) skewY(1deg) scale(0.97); filter: blur(0); }
+            100% { transform: translate(0, 0) scale(1); filter: blur(0); }
+        }
+
+        .click-ring {
+            position: fixed; border: 2px solid var(--ripple-color);
+            border-radius: 50%; pointer-events: none;
+            transform: translate(-50%, -50%) scale(0);
+            animation: ringExpand 0.9s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+            z-index: 999; width: 30px; height: 30px;
+        }
+
+        @keyframes ringExpand {
+            0% { transform: translate(-50%, -50%) scale(0); opacity: 1; border-width: 3px; }
+            100% { transform: translate(-50%, -50%) scale(35); opacity: 0; border-width: 0px; }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; transform: translateX(0); }
+            50% { opacity: 0.8; transform: translateX(-5px); }
+        }
+
+        @media (max-width: 768px) {
+            .haiku-item { width: 300px; margin: 0 15vw; padding-top: 18vh; }
+            .line { font-size: 1.8rem; letter-spacing: 0.4em; }
+            .poem-content { gap: 2.5rem; }
+            .giant-keyword { font-size: 42vh; }
+            .intro-title h1 { font-size: 2.8rem; }
+            .line.l1 { margin-top: 0; }
+            .line.l2 { margin-top: 4rem; }
+            .line.l3 { margin-top: 8rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="atmosphere" id="atmosphere"></div>
+<div class="water-flow"></div>
+<div class="noise-overlay"></div>
+
+<!-- 音乐播放器 UI -->
+<div class="music-toggle" id="music-toggle" title="音楽を再生/停止">
+    <svg class="sound-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"></path><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path></svg>
+    <svg class="sound-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5z"></path><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+</div>
+
+<!-- 海浪/环境音 -->
+<audio id="bg-music" src="https://actions.google.com/sounds/v1/water/waves_crashing_on_rock_beach.ogg" loop preload="auto"></audio>
+
+<div class="instruction" id="instruction">流れに身を任せ、あるいは左へ</div>
+
+<div class="scroll-track" id="track">
+    <!-- 将名字更新为具有日本诗集美感的『春の余韻』 -->
+    <div class="intro-title track-item" data-color="#fcfbf8" data-theme="light">
+        <h1>春の余韻</h1>
+        <p>四月・東京</p>
+    </div>
+</div>
+
+<script>
+    const haikuData = [
+        { date: "4.2", location: "羽田", lines: ["春風や", "新天地なる", "同<ruby>じ<rt>・</rt></ruby>月"], keyword: "月", bgColor: "#161a23", theme: "dark" },
+        { date: "4.2", location: "上野", lines: ["<ruby>夜長<rt>よなが</rt></ruby>かな", "湯気に溶けゆく", "迷い心"], keyword: "湯", bgColor: "#252122", theme: "dark" },
+        { date: "4.3", location: "上野公園", lines: ["スローモーション", "雪な桜に", "溶ける朝"], keyword: "桜", bgColor: "#fbeaed", theme: "light" },
+        { date: "4.4", location: "舎人", lines: ["<ruby>十年<rt>ととせ</rt></ruby><ruby>経<rt>へ</rt></ruby>て", "窓に満ちたる", "春の<ruby>光<rt>かげ</rt></ruby>"], keyword: "光", bgColor: "#fcf6e6", theme: "light" },
+        { date: "4.5", location: "舎人公園", lines: ["草の<ruby>香<rt>か</rt></ruby>や", "<ruby>舎人<rt>とねり</rt></ruby>の風に", "混じる声"], keyword: "風", bgColor: "#eef5ed", theme: "light" },
+        { date: "4.6", location: "舎人公園", lines: ["ネモフィラや", "我も一匹", "蜂ならん"], keyword: "蜂", bgColor: "#e3eff8", theme: "light" },
+        { date: "4.6", location: "舎人", lines: ["<ruby>青嵐<rt>あおあらし</rt></ruby>", "ペダルにのせて", "飛ぶ如し"], keyword: "嵐", bgColor: "#e4f2f0", theme: "light" },
+        { date: "4.6", location: "舎人駅", lines: ["春の風", "駅に我のみ", "残されし"], keyword: "残", bgColor: "#2c333a", theme: "dark" },
+        { date: "4.6", location: "江北緑地", lines: ["足音に", "驚いて飛ぶ", "春の鳥"], keyword: "鳥", bgColor: "#edf3e6", theme: "light" },
+        { date: "4.6", location: "荒川土手", lines: ["<ruby>土手長<rt>どてなが</rt></ruby>し", "スケボーという", "<ruby>剣<rt>つるぎ</rt></ruby>かな"], keyword: "剣", bgColor: "#e8ebe9", theme: "light" },
+        { date: "4.6", location: "荒川土手", lines: ["<ruby>草<rt>くさ</rt></ruby>の<ruby>土手<rt>どて</rt></ruby>", "<ruby>風<rt>かぜ</rt></ruby>をハックす", "<ruby>白<rt>しろ</rt></ruby>きワンピ"], keyword: "草", bgColor: "#f5faf2", theme: "light" }
+    ];
+
+    const kanjiMap = ['〇', '一', '二', '三', '四', '五', '六', '七', '八', '九'];
+    function convertToKanji(numStr) {
+        return numStr.split('').map(char => /[0-9]/.test(char) ? kanjiMap[parseInt(char)] : char).join('');
+    }
+
+    let lastInteractionTime = Date.now();
+    let isHoveringPoem = false;
+    const instruction = document.getElementById('instruction');
+    const track = document.getElementById('track');
+    const atmosphere = document.getElementById('atmosphere');
+
+    // 暂停变量：用于诗句居中时停顿2秒
+    let isAutoPaused = false;
+    let autoPauseEndTime = 0;
+    let lastCenteredItemIndex = -1;
+
+    function recordInteraction() {
+        lastInteractionTime = Date.now();
+        isAutoPaused = false; // 用户主动操作时立刻打断暂停
+        if (instruction) instruction.style.opacity = '0.2';
+    }
+
+    function initGallery() {
+        haikuData.forEach((data) => {
+            const item = document.createElement('div');
+            item.className = 'haiku-item physics-item track-item';
+            item.dataset.color = data.bgColor;
+            item.dataset.theme = data.theme;
+
+            const giant = document.createElement('div');
+            giant.className = 'giant-keyword';
+            giant.innerText = data.keyword;
+            item.appendChild(giant);
+
+            const content = document.createElement('div');
+            content.className = 'poem-content';
+            data.lines.forEach((line, i) => {
+                const div = document.createElement('div');
+                div.className = `line l${i + 1}`;
+                div.innerHTML = line;
+                content.appendChild(div);
+            });
+
+            content.addEventListener('click', function(e) {
+                recordInteraction();
+                const ring = document.createElement('div');
+                ring.className = 'click-ring';
+                ring.style.left = e.clientX + 'px';
+                ring.style.top = e.clientY + 'px';
+                document.body.appendChild(ring);
+                setTimeout(() => ring.remove(), 1000);
+
+                const lines = this.querySelectorAll('.line');
+                lines.forEach(line => {
+                    const rect = line.getBoundingClientRect();
+                    const dist = Math.hypot((rect.left + rect.width / 2) - e.clientX, (rect.top + rect.height / 2) - e.clientY);
+                    line.style.animationDelay = `${dist * 2.2}ms`;
+                    line.classList.remove('ripple-anim');
+                    void line.offsetWidth;
+                    line.classList.add('ripple-anim');
+                });
+            });
+
+            content.addEventListener('mouseenter', () => { isHoveringPoem = true; recordInteraction(); });
+            content.addEventListener('mouseleave', () => { isHoveringPoem = false; recordInteraction(); });
+
+            item.appendChild(content);
+
+            const meta = document.createElement('div');
+            meta.className = 'meta';
+            const dateParts = data.date.split('.');
+            const dateDiv = document.createElement('div');
+            dateDiv.className = 'date';
+            dateDiv.innerText = `${convertToKanji(dateParts[0])}月${convertToKanji(dateParts[1])}日`;
+            const stamp = document.createElement('div');
+            stamp.className = 'stamp';
+            stamp.innerText = data.location;
+            meta.appendChild(dateDiv);
+            meta.appendChild(stamp);
+            item.appendChild(meta);
+
+            track.appendChild(item);
+        });
+    }
+
+    initGallery();
+
+    const trackItems = document.querySelectorAll('.track-item');
+    const items = document.querySelectorAll('.physics-item');
+
+    let currentX = 0, targetX = 0, ease = 0.08, activeColor = "#fcfbf8", activeTheme = "light";
+    let smoothedVelocity = 0;
+
+    function getMaxScroll() {
+        return Math.max(0, track.getBoundingClientRect().width - window.innerWidth);
+    }
+
+    // 手动滑动交互
+    window.addEventListener('wheel', (e) => {
+        recordInteraction();
+        targetX += e.deltaY * 1.3;
+        targetX = Math.max(0, Math.min(targetX, getMaxScroll()));
+    }, { passive: true });
+
+    window.addEventListener('mousemove', recordInteraction, { passive: true });
+
+    let touchStartX = 0;
+    window.addEventListener('touchstart', (e) => {
+        recordInteraction();
+        touchStartX = e.touches[0].clientX;
+    }, { passive: true });
+
+    window.addEventListener('touchmove', (e) => {
+        recordInteraction();
+        const touchX = e.touches[0].clientX;
+        const diff = touchStartX - touchX;
+        targetX += diff * 2.2;
+        targetX = Math.max(0, Math.min(targetX, getMaxScroll()));
+        touchStartX = touchX;
+    }, { passive: true });
+
+    // 音乐播放控制
+    const bgMusic = document.getElementById('bg-music');
+    const musicToggle = document.getElementById('music-toggle');
+    let musicStarted = false;
+
+    musicToggle.addEventListener('click', () => {
+        if (bgMusic.paused) {
+            const playPromise = bgMusic.play();
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    musicToggle.classList.add('playing');
+                    musicStarted = true;
+                }).catch(err => console.log(err));
+            }
+        } else {
+            bgMusic.pause();
+            musicToggle.classList.remove('playing');
+        }
+    });
+
+    const startMusicOnInteraction = () => {
+        if (!musicStarted) {
+            bgMusic.volume = 0.5;
+            const playPromise = bgMusic.play();
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    musicToggle.classList.add('playing');
+                    musicStarted = true;
+                }).catch(err => console.log("等待进一步交互...", err));
+            }
+        }
+        window.removeEventListener('click', startMusicOnInteraction);
+        window.removeEventListener('wheel', startMusicOnInteraction);
+        window.removeEventListener('touchstart', startMusicOnInteraction);
+    };
+
+    window.addEventListener('click', startMusicOnInteraction, { once: true });
+    window.addEventListener('wheel', startMusicOnInteraction, { once: true });
+    window.addEventListener('touchstart', startMusicOnInteraction, { once: true });
+
+    function render() {
+        const idleTime = Date.now() - lastInteractionTime;
+        const maxScroll = getMaxScroll();
+        const screenCenter = window.innerWidth / 2;
+
+        // 检查中心停留时间是否结束
+        if (isAutoPaused && Date.now() > autoPauseEndTime) {
+            isAutoPaused = false;
+        }
+
+        let isAutoScrolling = false;
+
+        // 基于屏幕宽度的动态流速算法
+        const baseScrollSpeed = Math.max(0.6, window.innerWidth * 0.0008);
+
+        // 如果无人操作且未在停留状态，则进行自动推流
+        if ((idleTime > 2500 && !isHoveringPoem) || (idleTime > 6000)) {
+            if (!isAutoPaused && targetX < maxScroll) {
+                targetX += baseScrollSpeed;
+                isAutoScrolling = true;
+                if (instruction) instruction.style.opacity = '0.6';
+            }
+        }
+
+        // --- 驻留算法 ---
+        trackItems.forEach((item, index) => {
+            const rect = item.getBoundingClientRect();
+            // 计算 item 的中心点在 targetX 到达后，将处于屏幕的哪个位置
+            const expectedItemCenter = rect.left + rect.width / 2 + (targetX - currentX);
+            const distToCenter = screenCenter - expectedItemCenter;
+
+            // 离开中心一定距离后，重置该 item 的触发器
+            if (Math.abs(distToCenter) > 60 && lastCenteredItemIndex === index) {
+                lastCenteredItemIndex = -1;
+            }
+
+            // 如果当前正在自动滚动，且某首诗正好抵达屏幕正中央
+            if (isAutoScrolling && Math.abs(distToCenter) <= baseScrollSpeed * 1.5 && lastCenteredItemIndex !== index) {
+                targetX += distToCenter; // 微调 targetX，使其完美居中
+                isAutoPaused = true;
+                autoPauseEndTime = Date.now() + 2000; // 停留两秒
+                lastCenteredItemIndex = index;
+            }
+        });
+
+        // 平滑应用滚动
+        currentX += (targetX - currentX) * ease;
+
+        let instantVelocity = targetX - currentX;
+        smoothedVelocity += (instantVelocity - smoothedVelocity) * 0.1;
+
+        if (track) track.style.transform = `translateX(${currentX}px)`;
+
+        // 文字风吹倾斜效果
+        items.forEach((item) => {
+            let skewY = smoothedVelocity * 0.035;
+            skewY = Math.max(-15, Math.min(skewY, 15));
+            item.style.transform = `skewY(${skewY}deg)`;
+        });
+
+        // 颜色与昼夜主题检测
+        let closestItem = null, minDistance = Infinity;
+
+        trackItems.forEach(item => {
+            const rect = item.getBoundingClientRect();
+            const dist = Math.abs(screenCenter - (rect.left + rect.width / 2));
+            if (dist < minDistance) { minDistance = dist; closestItem = item; }
+        });
+
+        if (closestItem) {
+            const targetColor = closestItem.dataset.color, targetTheme = closestItem.dataset.theme;
+            if (targetColor && targetColor !== activeColor) {
+                activeColor = targetColor;
+                if (atmosphere) atmosphere.style.backgroundColor = activeColor;
+            }
+            if (targetTheme && targetTheme !== activeTheme) {
+                activeTheme = targetTheme;
+                if (activeTheme === 'dark') document.body.classList.add('dark-mode');
+                else document.body.classList.remove('dark-mode');
+            }
+        }
+
+        requestAnimationFrame(render);
+    }
+
+    render();
+    window.addEventListener('resize', () => { targetX = Math.max(0, Math.min(targetX, getMaxScroll())); });
+</script>
+
+</body>
+</html>
