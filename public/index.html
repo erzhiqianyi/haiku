@@ -4,29 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- ========================================== -->
-    <!-- 🔍 SEO & 社交媒体分享优化 (Meta Tags) -->
-    <!-- ========================================== -->
     <title>春の余韻 - 現代俳句絵巻 | Modern Haiku Scroll</title>
     <meta name="description" content="『春の余韻』——東京の四月を切り取った現代俳句集。指先で風と光を感じる、音律と色彩が流転するデジタル絵巻物。A digital interactive haiku scroll.">
     <meta name="keywords" content="俳句, 春, 東京, ポエトリー, 現代俳句, 詩集, インタラクティブアート, Haiku, Tokyo, Spring, Interactive Web Art">
     <meta name="author" content="itsuki">
     <meta name="robots" content="index, follow">
 
-    <!-- Open Graph / Facebook / Line / 微信 分享协议 -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://your-cloudflare-pages-url.pages.dev/"> <!-- 部署后替换为您的真实域名 -->
-    <meta property="og:title" content="春の余韻 | 東京四月・現代俳句集">
+    <meta property="og:url" content="https://your-cloudflare-pages-url.pages.dev/"> <meta property="og:title" content="春の余韻 | 東京四月・現代俳句集">
     <meta property="og:description" content="指先で風と光を感じる、音律と色彩が流転するデジタル絵巻物。静かな音楽と共に、東京の春を歩く。">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=1200&auto=format&fit=crop"> <!-- 社交媒体分享时显示的精美缩略图 -->
+    <meta property="og:image" content="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=1200&auto=format&fit=crop">
 
-    <!-- Twitter 预览卡片 -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="春の余韻 | 東京四月・現代俳句集">
     <meta name="twitter:description" content="指先で風と光を感じる、音律と色彩が流転するデジタル絵巻物。">
     <meta name="twitter:image" content="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=1200&auto=format&fit=crop">
 
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-QWHNC8JJ2Q"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -36,7 +29,6 @@
         gtag('config', 'G-QWHNC8JJ2Q');
     </script>
 
-    <!-- 字体引入 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;800&family=Noto+Serif+JP:wght@300;400;700&display=swap" rel="stylesheet">
@@ -48,7 +40,7 @@
             --text-dim: #8b8682;
             --text-ruby: #a09b96;
             --accent-red: #c03531;
-            --watermark: rgba(0, 0, 0, 0.06); /* 稍微提升基础透明度，增强呼吸对比 */
+            --watermark: rgba(0, 0, 0, 0.06);
             --ripple-color: rgba(139, 134, 130, 0.4);
         }
 
@@ -58,7 +50,7 @@
             --text-dim: #9aa0a6;
             --text-ruby: #7a8086;
             --accent-red: #e64a45;
-            --watermark: rgba(255, 255, 255, 0.07); /* 稍微提升基础透明度，增强呼吸对比 */
+            --watermark: rgba(255, 255, 255, 0.07);
             --ripple-color: rgba(245, 242, 233, 0.3);
         }
 
@@ -149,7 +141,7 @@
             writing-mode: vertical-rl; text-orientation: upright;
             display: flex; flex-direction: row-reverse; align-items: flex-start;
             gap: 2.5rem; height: 75vh; margin: 0 5vw; flex-shrink: 0;
-            padding-top: 8vh; /* 优化：缩减顶部留白 */
+            padding-top: 8vh;
             box-sizing: border-box;
         }
 
@@ -160,23 +152,19 @@
         .haiku-item {
             position: relative; height: 80vh; width: 450px;
             margin: 0 15vw; display: flex; justify-content: center;
-            align-items: flex-start;
-            padding-top: 8vh; /* 优化：缩减顶部留白，使整体视觉重心不再偏下 */
-            flex-shrink: 0;
-            will-change: transform; transform-origin: bottom center;
+            align-items: flex-start; padding-top: 8vh;
+            flex-shrink: 0; will-change: transform; transform-origin: bottom center;
             box-sizing: border-box;
         }
 
-        /* 背景意象大字 + 呼吸动画 */
+        /* 呼吸动画大字 */
         .giant-keyword {
             position: absolute; top: 45%; left: 50%; transform: translate(-50%, -50%);
             font-size: 55vh; font-weight: 800; color: var(--watermark);
             white-space: nowrap; z-index: -1; pointer-events: none; user-select: none;
-            /* 加入极其缓慢的呼吸动画 */
             animation: breatheKanji 12s ease-in-out infinite;
         }
 
-        /* 呼吸动画：包含微弱的透明度、位置与缩放变化，营造生命感 */
         @keyframes breatheKanji {
             0%, 100% { opacity: 0.25; transform: translate(-50%, -48%) scale(0.97); }
             50% { opacity: 1; transform: translate(-50%, -50%) scale(1.02); }
@@ -266,16 +254,13 @@
 <div class="water-flow"></div>
 <div class="noise-overlay"></div>
 
-<!-- 版权信息 -->
 <div class="copyright">&copy; itsuki</div>
 
-<!-- 音乐播放器 UI -->
 <div class="music-toggle" id="music-toggle" title="音楽を再生/停止">
     <svg class="sound-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"></path><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path></svg>
     <svg class="sound-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5z"></path><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
 </div>
 
-<!-- 海浪/环境音 -->
 <audio id="bg-music" src="https://actions.google.com/sounds/v1/water/waves_crashing_on_rock_beach.ogg" loop preload="auto"></audio>
 
 <div class="instruction" id="instruction">流れに身を任せ、あるいは左へ</div>
@@ -288,18 +273,25 @@
 </div>
 
 <script>
+    // ==========================================
+    // 🌸 俳句数据：采用时光倒叙排列 (最新的日期在前)
+    // ==========================================
     const haikuData = [
-        { date: "4.2", location: "羽田", lines: ["春風や", "新天地なる", "同<ruby>じ<rt>・</rt></ruby>月"], keyword: "月", bgColor: "#161a23", theme: "dark" },
-        { date: "4.2", location: "上野", lines: ["<ruby>夜長<rt>よなが</rt></ruby>かな", "湯気に溶けゆく", "迷い心"], keyword: "湯", bgColor: "#252122", theme: "dark" },
-        { date: "4.3", location: "上野公園", lines: ["スローモーション", "雪な桜に", "溶ける朝"], keyword: "桜", bgColor: "#fbeaed", theme: "light" },
-        { date: "4.4", location: "舎人", lines: ["<ruby>十年<rt>ととせ</rt></ruby><ruby>経<rt>へ</rt></ruby>て", "窓に満ちたる", "春の<ruby>光<rt>かげ</rt></ruby>"], keyword: "光", bgColor: "#fcf6e6", theme: "light" },
-        { date: "4.5", location: "舎人公園", lines: ["草の<ruby>香<rt>か</rt></ruby>や", "<ruby>舎人<rt>とねり</rt></ruby>の風に", "混じる声"], keyword: "風", bgColor: "#eef5ed", theme: "light" },
-        { date: "4.6", location: "舎人公園", lines: ["ネモフィラや", "我も一匹", "蜂ならん"], keyword: "蜂", bgColor: "#e3eff8", theme: "light" },
-        { date: "4.6", location: "舎人", lines: ["<ruby>青嵐<rt>あおあらし</rt></ruby>", "ペダルにのせて", "飛ぶ如し"], keyword: "嵐", bgColor: "#e4f2f0", theme: "light" },
-        { date: "4.6", location: "舎人駅", lines: ["春の風", "駅に我のみ", "残されし"], keyword: "残", bgColor: "#2c333a", theme: "dark" },
-        { date: "4.6", location: "江北緑地", lines: ["足音に", "驚いて飛ぶ", "春の鳥"], keyword: "鳥", bgColor: "#edf3e6", theme: "light" },
+        // --- 更新：春の日の -> 春の午後 ---
+        { date: "4.8", location: "舎人公園", lines: ["<ruby>春<rt>はる</rt></ruby>の<ruby>午後<rt>ごご</rt></ruby>", "<ruby>止<rt>と</rt></ruby>まりて<ruby>長<rt>なが</rt></ruby>き", "<ruby>木椅子<rt>きいす</rt></ruby>かな"], keyword: "陽", bgColor: "#fdf5e6", theme: "light" },
+        { date: "4.7", location: "日暮里", lines: ["<ruby>風<rt>かぜ</rt></ruby>となり", "<ruby>日暮里<rt>にっぽり</rt></ruby>を<ruby>飛<rt>と</rt></ruby>ぶ", "<ruby>木<rt>き</rt></ruby>の<ruby>葉<rt>は</rt></ruby>かな"], keyword: "葉", bgColor: "#eee3dc", theme: "light" },
+        { date: "4.7", location: "赤門会学校", lines: ["<ruby>始業<rt>しぎょう</rt></ruby>の<ruby>音<rt>ね</rt></ruby>", "<ruby>桜<rt>さくら</rt></ruby>をくぐる", "<ruby>異邦人<rt>いほうじん</rt></ruby>"], keyword: "学", bgColor: "#eaf4fc", theme: "light" },
+        { date: "4.6", location: "荒川土手", lines: ["<ruby>草<rt>くさ</rt></ruby>の<ruby>土手<rt>どて</rt></ruby>", "<ruby>風<rt>かぜ</rt></ruby>をハックす", "<ruby>白<rt>しろ</rt></ruby>きワンピ"], keyword: "草", bgColor: "#f5faf2", theme: "light" },
         { date: "4.6", location: "荒川土手", lines: ["<ruby>土手長<rt>どてなが</rt></ruby>し", "スケボーという", "<ruby>剣<rt>つるぎ</rt></ruby>かな"], keyword: "剣", bgColor: "#e8ebe9", theme: "light" },
-        { date: "4.6", location: "荒川土手", lines: ["<ruby>草<rt>くさ</rt></ruby>の<ruby>土手<rt>どて</rt></ruby>", "<ruby>風<rt>かぜ</rt></ruby>をハックす", "<ruby>白<rt>しろ</rt></ruby>きワンピ"], keyword: "草", bgColor: "#f5faf2", theme: "light" }
+        { date: "4.6", location: "江北緑地", lines: ["足音に", "驚いて飛ぶ", "春の鳥"], keyword: "鳥", bgColor: "#edf3e6", theme: "light" },
+        { date: "4.6", location: "舎人駅", lines: ["春の風", "駅に我のみ", "残されし"], keyword: "残", bgColor: "#2c333a", theme: "dark" },
+        { date: "4.6", location: "舎人", lines: ["<ruby>青嵐<rt>あおあらし</rt></ruby>", "ペダルにのせて", "飛ぶ如し"], keyword: "嵐", bgColor: "#e4f2f0", theme: "light" },
+        { date: "4.6", location: "舎人公園", lines: ["ネモフィラや", "我も一匹", "蜂ならん"], keyword: "蜂", bgColor: "#e3eff8", theme: "light" },
+        { date: "4.5", location: "舎人公園", lines: ["草の<ruby>香<rt>か</rt></ruby>や", "<ruby>舎人<rt>とねり</rt></ruby>の風に", "混じる声"], keyword: "風", bgColor: "#eef5ed", theme: "light" },
+        { date: "4.4", location: "舎人", lines: ["<ruby>十年<rt>ととせ</rt></ruby><ruby>経<rt>へ</rt></ruby>て", "窓に満ちたる", "春の<ruby>光<rt>かげ</rt></ruby>"], keyword: "光", bgColor: "#fcf6e6", theme: "light" },
+        { date: "4.3", location: "上野公園", lines: ["スローモーション", "雪な桜に", "溶ける朝"], keyword: "桜", bgColor: "#fbeaed", theme: "light" },
+        { date: "4.2", location: "上野", lines: ["<ruby>夜長<rt>よなが</rt></ruby>かな", "湯気に溶けゆく", "迷い心"], keyword: "湯", bgColor: "#252122", theme: "dark" },
+        { date: "4.2", location: "羽田", lines: ["春風や", "新天地なる", "同<ruby>じ<rt>・</rt></ruby>月"], keyword: "月", bgColor: "#161a23", theme: "dark" }
     ];
 
     const kanjiMap = ['〇', '一', '二', '三', '四', '五', '六', '七', '八', '九'];
@@ -334,7 +326,7 @@
             const giant = document.createElement('div');
             giant.className = 'giant-keyword';
             giant.innerText = data.keyword;
-            // 错落有致的呼吸节奏：为每一个背景字设置不同的动画延迟
+            // 错落有致的呼吸节奏
             giant.style.animationDelay = `${index * -2.7}s`;
             item.appendChild(giant);
 
@@ -401,7 +393,6 @@
         return Math.max(0, track.getBoundingClientRect().width - window.innerWidth);
     }
 
-    // 手动滑动交互
     window.addEventListener('wheel', (e) => {
         recordInteraction();
         targetX += e.deltaY * 1.3;
@@ -425,7 +416,6 @@
         touchStartX = touchX;
     }, { passive: true });
 
-    // 音乐播放控制
     const bgMusic = document.getElementById('bg-music');
     const musicToggle = document.getElementById('music-toggle');
     let musicStarted = false;
@@ -453,7 +443,7 @@
                 playPromise.then(() => {
                     musicToggle.classList.add('playing');
                     musicStarted = true;
-                }).catch(err => console.log("等待进一步交互...", err));
+                }).catch(err => console.log("等待...", err));
             }
         }
         window.removeEventListener('click', startMusicOnInteraction);
@@ -470,17 +460,13 @@
         const maxScroll = getMaxScroll();
         const screenCenter = window.innerWidth / 2;
 
-        // 检查中心停留时间是否结束
         if (isAutoPaused && Date.now() > autoPauseEndTime) {
             isAutoPaused = false;
         }
 
         let isAutoScrolling = false;
-
-        // 基于屏幕宽度的动态流速算法
         const baseScrollSpeed = Math.max(0.6, window.innerWidth * 0.0008);
 
-        // 如果无人操作且未在停留状态，则进行自动推流
         if ((idleTime > 2500 && !isHoveringPoem) || (idleTime > 6000)) {
             if (!isAutoPaused && targetX < maxScroll) {
                 targetX += baseScrollSpeed;
@@ -489,28 +475,23 @@
             }
         }
 
-        // --- 驻留算法 ---
         trackItems.forEach((item, index) => {
             const rect = item.getBoundingClientRect();
-            // 计算 item 的中心点在 targetX 到达后，将处于屏幕的哪个位置
             const expectedItemCenter = rect.left + rect.width / 2 + (targetX - currentX);
             const distToCenter = screenCenter - expectedItemCenter;
 
-            // 离开中心一定距离后，重置该 item 的触发器
             if (Math.abs(distToCenter) > 60 && lastCenteredItemIndex === index) {
                 lastCenteredItemIndex = -1;
             }
 
-            // 如果当前正在自动滚动，且某首诗正好抵达屏幕正中央
             if (isAutoScrolling && Math.abs(distToCenter) <= baseScrollSpeed * 1.5 && lastCenteredItemIndex !== index) {
-                targetX += distToCenter; // 微调 targetX，使其完美居中
+                targetX += distToCenter;
                 isAutoPaused = true;
-                autoPauseEndTime = Date.now() + 2000; // 停留两秒
+                autoPauseEndTime = Date.now() + 2000;
                 lastCenteredItemIndex = index;
             }
         });
 
-        // 平滑应用滚动
         currentX += (targetX - currentX) * ease;
 
         let instantVelocity = targetX - currentX;
@@ -518,14 +499,12 @@
 
         if (track) track.style.transform = `translateX(${currentX}px)`;
 
-        // 文字风吹倾斜效果
         items.forEach((item) => {
             let skewY = smoothedVelocity * 0.035;
             skewY = Math.max(-15, Math.min(skewY, 15));
             item.style.transform = `skewY(${skewY}deg)`;
         });
 
-        // 颜色与昼夜主题检测
         let closestItem = null, minDistance = Infinity;
 
         trackItems.forEach(item => {
