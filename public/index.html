@@ -4,22 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- ========================================== -->
+    <!-- 🔍 SEO & 社交媒体分享优化 (Meta Tags) -->
+    <!-- ========================================== -->
     <title>春の余韻 - 現代俳句絵巻 | Modern Haiku Scroll</title>
     <meta name="description" content="『春の余韻』——東京の四月を切り取った現代俳句集。指先で風と光を感じる、音律と色彩が流転するデジタル絵巻物。A digital interactive haiku scroll.">
     <meta name="keywords" content="俳句, 春, 東京, ポエトリー, 現代俳句, 詩集, インタラクティブアート, Haiku, Tokyo, Spring, Interactive Web Art">
     <meta name="author" content="itsuki">
     <meta name="robots" content="index, follow">
 
+    <!-- Open Graph / Facebook / Line / 微信 分享协议 -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://your-cloudflare-pages-url.pages.dev/"> <meta property="og:title" content="春の余韻 | 東京四月・現代俳句集">
+    <meta property="og:url" content="https://your-cloudflare-pages-url.pages.dev/"> <!-- 部署后替换为您的真实域名 -->
+    <meta property="og:title" content="春の余韻 | 東京四月・現代俳句集">
     <meta property="og:description" content="指先で風と光を感じる、音律と色彩が流転するデジタル絵巻物。静かな音楽と共に、東京の春を歩く。">
     <meta property="og:image" content="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=1200&auto=format&fit=crop">
 
+    <!-- Twitter 预览卡片 -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="春の余韻 | 東京四月・現代俳句集">
     <meta name="twitter:description" content="指先で風と光を感じる、音律と色彩が流転するデジタル絵巻物。">
     <meta name="twitter:image" content="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=1200&auto=format&fit=crop">
 
+    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-QWHNC8JJ2Q"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -29,6 +36,7 @@
         gtag('config', 'G-QWHNC8JJ2Q');
     </script>
 
+    <!-- 字体引入 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;800&family=Noto+Serif+JP:wght@300;400;700&display=swap" rel="stylesheet">
@@ -254,13 +262,16 @@
 <div class="water-flow"></div>
 <div class="noise-overlay"></div>
 
+<!-- 版权信息 -->
 <div class="copyright">&copy; itsuki</div>
 
+<!-- 音乐播放器 UI -->
 <div class="music-toggle" id="music-toggle" title="音楽を再生/停止">
     <svg class="sound-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"></path><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path></svg>
     <svg class="sound-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5z"></path><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
 </div>
 
+<!-- 海浪/环境音 -->
 <audio id="bg-music" src="https://actions.google.com/sounds/v1/water/waves_crashing_on_rock_beach.ogg" loop preload="auto"></audio>
 
 <div class="instruction" id="instruction">流れに身を任せ、あるいは左へ</div>
@@ -277,7 +288,12 @@
     // 🌸 俳句数据：采用时光倒叙排列 (最新的日期在前)
     // ==========================================
     const haikuData = [
-        // --- 更新：春の日の -> 春の午後 ---
+        // --- 新增：4.11 白猫 ---
+        { date: "4.11", location: "見沼代親水公園", lines: ["<ruby>守<rt>まも</rt></ruby>り<ruby>神<rt>がみ</rt></ruby>", "<ruby>石<rt>いし</rt></ruby>に<ruby>居座<rt>いすわ</rt></ruby>る", "<ruby>白猫<rt>しろねこ</rt></ruby>よ"], keyword: "猫", bgColor: "#f4f5f7", theme: "light" },
+        // --- 新增：4.11 万緑 ---
+        { date: "4.11", location: "舎人公園", lines: ["<ruby>万緑<rt>ばんりょく</rt></ruby>や", "<ruby>文机<rt>ふづくえ</rt></ruby>にする", "<ruby>膝<rt>ひざ</rt></ruby>の<ruby>上<rt>うえ</rt></ruby>"], keyword: "緑", bgColor: "#eef5f0", theme: "light" },
+        { date: "4.10", location: "舎人", lines: ["ざざという", "ドアの<ruby>向<rt>む</rt></ruby>こうの", "<ruby>遠<rt>とお</rt></ruby>い<ruby>風<rt>かぜ</rt></ruby>"], keyword: "遠", bgColor: "#e4e9ed", theme: "light" },
+        { date: "4.9", location: "舎人公園", lines: ["<ruby>朝風<rt>あさかぜ</rt></ruby>や", "<ruby>光<rt>ひかり</rt></ruby>をこぼす", "<ruby>寒<rt>さむ</rt></ruby><ruby>温<rt>あたた</rt></ruby>め"], keyword: "朝", bgColor: "#fdf8ec", theme: "light" },
         { date: "4.8", location: "舎人公園", lines: ["<ruby>春<rt>はる</rt></ruby>の<ruby>午後<rt>ごご</rt></ruby>", "<ruby>止<rt>と</rt></ruby>まりて<ruby>長<rt>なが</rt></ruby>き", "<ruby>木椅子<rt>きいす</rt></ruby>かな"], keyword: "陽", bgColor: "#fdf5e6", theme: "light" },
         { date: "4.7", location: "日暮里", lines: ["<ruby>風<rt>かぜ</rt></ruby>となり", "<ruby>日暮里<rt>にっぽり</rt></ruby>を<ruby>飛<rt>と</rt></ruby>ぶ", "<ruby>木<rt>き</rt></ruby>の<ruby>葉<rt>は</rt></ruby>かな"], keyword: "葉", bgColor: "#eee3dc", theme: "light" },
         { date: "4.7", location: "赤門会学校", lines: ["<ruby>始業<rt>しぎょう</rt></ruby>の<ruby>音<rt>ね</rt></ruby>", "<ruby>桜<rt>さくら</rt></ruby>をくぐる", "<ruby>異邦人<rt>いほうじん</rt></ruby>"], keyword: "学", bgColor: "#eaf4fc", theme: "light" },
@@ -312,7 +328,7 @@
 
     function recordInteraction() {
         lastInteractionTime = Date.now();
-        isAutoPaused = false; // 用户主动操作时立刻打断暂停
+        isAutoPaused = false;
         if (instruction) instruction.style.opacity = '0.2';
     }
 
