@@ -1,0 +1,134 @@
+{
+  "poems": [
+    {
+      "source": "content/haiku/source/2026/05/27.md",
+      "date": "2026-05-27",
+      "location": "{舎人公園|とねりこうえん}",
+      "lines": [
+        "{夏の朝|なつのあさ}",
+        "{黄葉ひらり|こうようひらり}",
+        "{水の上|みずのうえ}"
+      ],
+      "keyword": "黄",
+      "bgColor": "#e5e2c8",
+      "theme": "light"
+    },
+    {
+      "source": "content/haiku/source/2026/05/27.md",
+      "date": "2026-05-27",
+      "location": "{舎人公園|とねりこうえん}",
+      "lines": [
+        "{夏の池|なつのいけ}",
+        "{網の飛沫や|あみのしぶきや}",
+        "{子ら笑ふ|こらわらう}"
+      ],
+      "keyword": "飛",
+      "bgColor": "#d5e6df",
+      "theme": "light"
+    },
+    {
+      "source": "content/haiku/source/2026/05/27.md",
+      "date": "2026-05-27",
+      "location": "{舎人公園|とねりこうえん}",
+      "lines": [
+        "{朝木立|あさこだち}",
+        "{カラス追ひ来る|からすおいくる}",
+        "{ランドセル|らんどせる}"
+      ],
+      "keyword": "追",
+      "bgColor": "#d8e0dc",
+      "theme": "light"
+    },
+    {
+      "source": "content/haiku/source/2026/05/27.md",
+      "date": "2026-05-27",
+      "location": "{舎人公園|とねりこうえん}",
+      "lines": [
+        "{木陰より|こかげより}",
+        "{タンポポ揺るる|たんぽぽゆるる}",
+        "{虫ひとつ|むしひとつ}"
+      ],
+      "keyword": "揺",
+      "bgColor": "#e5e4c9",
+      "theme": "light"
+    },
+    {
+      "source": "content/haiku/source/2026/05/24.md",
+      "date": "2026-05-24",
+      "location": "{東京駅|とうきょうえき}",
+      "lines": [
+        "{夏曇|なつぐもり}",
+        "{駅前に手を|えきまえにてを}",
+        "{振る子あり|ふるこあり}"
+      ],
+      "keyword": "子",
+      "bgColor": "#e3e5dc",
+      "theme": "light"
+    },
+    {
+      "source": "content/haiku/source/2026/05/21.md",
+      "date": "2026-05-21",
+      "location": "{舎人|とねり}",
+      "lines": [
+        "{雨水や|あまみずや}",
+        "{松葉の先を|まつばのさきを}",
+        "{風ゆらす|かぜゆらす}"
+      ],
+      "keyword": "雨",
+      "bgColor": "#d9e2dc",
+      "theme": "light"
+    },
+    {
+      "source": "content/haiku/source/2026/05/05.md",
+      "date": "2026-05-05",
+      "location": "{筑波山|つくばさん}",
+      "lines": [
+        "{新緑の|しんりょくの}",
+        "{赤いケーブル|あかいけーぶる}",
+        "{峰へ行く|みねへいく}"
+      ],
+      "keyword": "行",
+      "bgColor": "#dce8d6",
+      "theme": "light"
+    },
+    {
+      "source": "content/haiku/source/2026/05/04.md",
+      "date": "2026-05-04",
+      "location": "{葛西臨海公園|かさいりんかいこうえん}",
+      "lines": [
+        "{初夏の海|しょかのうみ}",
+        "{波に向かって|なみにむかって}",
+        "{鳥が飛ぶ|とりがとぶ}"
+      ],
+      "keyword": "飛",
+      "bgColor": "#d3e3e6",
+      "theme": "light"
+    },
+    {
+      "source": "content/haiku/source/2026/05/04.md",
+      "date": "2026-05-04",
+      "location": "{葛西臨海公園|かさいりんかいこうえん}",
+      "lines": [
+        "{青嵐|あおあらし}",
+        "{富士を背にして|ふじをせにして}",
+        "{歩けない|あるけない}"
+      ],
+      "keyword": "足",
+      "bgColor": "#D0DCE0",
+      "theme": "light"
+    },
+    {
+      "source": "content/haiku/source/2026/05/01.md",
+      "date": "2026-05-01",
+      "location": "{舎人公園|とねりこうえん}",
+      "lines": [
+        "{木の影を|きのかげを}",
+        "{離れてひとり|はなれてひとり}",
+        "{夏の月|なつのつき}"
+      ],
+      "keyword": "離",
+      "bgColor": "#BDC8D0",
+      "theme": "dark"
+    }
+  ]
+}

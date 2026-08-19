@@ -1,0 +1,4 @@
+interface:
+  display_name: "Haiku Polish Publish"
+  short_description: "Review haiku drafts and publish site data"
+  default_prompt: "Use $haiku-polish-publish to review this haiku draft, propose five versions, and prepare the selected version for the site."

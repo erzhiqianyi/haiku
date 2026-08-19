@@ -1,0 +1,41 @@
+{
+  "meta": {
+    "title": "樹の句帖",
+    "subtitle": "itsuki の俳句",
+    "pageTitle": "樹の句帖 | itsuki haiku",
+    "description": "itsuki の日々を切り取る個人俳句帖。街角の光、風、沈黙を、静かなデジタル絵巻として綴る。",
+    "author": "itsuki",
+    "copyright": "© itsuki",
+    "background": "#fcfbf8",
+    "theme": "light",
+    "cover": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=1200&auto=format&fit=crop",
+    "audio": "https://actions.google.com/sounds/v1/water/waves_crashing_on_rock_beach.ogg"
+  },
+  "months": [
+    {
+      "id": "2026-08",
+      "path": "2026/08.json",
+      "count": 7
+    },
+    {
+      "id": "2026-07",
+      "path": "2026/07.json",
+      "count": 6
+    },
+    {
+      "id": "2026-06",
+      "path": "2026/06.json",
+      "count": 2
+    },
+    {
+      "id": "2026-05",
+      "path": "2026/05.json",
+      "count": 10
+    },
+    {
+      "id": "2026-04",
+      "path": "2026/04.json",
+      "count": 35
+    }
+  ]
+}

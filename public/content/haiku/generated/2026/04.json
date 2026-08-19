@@ -1,0 +1,459 @@
+{
+  "poems": [
+    {
+      "source": "content/haiku/source/2026/04/27.md",
+      "date": "2026-04-27",
+      "location": "{舎人公園|とねりこうえん}",
+      "lines": [
+        "{禁止札の|きんしふだの}",
+        "{向こう竿振る|むこうさおふる}",
+        "{春の池|はるのいけ}"
+      ],
+      "keyword": "札",
+      "bgColor": "#D8E4DF",
+      "theme": "light"
+    },
+    {
+      "source": "content/haiku/source/2026/04/26.md",
+      "date": "2026-04-26",
+      "location": "{花畑記念庭園|はなはたきねんていえん}",
+      "lines": [
+        "{春紅葉|はるもみじ}",
+        "{揺れて青空|ゆれてあおぞら}",
+        "{ひろくなる|ひろくなる}"
+      ],
+      "keyword": "空",
+      "bgColor": "#e9eff2",
+      "theme": "light"
+    },
+    {
+      "source": "content/haiku/source/2026/04/25.md",
+      "date": "2026-04-25",
+      "location": "{舎人公園|とねりこうえん}",
+      "lines": [
+        "{春の朝|はるのあさ}",
+        "{釣り人を待つ|つりびとをまつ}",
+        "{烏かな|からすかな}"
+      ],
+      "keyword": "待",
+      "bgColor": "#E4E8E3",
+      "theme": "light"
+    },
+    {
+      "source": "content/haiku/source/2026/04/23.md",
+      "date": "2026-04-23",
+      "location": "{日暮里|にっぽり}",
+      "lines": [
+        "{すれ違ふ|すれちがう}",
+        "{傘の花より|かさのはなより}",
+        "{春の闇|はるのやみ}"
+      ],
+      "keyword": "花",
+      "bgColor": "#C8CED0",
+      "theme": "dark"
+    },
+    {
+      "source": "content/haiku/source/2026/04/22.md",
+      "date": "2026-04-22",
+      "location": "{新宿|しんじゅく}",
+      "lines": [
+        "{ビル風の|びるかぜの}",
+        "{ネオンににじむ|ねおんににじむ}",
+        "{春の塵|はるのちり}"
+      ],
+      "keyword": "滲",
+      "bgColor": "#ddd8d6",
+      "theme": "dark"
+    },
+    {
+      "source": "content/haiku/source/2026/04/21.md",
+      "date": "2026-04-21",
+      "location": "{舎人公園|とねりこうえん}",
+      "lines": [
+        "{イヤホンの|いやほんの}",
+        "{奥に木洩れ日|おくにこもれび}",
+        "{春の昼|はるのひる}"
+      ],
+      "keyword": "光",
+      "bgColor": "#e8edd2",
+      "theme": "light"
+    },
+    {
+      "source": "content/haiku/source/2026/04/20.md",
+      "date": "2026-04-20",
+      "location": "{舎人公園|とねりこうえん}",
+      "lines": [
+        "{飲むやつと|のむやつと}",
+        "{喧嘩するやつ|けんかするやつ}",
+        "{春鴉|はるがらす}"
+      ],
+      "keyword": "烏",
+      "bgColor": "#e4ead8",
+      "theme": "light"
+    },
+    {
+      "source": "content/haiku/source/2026/04/20.md",
+      "date": "2026-04-20",
+      "location": "{鹿浜学習センター|しかはまがくしゅうせんたー}",
+      "lines": [
+        "{木の下や|きのしたや}",
+        "{冒険台に|ぼうけんだいに}",
+        "{夏休み|なつやすみ}"
+      ],
+      "keyword": "夏",
+      "bgColor": "#e5edd3",
+      "theme": "light"
+    },
+    {
+      "source": "content/haiku/source/2026/04/19.md",
+      "date": "2026-04-19",
+      "location": "{谷中霊園|やなかれいえん}",
+      "lines": [
+        "{歩いても|あるいても}",
+        "{墓まだ白し|はかまだしろし}",
+        "{春の夜|はるのよ}"
+      ],
+      "keyword": "白",
+      "bgColor": "#2b2c31",
+      "theme": "dark"
+    },
+    {
+      "source": "content/haiku/source/2026/04/19.md",
+      "date": "2026-04-19",
+      "location": "{やよい図書館|やよいとしょかん}",
+      "lines": [
+        "{春の昼|はるのひる}",
+        "{頁の白さ|ぺーじのしろさ}",
+        "{ひかりあり|ひかりあり}"
+      ],
+      "keyword": "光",
+      "bgColor": "#f6efd7",
+      "theme": "light"
+    },
+    {
+      "source": "content/haiku/source/2026/04/18.md",
+      "date": "2026-04-18",
+      "location": "{舎人公園|とねりこうえん}",
+      "lines": [
+        "{万緑や|ばんりょくや}",
+        "{命を覗く|いのちをのぞく}",
+        "{レンズかな|れんずかな}"
+      ],
+      "keyword": "命",
+      "bgColor": "#dfeedd",
+      "theme": "light"
+    },
+    {
+      "source": "content/haiku/source/2026/04/17.md",
+      "date": "2026-04-17",
+      "location": "{見沼代親水公園|みぬまだいしんすいこうえん}",
+      "lines": [
+        "{目の前の|めのまえの}",
+        "{声だけ残し|こえだけのこし}",
+        "{鳥雲に|とりくもに}"
+      ],
+      "keyword": "声",
+      "bgColor": "#e9f0f5",
+      "theme": "light"
+    },
+    {
+      "source": "content/haiku/source/2026/04/16.md",
+      "date": "2026-04-16",
+      "location": "{舎人公園|とねりこうえん}",
+      "lines": [
+        "{散水に|さんすいに}",
+        "{虹を放てる|にじをはなてる}",
+        "{羽虫かな|はむしかな}"
+      ],
+      "keyword": "虹",
+      "bgColor": "#f8f0dc",
+      "theme": "light"
+    },
+    {
+      "source": "content/haiku/source/2026/04/14.md",
+      "date": "2026-04-14",
+      "location": "{図書館|としょかん}",
+      "lines": [
+        "{書の海の|しょのうみの}",
+        "{しじまを渡る|しじまをわたる}",
+        "{春の風|はるのかぜ}"
+      ],
+      "keyword": "静",
+      "bgColor": "#e7edf0",
+      "theme": "light"
+    },
+    {
+      "source": "content/haiku/source/2026/04/13.md",
+      "date": "2026-04-13",
+      "location": "{街角|まちかど}",
+      "lines": [
+        "{夕焼や|ゆうやけや}",
+        "{追わぬ少年の|おわぬしょうねんの}",
+        "{影一つ|かげひとつ}"
+      ],
+      "keyword": "影",
+      "bgColor": "#302422",
+      "theme": "dark"
+    },
+    {
+      "source": "content/haiku/source/2026/04/13.md",
+      "date": "2026-04-13",
+      "location": "{通学路|つうがくろ}",
+      "lines": [
+        "{春の道|はるのみち}",
+        "{通う学び舎|かようまなびや}",
+        "{花の影|はなのかげ}"
+      ],
+      "keyword": "道",
+      "bgColor": "#f7eef2",
+      "theme": "light"
+    },
+    {
+      "source": "content/haiku/source/2026/04/12.md",
+      "date": "2026-04-12",
+      "location": "{部屋|へや}",
+      "lines": [
+        "{麗らかや|うららかや}",
+        "{クリックの音|くりっくのおと}",
+        "{のみ響く|のみひびく}"
+      ],
+      "keyword": "響",
+      "bgColor": "#f3f1ea",
+      "theme": "light"
+    },
+    {
+      "source": "content/haiku/source/2026/04/11.md",
+      "date": "2026-04-11",
+      "location": "{見沼代親水公園|みぬまだいしんすいこうえん}",
+      "lines": [
+        "{守り神|まもりがみ}",
+        "{石に居座る|いしにいすわる}",
+        "{白猫よ|しろねこよ}"
+      ],
+      "keyword": "守",
+      "bgColor": "#edf0f2",
+      "theme": "light"
+    },
+    {
+      "source": "content/haiku/source/2026/04/11.md",
+      "date": "2026-04-11",
+      "location": "{舎人公園|とねりこうえん}",
+      "lines": [
+        "{万緑や|ばんりょくや}",
+        "{文机にする|ふづくえにする}",
+        "{膝の上|ひざのうえ}"
+      ],
+      "keyword": "緑",
+      "bgColor": "#e6f0e7",
+      "theme": "light"
+    },
+    {
+      "source": "content/haiku/source/2026/04/10.md",
+      "date": "2026-04-10",
+      "location": "{舎人|とねり}",
+      "lines": [
+        "{ざざという|ざざという}",
+        "{ドアの向こうの|どあのむこうの}",
+        "{遠い風|とおいかぜ}"
+      ],
+      "keyword": "遠",
+      "bgColor": "#dfe7ec",
+      "theme": "light"
+    },
+    {
+      "source": "content/haiku/source/2026/04/09.md",
+      "date": "2026-04-09",
+      "location": "{舎人公園|とねりこうえん}",
+      "lines": [
+        "{朝風や|あさかぜや}",
+        "{光こぼれて|ひかりこぼれて}",
+        "{寒ゆるむ|さむゆるむ}"
+      ],
+      "keyword": "春",
+      "bgColor": "#e7eee0",
+      "theme": "light"
+    },
+    {
+      "source": "content/haiku/source/2026/04/08.md",
+      "date": "2026-04-08",
+      "location": "{舎人公園|とねりこうえん}",
+      "lines": [
+        "{春の午後|はるのごご}",
+        "{止まりて長き|とまりてながき}",
+        "{木椅子かな|きいすかな}"
+      ],
+      "keyword": "停",
+      "bgColor": "#f6ead7",
+      "theme": "light"
+    },
+    {
+      "source": "content/haiku/source/2026/04/07.md",
+      "date": "2026-04-07",
+      "location": "{日暮里|にっぽり}",
+      "lines": [
+        "{風となり|かぜとなり}",
+        "{日暮里を飛ぶ|にっぽりをとぶ}",
+        "{木の葉かな|このはかな}"
+      ],
+      "keyword": "翔",
+      "bgColor": "#eadfd8",
+      "theme": "light"
+    },
+    {
+      "source": "content/haiku/source/2026/04/07.md",
+      "date": "2026-04-07",
+      "location": "{赤門会日本語学校|あかもんかいにほんごがっこう}",
+      "lines": [
+        "{始業の音|しぎょうのね}",
+        "{桜をくぐる|さくらをくぐる}",
+        "{異邦人|いほうじん}"
+      ],
+      "keyword": "始",
+      "bgColor": "#e8f2fb",
+      "theme": "light"
+    },
+    {
+      "source": "content/haiku/source/2026/04/06.md",
+      "date": "2026-04-06",
+      "location": "{荒川土手|あらかわどて}",
+      "lines": [
+        "{草の土手|くさのどて}",
+        "{風をハックす|かぜをはっくす}",
+        "{白きワンピ|しろきわんぴ}"
+      ],
+      "keyword": "風",
+      "bgColor": "#eef7ea",
+      "theme": "light"
+    },
+    {
+      "source": "content/haiku/source/2026/04/06.md",
+      "date": "2026-04-06",
+      "location": "{荒川土手|あらかわどて}",
+      "lines": [
+        "{土手長し|どてながし}",
+        "{スケボーという|すけぼーという}",
+        "{剣かな|つるぎかな}"
+      ],
+      "keyword": "剣",
+      "bgColor": "#e7ebec",
+      "theme": "light"
+    },
+    {
+      "source": "content/haiku/source/2026/04/06.md",
+      "date": "2026-04-06",
+      "location": "{江北緑地|こうほくりょくち}",
+      "lines": [
+        "{足音に|あしおとに}",
+        "{驚いて飛ぶ|おどろいてとぶ}",
+        "{春の鳥|はるのとり}"
+      ],
+      "keyword": "跳",
+      "bgColor": "#e8f0dc",
+      "theme": "light"
+    },
+    {
+      "source": "content/haiku/source/2026/04/06.md",
+      "date": "2026-04-06",
+      "location": "{舎人駅|とねりえき}",
+      "lines": [
+        "{春の風|はるのかぜ}",
+        "{駅に我のみ|えきにわれのみ}",
+        "{残されし|のこされし}"
+      ],
+      "keyword": "孤",
+      "bgColor": "#252d34",
+      "theme": "dark"
+    },
+    {
+      "source": "content/haiku/source/2026/04/06.md",
+      "date": "2026-04-06",
+      "location": "{舎人|とねり}",
+      "lines": [
+        "{青嵐|あおあらし}",
+        "{ペダルにのせて|ぺだるにのせて}",
+        "{飛ぶ如し|とぶごとし}"
+      ],
+      "keyword": "疾",
+      "bgColor": "#dff1ed",
+      "theme": "light"
+    },
+    {
+      "source": "content/haiku/source/2026/04/06.md",
+      "date": "2026-04-06",
+      "location": "{舎人公園|とねりこうえん}",
+      "lines": [
+        "{ネモフィラや|ねもふぃらや}",
+        "{我も一匹|われもいっぴき}",
+        "{蜂ならん|はちならん}"
+      ],
+      "keyword": "蜂",
+      "bgColor": "#dcecf8",
+      "theme": "light"
+    },
+    {
+      "source": "content/haiku/source/2026/04/05.md",
+      "date": "2026-04-05",
+      "location": "{舎人公園|とねりこうえん}",
+      "lines": [
+        "{草の香や|くさのかや}",
+        "{舎人の風に|とねりのかぜに}",
+        "{混じる声|まじるこえ}"
+      ],
+      "keyword": "香",
+      "bgColor": "#e9f3e6",
+      "theme": "light"
+    },
+    {
+      "source": "content/haiku/source/2026/04/04.md",
+      "date": "2026-04-04",
+      "location": "{舎人|とねり}",
+      "lines": [
+        "{十年経て|ととせへて}",
+        "{窓に満ちたる|まどにみちたる}",
+        "{春の光|はるのひかり}"
+      ],
+      "keyword": "満",
+      "bgColor": "#fff1cf",
+      "theme": "light"
+    },
+    {
+      "source": "content/haiku/source/2026/04/03.md",
+      "date": "2026-04-03",
+      "location": "{上野公園|うえのこうえん}",
+      "lines": [
+        "{スローモーション|すろーもーしょん}",
+        "{雪の桜に|ゆきのさくらに}",
+        "{溶ける朝|とけるあさ}"
+      ],
+      "keyword": "溶",
+      "bgColor": "#f8e5ea",
+      "theme": "light"
+    },
+    {
+      "source": "content/haiku/source/2026/04/02.md",
+      "date": "2026-04-02",
+      "location": "{上野|うえの}",
+      "lines": [
+        "{夜長かな|よながかな}",
+        "{湯気に溶けゆく|ゆげにとけゆく}",
+        "{迷い心|まよいごころ}"
+      ],
+      "keyword": "迷",
+      "bgColor": "#211d20",
+      "theme": "dark"
+    },
+    {
+      "source": "content/haiku/source/2026/04/02.md",
+      "date": "2026-04-02",
+      "location": "{羽田|はねだ}",
+      "lines": [
+        "{春風や|はるかぜや}",
+        "{新天地にも|しんてんちにも}",
+        "{同じ月|おなじつき}"
+      ],
+      "keyword": "月",
+      "bgColor": "#161a23",
+      "theme": "dark"
+    }
+  ]
+}

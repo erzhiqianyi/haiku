@@ -1,0 +1,30 @@
+{
+  "poems": [
+    {
+      "source": "content/haiku/source/2026/06/10.md",
+      "date": "2026-06-10",
+      "location": "{舎人公園|とねりこうえん}",
+      "lines": [
+        "{夏の朝|なつのあさ}",
+        "{たぬきかなあと|たぬきかなあと}",
+        "{人の声|ひとのこえ}"
+      ],
+      "keyword": "声",
+      "bgColor": "#e8f0df",
+      "theme": "light"
+    },
+    {
+      "source": "content/haiku/source/2026/06/10.md",
+      "date": "2026-06-10",
+      "location": "{舎人公園|とねりこうえん}",
+      "lines": [
+        "{台風後|たいふうご}",
+        "{風音の中|かざおとのなか}",
+        "{富士見える|ふじみえる}"
+      ],
+      "keyword": "富",
+      "bgColor": "#cfdfe4",
+      "theme": "light"
+    }
+  ]
+}
