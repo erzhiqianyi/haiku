@@ -17,11 +17,24 @@ def parse_args():
     return parser.parse_args()
 
 
-def poem_key(poem):
-    def display_text(value):
-        return re.sub(r"\{([^{}|]+)\|[^{}|]+\}", r"\1", value)
+def display_text(value):
+    return re.sub(r"\{([^{}|]+)\|[^{}|]+\}", r"\1", value)
 
+
+def poem_key(poem):
     return "\n".join(display_text(value) for value in [poem["date"], poem["location"], *poem["lines"]])
+
+
+def validate_kigo(poem):
+    if "kigo" not in poem:
+        raise SystemExit(f"Missing kigo field for {poem.get('date')} {display_text(poem.get('location', ''))}")
+    kigo = poem["kigo"]
+    if kigo is None:
+        return
+    if not isinstance(kigo, str) or not kigo.strip():
+        raise SystemExit(f"kigo must be a non-empty string or null for {poem.get('date')}")
+    if not any(kigo in display_text(line) for line in poem.get("lines", [])):
+        raise SystemExit(f"kigo must occur in a displayed line for {poem.get('date')}: {kigo}")
 
 
 def parse_day_file(path):
@@ -83,7 +96,9 @@ def main():
         if not visual:
             missing.append({k: poem[k] for k in ("source", "date", "location", "lines")})
             continue
+        validate_kigo(visual)
         poem.update({
+            "kigo": visual["kigo"],
             "keyword": visual["keyword"],
             "bgColor": visual["bgColor"],
             "theme": visual["theme"],
@@ -92,7 +107,7 @@ def main():
 
     if missing:
         print(json.dumps({"missingMetadata": missing}, ensure_ascii=False, indent=2))
-        raise SystemExit("Missing metadata for source poems; generate keyword/bgColor/theme first.")
+        raise SystemExit("Missing metadata for source poems; generate kigo/keyword/bgColor/theme first.")
 
     regenerated.sort(key=lambda poem: (poem["date"], -poem["_order"]), reverse=True)
     for poem in regenerated:

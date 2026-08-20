@@ -5,7 +5,7 @@
 - 原始写作文件：`public/content/haiku/source/YYYY/MM/DD.md`
 - 页面渲染文件：`public/content/haiku/generated/itsuki-haiku.json` 和 `public/content/haiku/generated/YYYY/MM.json`
 
-你平时只维护 `source` 里的原始 Markdown。`keyword / bgColor / theme` 不写在原始文档里，由 Codex 读取原文后生成到 JSON。假名标注也由 Codex 在润色和落地时生成，草稿不用手动写。
+你平时只维护 `source` 里的原始 Markdown。`kigo / keyword / bgColor / theme` 不写在原始文档里，由 Codex 读取原文、审校季语后生成到 JSON。假名标注也由 Codex 在润色和落地时生成，草稿不用手动写。
 
 ## 目录结构
 
@@ -94,6 +94,7 @@ Codex 会根据每首俳句的地点和正文生成页面需要的视觉字段�
 
 ```json
 {
+  "kigo": null,
   "keyword": "雨",
   "bgColor": "#dfe9ec",
   "theme": "light"
@@ -102,11 +103,12 @@ Codex 会根据每首俳句的地点和正文生成页面需要的视觉字段�
 
 生成原则：
 
+- `kigo` 是经审校、且实际出现在三句正文中的季语；没有可靠季语时必须为 `null`。它不从日期、地点、氛围或 `keyword` 猜测。
 - `keyword` 用一个汉字表达意境核心。
 - `bgColor` 用柔和、低饱和背景色。
 - `theme` 只在夜、孤独、夕暗、深色水面等低明度场景用 `dark`。
 
-新增或修改原始 Markdown 后，让 Codex 在发布前重新读取 `source` 日文件，并更新 `generated/itsuki-haiku.json` 以及对应月份 JSON。生成脚本会校验所有地点和句子均为完整读音标记；只更新读音时，原有的 `keyword / bgColor / theme` 会被保留。
+新增或修改原始 Markdown 后，让 Codex 在发布前重新读取 `source` 日文件，并更新 `generated/itsuki-haiku.json` 以及对应月份 JSON。生成脚本会校验所有地点和句子均为完整读音标记，并校验非空 `kigo` 确实出现在正文中；只更新读音时，原有的 `kigo / keyword / bgColor / theme` 会被保留。
 
 发布前可运行：
 
@@ -114,7 +116,7 @@ Codex 会根据每首俳句的地点和正文生成页面需要的视觉字段�
 python3 .codex/skills/haiku-polish-publish/scripts/regenerate_generated.py --repo /Users/itsuki/AI/haiku
 ```
 
-如果脚本提示缺少 metadata，说明某首源俳句还没有 `keyword / bgColor / theme`，需要先由 Codex 补齐再发布。
+如果脚本提示缺少 metadata，说明某首源俳句还没有 `kigo / keyword / bgColor / theme`，需要先由 Codex 补齐再发布。季语审校记录见 `docs/kigo-audit.md`。
 
 `generated/itsuki-haiku.json` 是索引文件，只保存站点信息和月份列表。具体作品数据在 `generated/YYYY/MM.json` 里。
 

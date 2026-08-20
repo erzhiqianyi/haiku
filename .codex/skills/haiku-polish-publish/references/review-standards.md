@@ -41,6 +41,7 @@ Use this structure:
 中文解释：
 优化点：
 keyword:
+kigo:
 bgColor:
 theme:
 ruby:
@@ -58,6 +59,6 @@ For each variant, include:
 
 - `中文解释`: Explain the reading effect and emotional/visual result in Chinese.
 - `优化点`: State the specific craft improvement, such as clearer image, better rhythm, stronger cut, less explanatory diction, richer余白, more natural grammar, or better seasonal function.
-- `keyword`, `bgColor`, `theme`, and `ruby`.
+- `kigo`, `keyword`, `bgColor`, `theme`, and `ruby`. `kigo` must be an exact phrase from the displayed poem or `null`; it is not a visual keyword.
 
 End with a recommendation and direct selection prompt: `选一个版本编号，我再写入文件并生成网站数据。`

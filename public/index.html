@@ -1,64 +1,84 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>樹の句帖 | itsuki haiku</title>
-    <meta name="description" content="itsuki の日々を切り取る個人俳句帖。街角の光、風、沈黙を、静かなデジタル絵巻として綴る。">
-    <meta name="keywords" content="俳句, 春, 東京, ポエトリー, 現代俳句, 詩集, インタラクティブアート, Haiku, Tokyo, Spring, Interactive Web Art">
-    <meta name="author" content="itsuki">
-    <meta name="robots" content="index, follow">
+  <title>樹の句帖 | itsuki haiku</title>
+  <meta name="description" content="itsuki の日々を切り取る個人俳句帖。街角の光、風、沈黙を、一句ずつ静かに読む帖。">
+  <meta name="keywords" content="俳句, 東京, ポエトリー, 現代俳句, 詩集, Haiku, Japan">
+  <meta name="author" content="itsuki">
+  <meta name="robots" content="index, follow">
 
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://your-cloudflare-pages-url.pages.dev/">
-    <meta property="og:title" content="樹の句帖 | itsuki haiku">
-    <meta property="og:description" content="itsuki の日々を切り取る個人俳句帖。街角の光、風、沈黙を、静かなデジタル絵巻として綴る。">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=1200&auto=format&fit=crop">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://haiku.erzhiqian.cc/">
+  <meta property="og:title" content="樹の句帖 | itsuki haiku">
+  <meta property="og:description" content="itsuki の日々を切り取る個人俳句帖。一句ずつ、静かに。">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&amp;w=1200&amp;auto=format&amp;fit=crop">
 
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="樹の句帖 | itsuki haiku">
-    <meta name="twitter:description" content="itsuki の日々を切り取る個人俳句帖。">
-    <meta name="twitter:image" content="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=1200&auto=format&fit=crop">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="樹の句帖 | itsuki haiku">
+  <meta name="twitter:description" content="itsuki の日々を切り取る個人俳句帖。">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&amp;w=1200&amp;auto=format&amp;fit=crop">
 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QWHNC8JJ2Q"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-QWHNC8JJ2Q');
-    </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QWHNC8JJ2Q"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-QWHNC8JJ2Q');
+  </script>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;800&family=Noto+Serif+JP:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="data:,">
-    <link rel="stylesheet" href="assets/css/haiku-scroll.css?v=20260819-mobile-meta">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400&amp;family=Shippori+Mincho:wght@400;500&amp;family=Space+Mono&amp;display=swap" rel="stylesheet">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="assets/css/haiku-scroll.css?v=20260820-kigo-underline-v5">
 </head>
 <body data-haiku-source="content/haiku/generated/itsuki-haiku.json">
-    <div class="atmosphere" id="atmosphere"></div>
-    <div class="water-flow"></div>
-    <div class="noise-overlay"></div>
+  <div class="grain" aria-hidden="true"></div>
 
-    <div class="copyright" id="copyright">&copy; itsuki</div>
-    <a class="x-link" href="https://x.com/itsuki_maer" target="_blank" rel="me noopener noreferrer" aria-label="X: @itsuki_maer">X @itsuki_maer</a>
-
-    <button class="music-toggle" id="music-toggle" title="音楽を再生/停止" aria-label="音楽を再生/停止">
-        <svg class="sound-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"></path><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path></svg>
-        <svg class="sound-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5z"></path><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+  <header class="chrome-top">
+    <a class="wordmark" href="#intro" aria-label="句帖の表紙へ戻る">樹の句帖</a>
+    <button class="music-toggle" id="music-toggle" type="button" title="音楽を再生/停止" aria-label="音楽を再生">
+      <svg class="sound-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
+        <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path>
+      </svg>
+      <svg class="sound-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M11 5 6 9H2v6h4l5 4V5z"></path>
+        <line x1="23" y1="9" x2="17" y2="15"></line>
+        <line x1="17" y1="9" x2="23" y2="15"></line>
+      </svg>
     </button>
+  </header>
 
-    <audio id="bg-music" loop preload="auto"></audio>
+  <nav class="rail" id="rail" aria-label="句の目次"></nav>
 
-    <div class="instruction" id="instruction">流れに身を任せ、あるいは左へ</div>
+  <main class="track" id="track">
+    <section class="leaf intro track-item in" id="intro" data-color="#fcfbf8" data-theme="light" aria-labelledby="collection-title">
+      <div class="leaf-inner intro-inner">
+        <h1 class="intro-title" id="collection-title">樹の句帖</h1>
+        <p class="sub">itsuki の俳句</p>
+        <p class="count" id="haiku-count">一句ずつ、静かに</p>
+      </div>
+    </section>
+  </main>
 
-    <main class="scroll-track" id="track" aria-live="polite">
-        <section class="intro-title track-item" data-color="#fcfbf8" data-theme="light">
-            <h1>樹の句帖</h1>
-            <p>itsuki の俳句</p>
-        </section>
-    </main>
+  <footer class="chrome-foot">
+    <div class="sig">
+      <span id="copyright">© itsuki</span>
+      <a class="x-link" href="https://x.com/itsuki_maer" target="_blank" rel="me noopener noreferrer">X @itsuki_maer</a>
+    </div>
+    <div class="hint" aria-hidden="true">
+      <span>下へ</span>
+      <span class="hint-line"></span>
+    </div>
+  </footer>
 
-    <script src="assets/js/haiku-renderer.js?v=20260819-compact-ruby-v3"></script>
+  <audio id="bg-music" loop preload="none"></audio>
+  <p class="load-status" id="load-status" role="status" aria-live="polite"></p>
+
+  <script src="assets/js/haiku-renderer.js?v=20260820-kigo-underline-v5"></script>
 </body>
 </html>

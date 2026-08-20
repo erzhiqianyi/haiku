@@ -14,6 +14,7 @@ def parse_args():
     parser.add_argument("--date", required=True, help="Date in YYYY-MM-DD format.")
     parser.add_argument("--location", required=True)
     parser.add_argument("--line", action="append", required=True, help="Haiku line. Pass exactly three times.")
+    parser.add_argument("--kigo", required=True, help="Reviewed seasonal word as displayed in the poem, or 'none'.")
     parser.add_argument("--keyword", required=True, help="One kanji watermark keyword.")
     parser.add_argument("--bg-color", required=True, help="Hex background color.")
     parser.add_argument("--theme", choices=["light", "dark"], required=True)
@@ -33,6 +34,12 @@ def validate(args):
             raise SystemExit(f"{label} must be one complete ruby annotation: {{display text|full hiragana reading}}")
     if len(args.keyword) != 1:
         raise SystemExit("--keyword must be exactly one character")
+    if args.kigo.lower() != "none":
+        display_lines = [re.sub(r"\{([^{}|]+)\|[^{}|]+\}", r"\1", line) for line in args.line]
+        if not args.kigo.strip():
+            raise SystemExit("--kigo must be a displayed seasonal word or 'none'")
+        if not any(args.kigo in line for line in display_lines):
+            raise SystemExit("--kigo must occur exactly in one of the displayed haiku lines")
     if not args.bg_color.startswith("#") or len(args.bg_color) != 7:
         raise SystemExit("--bg-color must be a #RRGGBB hex color")
 
@@ -96,6 +103,7 @@ def main():
         "source": source_ref(args.date),
         "date": args.date,
         "location": args.location,
+        "kigo": None if args.kigo.lower() == "none" else args.kigo,
         "keyword": args.keyword,
         "bgColor": args.bg_color,
         "theme": args.theme,
