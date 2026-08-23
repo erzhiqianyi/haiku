@@ -1,6 +1,20 @@
 {
   "poems": [
     {
+      "source": "content/haiku/source/2026/08/23.md",
+      "date": "2026-08-23",
+      "location": "{西新井大師|にしあらいだいし}",
+      "lines": [
+        "{提灯や|ちょうちんや}",
+        "{傘をくぐって|かさをくぐって}",
+        "{夏祭|なつまつり}"
+      ],
+      "kigo": "夏祭",
+      "keyword": "傘",
+      "bgColor": "#303d48",
+      "theme": "dark"
+    },
+    {
       "source": "content/haiku/source/2026/08/17.md",
       "date": "2026-08-17",
       "location": "{清水|しみず}",
