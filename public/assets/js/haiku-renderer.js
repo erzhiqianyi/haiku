@@ -2,21 +2,20 @@
     'use strict';
 
     const kanjiMap = ['〇', '一', '二', '三', '四', '五', '六', '七', '八', '九'];
-    const defaultAudio = 'https://actions.google.com/sounds/v1/water/waves_crashing_on_rock_beach.ogg';
-
     const body = document.body;
     const track = document.getElementById('track');
     const rail = document.getElementById('rail');
     const count = document.getElementById('haiku-count');
     const copyright = document.getElementById('copyright');
-    const bgMusic = document.getElementById('bg-music');
-    const musicToggle = document.getElementById('music-toggle');
     const loadStatus = document.getElementById('load-status');
     const sourcePath = body.dataset.haikuSource || 'content/haiku/generated/itsuki-haiku.json';
 
+    let allPoems = [];
+    let poemSections = [];
     let sections = [];
     let railButtons = [];
     let activeIndex = 0;
+    let sectionObserver = null;
     const sectionRatios = new Map();
 
     function convertToKanji(numStr) {
@@ -84,14 +83,14 @@
                 const rest = renderChunks(index + 1, end);
                 if (rest !== null) {
                     const rubyReading = String(reading).slice(readingIndex, end);
-                    return `<ruby>${escapeHtml(chunk)}<rt>${escapeHtml(rubyReading)}</rt></ruby>${rest}`;
+                    return `<ruby class="reading-ruby">${escapeHtml(chunk)}<rt>${escapeHtml(rubyReading)}</rt></ruby>${rest}`;
                 }
             }
 
             return null;
         }
 
-        return renderChunks(0, 0) ?? `<ruby>${escapeHtml(base)}<rt>${escapeHtml(reading)}</rt></ruby>`;
+        return renderChunks(0, 0) ?? `<ruby class="reading-ruby">${escapeHtml(base)}<rt>${escapeHtml(reading)}</rt></ruby>`;
     }
 
     function formatRubyLine(line) {
@@ -354,8 +353,6 @@
         }
 
         if (meta.copyright) copyright.textContent = meta.copyright;
-        bgMusic.src = meta.audio || defaultAudio;
-
         const intro = document.getElementById('intro');
         intro.dataset.color = meta.background || '#fcfbf8';
         intro.dataset.theme = meta.theme || 'light';
@@ -366,6 +363,9 @@
         const section = document.createElement('section');
         section.className = 'leaf track-item';
         section.id = `haiku-${index + 1}`;
+        section.dataset.season = poem.season || '';
+        section.dataset.kigo = poem.kigo || '';
+        section.dataset.location = plainText(poem.location);
         section.dataset.color = poem.bgColor || '#fcfbf8';
         section.dataset.theme = poem.theme || 'light';
         section.dataset.accent = accentFor(section.dataset.color, section.dataset.theme);
@@ -416,6 +416,31 @@
         seasonalMeta.innerHTML = `<span class="kigo-mark" aria-hidden="true"></span><span class="kw">${escapeHtml(metaValue)}</span><span class="kigo-label">${metaLabel}</span>`;
         inner.appendChild(seasonalMeta);
 
+        const links = document.createElement('nav');
+        links.className = 'poem-links';
+        links.setAttribute('aria-label', 'この句の関連ページ');
+
+        const detailLink = document.createElement('a');
+        detailLink.href = poem.url || '#';
+        detailLink.textContent = 'この句を開く';
+        links.appendChild(detailLink);
+
+        if (poem.kigo && poem.kigoUrl) {
+            const kigoLink = document.createElement('a');
+            kigoLink.href = poem.kigoUrl;
+            kigoLink.textContent = `季語「${poem.kigo}」`;
+            links.appendChild(kigoLink);
+        }
+
+        if (poem.locationUrl) {
+            const locationLink = document.createElement('a');
+            locationLink.href = poem.locationUrl;
+            locationLink.textContent = `${plainText(poem.location)}の句`;
+            links.appendChild(locationLink);
+        }
+
+        inner.appendChild(links);
+
         section.appendChild(inner);
         return section;
     }
@@ -428,7 +453,8 @@
             button.type = 'button';
             button.dataset.index = String(index);
             button.setAttribute('aria-label', index === 0 ? '表紙' : `${index}句目へ`);
-            button.innerHTML = `<span class="rail-num">${String(index + 1).padStart(2, '0')}</span><span class="bar" aria-hidden="true"></span>`;
+            const displayNumber = index === 0 ? '表' : String(index).padStart(2, '0');
+            button.innerHTML = `<span class="rail-num">${displayNumber}</span><span class="bar" aria-hidden="true"></span>`;
             button.addEventListener('click', () => {
                 sections[index].scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
@@ -461,7 +487,9 @@
     }
 
     function observeSections() {
-        const observer = new IntersectionObserver(entries => {
+        if (sectionObserver) sectionObserver.disconnect();
+        sectionRatios.clear();
+        sectionObserver = new IntersectionObserver(entries => {
             entries.forEach(entry => {
                 sectionRatios.set(entry.target, entry.intersectionRatio);
                 if (entry.isIntersecting) entry.target.classList.add('in');
@@ -475,7 +503,7 @@
             if (mostVisible.ratio > 0) setActiveSection(mostVisible.index);
         }, { threshold: [0.2, 0.45, 0.65, 0.85] });
 
-        sections.forEach(section => observer.observe(section));
+        sections.forEach(section => sectionObserver.observe(section));
     }
 
     function navigateBy(delta) {
@@ -506,22 +534,19 @@
         });
     }
 
-    function bindMusicControl() {
-        musicToggle.addEventListener('click', async () => {
-            if (bgMusic.paused) {
-                try {
-                    await bgMusic.play();
-                    musicToggle.classList.add('playing');
-                    musicToggle.setAttribute('aria-label', '音楽を停止');
-                } catch (error) {
-                    loadStatus.textContent = '音楽を再生できませんでした';
-                    loadStatus.classList.add('error');
-                }
-            } else {
-                bgMusic.pause();
-                musicToggle.classList.remove('playing');
-                musicToggle.setAttribute('aria-label', '音楽を再生');
-            }
+    function showInitialSection() {
+        const hashTarget = window.location.hash ? document.querySelector(window.location.hash) : null;
+        const target = hashTarget || poemSections[0];
+        const targetIndex = sections.indexOf(target);
+        if (!target || targetIndex < 0) return;
+
+        requestAnimationFrame(() => {
+            const root = document.documentElement;
+            const previousScrollBehavior = root.style.scrollBehavior;
+            root.style.scrollBehavior = 'auto';
+            target.scrollIntoView({ block: 'start' });
+            root.style.scrollBehavior = previousScrollBehavior;
+            setActiveSection(targetIndex);
         });
     }
 
@@ -529,22 +554,19 @@
         try {
             const collection = await loadCollectionSource(sourcePath);
             applyCollectionMeta(collection.meta);
+            allPoems = collection.poems;
             collection.poems.forEach((poem, index) => {
                 track.appendChild(createPoemElement(poem, index));
             });
 
             count.textContent = `${collection.poems.length} HAIKU · 一句ずつ、静かに`;
+            poemSections = [...track.querySelectorAll('.leaf:not(.intro)')];
             sections = [...track.querySelectorAll('.track-item')];
             createRail();
             observeSections();
             bindKeyboardNavigation();
-            bindMusicControl();
             setActiveSection(0);
-
-            if (window.location.hash) {
-                const target = document.querySelector(window.location.hash);
-                if (target) requestAnimationFrame(() => target.scrollIntoView({ block: 'start' }));
-            }
+            showInitialSection();
         } catch (error) {
             console.error(error);
             loadStatus.textContent = '句帖を読み込めませんでした';

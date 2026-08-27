@@ -4,6 +4,9 @@ import json
 import re
 from pathlib import Path
 
+from generate_site_pages import assign_routes, generate_site_pages
+from haiku_season import season_for_date
+
 
 FULL_RUBY_LINE = re.compile(r"^\{[^{}|]+\|[^{}|]+\}$")
 
@@ -23,6 +26,10 @@ def display_text(value):
 
 def poem_key(poem):
     return "\n".join(display_text(value) for value in [poem["date"], poem["location"], *poem["lines"]])
+
+
+def poem_content_key(poem):
+    return "\n".join(display_text(value) for value in [poem["date"], *poem["lines"]])
 
 
 def validate_kigo(poem):
@@ -88,16 +95,24 @@ def main():
         if month_path.exists():
             existing_poems.extend(json.loads(month_path.read_text(encoding="utf-8")).get("poems", []))
     visuals = {poem_key(poem): poem for poem in existing_poems}
+    visuals_by_content = {}
+    for poem in existing_poems:
+        visuals_by_content.setdefault(poem_content_key(poem), []).append(poem)
 
     regenerated = []
     missing = []
     for poem in load_source_poems(source_root):
         visual = visuals.get(poem_key(poem))
         if not visual:
+            content_matches = visuals_by_content.get(poem_content_key(poem), [])
+            if len(content_matches) == 1:
+                visual = content_matches[0]
+        if not visual:
             missing.append({k: poem[k] for k in ("source", "date", "location", "lines")})
             continue
         validate_kigo(visual)
         poem.update({
+            "season": season_for_date(poem["date"]),
             "kigo": visual["kigo"],
             "keyword": visual["keyword"],
             "bgColor": visual["bgColor"],
@@ -112,6 +127,7 @@ def main():
     regenerated.sort(key=lambda poem: (poem["date"], -poem["_order"]), reverse=True)
     for poem in regenerated:
         poem.pop("_order", None)
+    assign_routes(regenerated)
 
     by_month = {}
     for poem in regenerated:
@@ -144,7 +160,8 @@ def main():
 
     site_path.write_text(json.dumps(site_meta, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     generated_path.write_text(json.dumps(output, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(json.dumps({"generatedFile": str(generated_path), "months": len(months), "poems": len(regenerated)}, ensure_ascii=False, indent=2))
+    page_stats = generate_site_pages(repo, regenerated, site_meta)
+    print(json.dumps({"generatedFile": str(generated_path), "months": len(months), "poems": len(regenerated), **page_stats}, ensure_ascii=False, indent=2))
 
 
 if __name__ == "__main__":

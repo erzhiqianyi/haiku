@@ -1,0 +1,108 @@
+.site-header {
+  position: relative;
+  z-index: 30;
+  display: flex;
+  width: min(1180px, calc(100% - 64px));
+  min-height: 92px;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--rule);
+}
+
+.chrome-top.site-header {
+  position: fixed;
+  top: 0;
+  right: auto;
+  left: 50%;
+  padding: 0;
+  transform: translateX(-50%);
+}
+
+.site-header .wordmark {
+  font-size: 1.12rem;
+  letter-spacing: 0.3em;
+  white-space: nowrap;
+}
+
+.site-header .wordmark::after {
+  display: none;
+}
+
+.site-header .site-nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  color: var(--muted);
+  font-family: "Noto Serif JP", serif;
+  font-size: 0.76rem;
+  letter-spacing: 0.14em;
+}
+
+.site-header a,
+.site-header button {
+  pointer-events: auto;
+}
+
+.site-header .site-nav a {
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 0.3em;
+  transition: color 180ms ease, text-decoration-color 180ms ease;
+}
+
+.site-header .site-nav a:hover,
+.site-header .site-nav a:focus-visible {
+  color: var(--accent);
+  text-decoration-color: var(--accent);
+}
+
+.site-header .readings-toggle {
+  padding: 1px 0 3px;
+  border: 0;
+  border-bottom: 1px solid transparent;
+  color: var(--muted);
+  background: transparent;
+  font: inherit;
+  letter-spacing: inherit;
+  cursor: pointer;
+  transition: color 180ms ease, border-color 180ms ease;
+}
+
+.site-header .readings-toggle:hover,
+.site-header .readings-toggle:focus-visible,
+.site-header .readings-toggle[aria-pressed="true"] {
+  border-bottom-color: var(--accent);
+  color: var(--accent);
+}
+
+@media (max-width: 720px) {
+  .site-header {
+    width: calc(100% - 40px);
+    min-height: 76px;
+  }
+
+  .site-header .wordmark {
+    font-size: 0.9rem;
+    letter-spacing: 0.18em;
+  }
+
+  .site-header .site-nav {
+    gap: 10px;
+    font-size: 0.64rem;
+    letter-spacing: 0.05em;
+  }
+}
+
+@media (max-width: 440px) {
+  .site-header {
+    justify-content: flex-end;
+  }
+
+  .site-header .wordmark {
+    display: none;
+  }
+}

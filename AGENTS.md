@@ -2,21 +2,25 @@
 
 ## Project Structure & Module Organization
 
-This repository is a static haiku site. The published page is `public/index.html`, with styles in `public/assets/css/haiku-scroll.css` and browser logic in `public/assets/js/haiku-renderer.js`.
+This repository is a static haiku site. The published scroll reader is `public/index.html`, with styles in `public/assets/css/haiku-scroll.css` and browser logic in `public/assets/js/haiku-renderer.js`. Generated archive, detail, kigo, and location pages use `public/assets/css/haiku-pages.css`; the seasonal-word explorer and regional map use `public/assets/js/haiku-explorer.js`.
 
 Haiku content has two layers:
 
 - `public/content/haiku/source/YYYY/MM/DD.md`: human-maintained daily source files.
 - `public/content/haiku/generated/`: site data consumed by the page, including `itsuki-haiku.json`, `site.json`, and monthly `YYYY/MM.json` files.
+- `public/content/haiku/kigo-seasons.json` and `public/content/haiku/location-map.json`: curated season and map metadata used by generated discovery pages.
 
 Use `templates/haiku-day.md` for new daily source examples. Keep authoring workflow details in `docs/haiku-authoring.md`; do not duplicate long process notes in this file.
+
+Every generated poem must include a date-derived `season` (`春`, `夏`, `秋`, or `冬`) from the shared boundary helper. Keep this separate from the poem's reviewed `kigo` and its seasonal classification.
 
 ## Build, Test, and Development Commands
 
 - `python3 -m http.server 8799 --directory public`: serve the static site locally at `http://127.0.0.1:8799/`.
-- `node --check public/assets/js/haiku-renderer.js`: validate JavaScript syntax.
+- `node --check public/assets/js/haiku-renderer.js && node --check public/assets/js/haiku-explorer.js`: validate JavaScript syntax.
 - `python3 -m json.tool public/content/haiku/generated/itsuki-haiku.json >/dev/null`: validate the generated index JSON.
 - `python3 .codex/skills/haiku-polish-publish/scripts/regenerate_generated.py --repo /Users/itsuki/AI/haiku`: rebuild generated JSON from source files before publishing.
+- `python3 .codex/skills/haiku-polish-publish/scripts/validate_generated_site.py --repo /Users/itsuki/AI/haiku`: validate generated HTML metadata, internal links, structured data, and sitemap coverage.
 
 There is no package manager manifest or bundled test runner in this repo.
 

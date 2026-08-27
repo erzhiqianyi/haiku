@@ -9,10 +9,15 @@
         "{たぬきかなあと|たぬきかなあと}",
         "{人の声|ひとのこえ}"
       ],
+      "season": "夏",
       "kigo": "夏の朝",
       "keyword": "声",
       "bgColor": "#e8f0df",
-      "theme": "light"
+      "theme": "light",
+      "slug": "2026-06-10-1",
+      "url": "/haiku/2026-06-10-1/",
+      "locationUrl": "/location/%E8%88%8E%E4%BA%BA%E5%85%AC%E5%9C%92/",
+      "kigoUrl": "/kigo/%E5%A4%8F%E3%81%AE%E6%9C%9D/"
     },
     {
       "source": "content/haiku/source/2026/06/10.md",
@@ -23,10 +28,15 @@
         "{風音の中|かざおとのなか}",
         "{富士見える|ふじみえる}"
       ],
+      "season": "夏",
       "kigo": "台風",
       "keyword": "富",
       "bgColor": "#cfdfe4",
-      "theme": "light"
+      "theme": "light",
+      "slug": "2026-06-10-2",
+      "url": "/haiku/2026-06-10-2/",
+      "locationUrl": "/location/%E8%88%8E%E4%BA%BA%E5%85%AC%E5%9C%92/",
+      "kigoUrl": "/kigo/%E5%8F%B0%E9%A2%A8/"
     }
   ]
 }

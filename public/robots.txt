@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://haiku.erzhiqian.cc/sitemap.xml

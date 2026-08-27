@@ -90,9 +90,49 @@ body.dark-mode .grain {
 }
 
 .wordmark,
-.music-toggle,
+.archive-link,
+.readings-toggle,
 .x-link {
   pointer-events: auto;
+}
+
+.site-actions {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.archive-link {
+  color: var(--muted);
+  font-family: "Noto Serif JP", serif;
+  font-size: 0.76rem;
+  letter-spacing: 0.18em;
+  transition: color 220ms ease;
+}
+
+.readings-toggle {
+  padding: 1px 0 3px;
+  border: 0;
+  border-bottom: 1px solid transparent;
+  color: var(--muted);
+  background: transparent;
+  font-family: "Noto Serif JP", serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: color 180ms ease, border-color 180ms ease;
+}
+
+.readings-toggle:hover,
+.readings-toggle:focus-visible,
+.readings-toggle[aria-pressed="true"] {
+  border-bottom-color: var(--accent);
+  color: var(--accent);
+}
+
+.archive-link:hover,
+.archive-link:focus-visible {
+  color: var(--ink);
 }
 
 .wordmark {
@@ -115,47 +155,6 @@ body.dark-mode .grain {
 .wordmark:hover::after,
 .wordmark:focus-visible::after {
   width: calc(100% - 0.32em);
-}
-
-.music-toggle {
-  position: relative;
-  display: flex;
-  width: 34px;
-  height: 34px;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  border: 0;
-  background: transparent;
-  color: var(--muted);
-  cursor: pointer;
-}
-
-.music-toggle svg {
-  position: absolute;
-  width: 19px;
-  height: 19px;
-  transition: opacity 220ms ease, transform 220ms ease;
-}
-
-.music-toggle .sound-on {
-  opacity: 0;
-  transform: scale(0.85);
-}
-
-.music-toggle .sound-off {
-  opacity: 1;
-  transform: scale(1);
-}
-
-.music-toggle.playing .sound-on {
-  opacity: 1;
-  transform: scale(1);
-}
-
-.music-toggle.playing .sound-off {
-  opacity: 0;
-  transform: scale(0.85);
 }
 
 .sig {
@@ -265,6 +264,32 @@ body.dark-mode .grain {
   text-transform: uppercase;
 }
 
+.intro-links {
+  display: flex;
+  gap: 10px;
+  margin-top: 1.2rem;
+  color: var(--muted);
+  font-family: "Noto Serif JP", serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+}
+
+.intro-links a,
+.poem-links a {
+  text-decoration: underline;
+  text-decoration-color: var(--rule);
+  text-underline-offset: 0.32em;
+  transition: color 220ms ease, text-decoration-color 220ms ease;
+}
+
+.intro-links a:hover,
+.intro-links a:focus-visible,
+.poem-links a:hover,
+.poem-links a:focus-visible {
+  color: var(--accent);
+  text-decoration-color: var(--accent);
+}
+
 .ghost {
   position: absolute;
   z-index: 1;
@@ -335,9 +360,14 @@ ruby {
 rt {
   color: var(--ruby);
   font-family: "Noto Serif JP", serif;
-  font-size: 0.3em;
+  font-size: 0.72rem;
   font-weight: 300;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
+  line-height: 1.1;
+}
+
+.readings-hidden .reading-ruby rt {
+  display: none;
 }
 
 .kigo-inline {
@@ -379,9 +409,23 @@ rt {
   opacity: 0.72;
 }
 
+.poem-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem 1.25rem;
+  color: var(--muted);
+  font-family: "Noto Serif JP", serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 700ms ease 640ms, transform 700ms ease 640ms;
+}
+
 .leaf.in .meta-top,
 .leaf.in .line,
-.leaf.in .kigo {
+.leaf.in .kigo,
+.leaf.in .poem-links {
   opacity: 1;
   transform: translateY(0);
 }
@@ -505,14 +549,18 @@ rt {
     letter-spacing: 0.28em;
   }
 
-  .music-toggle {
-    width: 28px;
-    height: 28px;
+  .site-actions {
+    gap: 10px;
   }
 
-  .music-toggle svg {
-    width: 17px;
-    height: 17px;
+  .archive-link {
+    font-size: 0.66rem;
+    letter-spacing: 0.08em;
+  }
+
+  .readings-toggle {
+    font-size: 0.64rem;
+    letter-spacing: 0.05em;
   }
 
   .leaf-inner {
@@ -539,6 +587,11 @@ rt {
     margin-top: 2rem;
     font-size: 0.58rem;
     letter-spacing: 0.18em;
+  }
+
+  .intro-links {
+    margin-top: 0.9rem;
+    font-size: 0.64rem;
   }
 
   .ghost {
@@ -593,6 +646,12 @@ rt {
     font-size: 0.95rem;
   }
 
+  .poem-links {
+    max-width: calc(100% - 36px);
+    gap: 0.55rem 0.9rem;
+    font-size: 0.64rem;
+  }
+
   .rail {
     top: 92px;
     right: 12px;
@@ -623,6 +682,14 @@ rt {
 }
 
 @media (max-width: 370px) {
+  .chrome-top .wordmark {
+    display: none;
+  }
+
+  .chrome-top {
+    justify-content: flex-end;
+  }
+
   .leaf-inner {
     padding: 0 18px;
   }

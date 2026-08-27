@@ -9,10 +9,15 @@
         "{風鈴しきり|ふうりんしきり}",
         "{不忍に|しのばずに}"
       ],
+      "season": "夏",
       "kigo": "風鈴",
       "keyword": "鈴",
       "bgColor": "#e7efe9",
-      "theme": "light"
+      "theme": "light",
+      "slug": "2026-07-20-1",
+      "url": "/haiku/2026-07-20-1/",
+      "locationUrl": "/location/%E4%B8%8D%E5%BF%8D%E6%B1%A0/",
+      "kigoUrl": "/kigo/%E9%A2%A8%E9%88%B4/"
     },
     {
       "source": "content/haiku/source/2026/07/16.md",
@@ -23,10 +28,15 @@
         "{下より青む|したよりあおむ}",
         "{夏草や|なつくさや}"
       ],
+      "season": "夏",
       "kigo": "夏草",
       "keyword": "草",
       "bgColor": "#d1dfc4",
-      "theme": "light"
+      "theme": "light",
+      "slug": "2026-07-16-1",
+      "url": "/haiku/2026-07-16-1/",
+      "locationUrl": "/location/%E8%88%8E%E4%BA%BA%E5%85%AC%E5%9C%92/",
+      "kigoUrl": "/kigo/%E5%A4%8F%E8%8D%89/"
     },
     {
       "source": "content/haiku/source/2026/07/10.md",
@@ -37,10 +47,15 @@
         "{鳴きやまぬ声|なきやまぬこえ}",
         "{夏燕|なつつばめ}"
       ],
+      "season": "夏",
       "kigo": "夏燕",
       "keyword": "警",
       "bgColor": "#dce8ed",
-      "theme": "light"
+      "theme": "light",
+      "slug": "2026-07-10-1",
+      "url": "/haiku/2026-07-10-1/",
+      "locationUrl": "/location/%E8%88%8E%E4%BA%BA%E5%85%AC%E5%9C%92/",
+      "kigoUrl": "/kigo/%E5%A4%8F%E7%87%95/"
     },
     {
       "source": "content/haiku/source/2026/07/07.md",
@@ -51,10 +66,15 @@
         "{道に黄葉|みちにこうよう}",
         "{まじりをり|まじりをり}"
       ],
+      "season": "夏",
       "kigo": "万緑",
       "keyword": "緑",
       "bgColor": "#d2dfc5",
-      "theme": "light"
+      "theme": "light",
+      "slug": "2026-07-07-1",
+      "url": "/haiku/2026-07-07-1/",
+      "locationUrl": "/location/%E8%88%8E%E4%BA%BA%E5%85%AC%E5%9C%92/",
+      "kigoUrl": "/kigo/%E4%B8%87%E7%B7%91/"
     },
     {
       "source": "content/haiku/source/2026/07/07.md",
@@ -65,10 +85,15 @@
         "{頭上注意|ずじょうちゅうい}",
         "{燕鳴く|つばめなく}"
       ],
+      "season": "夏",
       "kigo": "燕",
       "keyword": "燕",
       "bgColor": "#dbe7ed",
-      "theme": "light"
+      "theme": "light",
+      "slug": "2026-07-07-2",
+      "url": "/haiku/2026-07-07-2/",
+      "locationUrl": "/location/%E8%88%8E%E4%BA%BA%E5%85%AC%E5%9C%92/",
+      "kigoUrl": "/kigo/%E7%87%95/"
     },
     {
       "source": "content/haiku/source/2026/07/05.md",
@@ -79,10 +104,15 @@
         "{草の匂ひの|くさのにおいの}",
         "{風に乗る|かぜにのる}"
       ],
+      "season": "夏",
       "kigo": "梅雨雲",
       "keyword": "風",
       "bgColor": "#d0ddd5",
-      "theme": "light"
+      "theme": "light",
+      "slug": "2026-07-05-1",
+      "url": "/haiku/2026-07-05-1/",
+      "locationUrl": "/location/%E8%88%8E%E4%BA%BA%E5%85%AC%E5%9C%92/",
+      "kigoUrl": "/kigo/%E6%A2%85%E9%9B%A8%E9%9B%B2/"
     }
   ]
 }

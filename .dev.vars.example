@@ -1,0 +1,4 @@
+RESEND_API_KEY=re_xxxxxxxxx
+FEEDBACK_FROM_EMAIL=樹の句帖 <feedback@example.com>
+FEEDBACK_TO_EMAIL=owner@example.com
+TURNSTILE_SECRET_KEY=xxxxxxxxx

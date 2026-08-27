@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>感想を送る｜樹の句帖</title>
+  <meta name="description" content="樹の句帖の俳句やサイトについて、公開されないメッセージを作者へ送れるページです。">
+  <meta name="author" content="itsuki">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://haiku.erzhiqian.cc/feedback/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://haiku.erzhiqian.cc/feedback/">
+  <meta property="og:title" content="感想を送る｜樹の句帖">
+  <meta property="og:description" content="樹の句帖の俳句やサイトについて、公開されないメッセージを作者へ送れるページです。">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&amp;w=1200&amp;auto=format&amp;fit=crop">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="感想を送る｜樹の句帖">
+  <meta name="twitter:description" content="樹の句帖の俳句やサイトについて、公開されないメッセージを作者へ送れるページです。">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&amp;w=1200&amp;auto=format&amp;fit=crop">
+  <script type="application/ld+json">[{"@context":"https://schema.org","@type":"ContactPage","name":"感想を送る｜樹の句帖","description":"樹の句帖の俳句やサイトについて、公開されないメッセージを作者へ送れるページです。","url":"https://haiku.erzhiqian.cc/feedback/","inLanguage":"ja","isPartOf":{"@type":"WebSite","name":"樹の句帖","url":"https://haiku.erzhiqian.cc/"}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"樹の句帖","item":"https://haiku.erzhiqian.cc/"},{"@type":"ListItem","position":2,"name":"感想","item":"https://haiku.erzhiqian.cc/feedback/"}]}]</script>
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QWHNC8JJ2Q"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-QWHNC8JJ2Q');
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400&amp;family=Shippori+Mincho:wght@400;500&amp;family=Space+Mono&amp;display=swap" rel="stylesheet">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/assets/css/haiku-pages.css?v=20260827-location-width-v1">
+  <link rel="stylesheet" href="/assets/css/haiku-navigation.css?v=20260827-nav-v1">
+  
+</head>
+<body >
+  <header class="site-header">
+    <a class="wordmark" href="/">樹の句帖</a>
+    <nav class="site-nav" aria-label="サイト内ナビゲーション">
+      <a href="/">全句帖</a>
+      <a href="/archive/">句の一覧</a>
+      <a href="/kigo/">季語</a>
+      <a href="/location/">地図</a>
+      <a href="/feedback/">感想</a>
+      <button class="readings-toggle" type="button" data-readings-toggle aria-pressed="true" title="漢字の読みを隠す">読み</button>
+    </nav>
+  </header>
+  <main class="page-shell feedback-page">
+    <p class="eyebrow">Letter to itsuki</p>
+    <h1 class="page-title">感想を送る</h1>
+    <p class="page-lead">心に残った一句や、句帖を巡って感じたことを、静かな手紙のようにお寄せください。</p>
+      <section class="feedback-block" id="feedback" aria-labelledby="feedback-title">
+        <p class="eyebrow">Feedback</p>
+        <h2 id="feedback-title">樹の句帖へひとこと</h2>
+        <p class="feedback-lead">句の感想や、サイトを読んで気づいたことを作者へ届けられます。内容は公開されません。</p>
+        <form class="feedback-form" action="/api/feedback" method="post" data-feedback-form>
+          <input type="hidden" name="poemPath" value="/feedback/">
+          <input type="hidden" name="poemTitle" value="樹の句帖">
+          <div class="feedback-fields">
+            <label><span>お名前 <small>任意</small></span><input type="text" name="name" maxlength="60" autocomplete="name"></label>
+            <label><span>返信先メール <small>任意</small></span><input type="email" name="email" maxlength="254" autocomplete="email" inputmode="email"></label>
+          </div>
+          <label class="feedback-message">
+            <span>メッセージ</span>
+            <textarea name="message" rows="6" maxlength="1000" required></textarea>
+            <small class="feedback-count" data-feedback-count>0 / 1000</small>
+          </label>
+          <label class="feedback-honeypot" aria-hidden="true">ウェブサイト<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+          <div class="feedback-action">
+            <div><p class="feedback-setup">現在、送信の準備中です。</p></div>
+            <button type="submit" disabled>作者へ送る</button>
+          </div>
+          <p class="feedback-note">入力内容は、このメッセージの送信と返信にだけ使用します。</p>
+          <p class="feedback-status" data-feedback-status role="status" aria-live="polite"></p>
+        </form>
+      </section>
+  </main>
+  <footer class="site-footer">
+    <span>© itsuki</span>
+    <a href="https://x.com/itsuki_maer" rel="me noopener noreferrer">X @itsuki_maer</a>
+  </footer>
+  <script src="/assets/js/haiku-readings.js?v=20260827-readings-v1"></script>
+  <script src="/assets/js/haiku-feedback.js?v=20260827-feedback-v1"></script>
+</body>
+</html>

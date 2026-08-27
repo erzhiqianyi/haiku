@@ -4,6 +4,8 @@ import json
 import re
 from pathlib import Path
 
+from haiku_season import season_for_date
+
 
 FULL_RUBY_LINE = re.compile(r"^\{[^{}|]+\|[^{}|]+\}$")
 
@@ -102,6 +104,7 @@ def main():
     poem = {
         "source": source_ref(args.date),
         "date": args.date,
+        "season": season_for_date(args.date),
         "location": args.location,
         "kigo": None if args.kigo.lower() == "none" else args.kigo,
         "keyword": args.keyword,
