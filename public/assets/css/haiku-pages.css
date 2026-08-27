@@ -172,6 +172,38 @@ rt {
   text-decoration-color: var(--accent);
 }
 
+.external-reference-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55em;
+  width: fit-content;
+  margin-top: 0.25rem;
+  padding: 0.52rem 0.8rem;
+  border: 1px solid color-mix(in srgb, var(--accent), transparent 42%);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--accent), transparent 90%);
+  color: var(--accent-strong);
+  font-size: 0.86rem;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  line-height: 1.6;
+  text-decoration: none;
+  transition: background 180ms ease, border-color 180ms ease, color 180ms ease;
+}
+
+.external-reference-link::after {
+  content: "↗";
+  font-family: "Space Mono", "Noto Serif JP", monospace;
+  font-size: 0.78em;
+}
+
+.external-reference-link:hover,
+.external-reference-link:focus-visible {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent), transparent 82%);
+  color: var(--accent);
+}
+
 .page-shell {
   position: relative;
   z-index: 1;
@@ -255,6 +287,7 @@ rt {
   margin-top: clamp(54px, 7vw, 86px);
 }
 
+.about-story h1,
 .about-story h2,
 .about-links h2 {
   margin: 0 0 30px;
@@ -276,6 +309,40 @@ rt {
 
 .about-story p + p {
   margin-top: 1.35rem;
+}
+
+.about-timeline {
+  display: grid;
+  gap: 0;
+  max-width: 900px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.about-timeline li {
+  display: grid;
+  grid-template-columns: minmax(120px, 170px) minmax(0, 1fr);
+  gap: clamp(24px, 4vw, 52px);
+  padding: 34px 0;
+  border-top: 1px solid var(--rule);
+}
+
+.about-timeline li:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+
+.about-timeline time {
+  color: var(--accent);
+  font-family: "Space Mono", "Noto Serif JP", monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.16em;
+  line-height: 1.8;
+  text-transform: uppercase;
+}
+
+.about-reference {
+  margin-top: 1.1rem;
 }
 
 .about-origin-poem {
@@ -1950,6 +2017,12 @@ body[data-current-season="冬"] .season-whisper { color: #586f82; }
   .about-story,
   .about-links {
     margin-top: 64px;
+  }
+
+  .about-timeline li {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 28px 0;
   }
 
   .about-story p {

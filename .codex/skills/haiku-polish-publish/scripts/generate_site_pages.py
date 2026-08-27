@@ -1032,6 +1032,13 @@ def generate_site_pages(repo, poems, site_meta):
             "は、", ("大", "おお"), "きな", ("支", "ささ"), "えになりました。"
         ])
     )
+    about_salon_reference = (
+        '<p class="about-reference">'
+        '<a class="external-reference-link" href="https://www.adachi-chuohonchocenter.net/lecture/event/post_388.html" target="_blank" rel="noopener noreferrer">'
+        + ruby_sentence([("俳句", "はいく"), "と", ("短歌", "たんか"), "のサロンの", ("案内", "あんない"), "を", ("見", "み"), "る"])
+        + "</a>"
+        + "</p>"
+    )
     about_story_7 = ruby_sentence([
         "いまも", ("月一回", "つきいっかい"), "のサロンに", ("通", "かよ"), "いながら、",
         ("旅行先", "りょこうさき"), "でも", ("句", "く"), "を", ("試", "こころ"), "みています。2026",
@@ -1043,9 +1050,50 @@ def generate_site_pages(repo, poems, site_meta):
         "ける", ("一冊", "いっさつ"), "ができたことで、いつでも", ("戻", "もど"), "れる",
         ("学", "まな"), "びの", ("場所", "ばしょ"), "ができました。"
     ])
-    about_body = f"""    <section class="about-hero" aria-labelledby="about-title">
-      <p class="eyebrow">About</p>
-      <h1 class="page-title" id="about-title">{compact_ruby_markup('樹の句帖について', 'いつきのくちょうについて')}</h1>
+    about_events = [
+        {
+            "time": "大学時代",
+            "body": f"<p>{about_story_1}</p>",
+        },
+        {
+            "time": "2026年 春",
+            "datetime": "2026-04",
+            "body": (
+                f"<p>{about_story_2}</p>"
+                f"<p>{about_story_3}</p>"
+                '<figure class="about-origin-poem">'
+                f"<blockquote>{compact_ruby_markup('春風や　新天地にも　同じ月', 'はるかぜや　しんてんちにも　おなじつき')}</blockquote>"
+                f"<figcaption>{about_origin_caption}</figcaption>"
+                "</figure>"
+            ),
+        },
+        {
+            "time": "2026年4月上旬",
+            "datetime": "2026-04",
+            "body": f"<p>{about_story_4}</p><p>{about_story_5}</p>",
+        },
+        {
+            "time": "2026年4月19日",
+            "datetime": "2026-04-19",
+            "body": f"<p>{about_story_6}</p>{about_salon_reference}",
+        },
+        {
+            "time": "2026年8月",
+            "datetime": "2026-08",
+            "body": f"<p>{about_story_7}</p>",
+        },
+    ]
+    about_timeline_items = []
+    for event in about_events:
+        datetime_attr = f' datetime="{event["datetime"]}"' if event.get("datetime") else ""
+        about_timeline_items.append(
+            "        <li>\n"
+            f"          <time{datetime_attr}>{event['time']}</time>\n"
+            f"          <div>{event['body']}</div>\n"
+            "        </li>"
+        )
+    about_timeline = "\n".join(about_timeline_items)
+    about_body = f"""    <section class="about-hero" aria-label="句帖の概要">
       <p class="page-lead">{compact_ruby_markup('日々の場所、季節の言葉、ふと残った景色を、一句ずつ置いていく個人の俳句帖です。', 'ひびのばしょ、きせつのことば、ふとのこったけしきを、いっくずつおいていくこじんのはいくちょうです。')}</p>
       <div class="about-stats" aria-label="句帖の統計">
         <a href="/archive/" aria-label="俳句{len(poems)}句を句の一覧で読む"><strong>{len(poems)}</strong><span>俳句</span><small>句の一覧へ</small></a>
@@ -1056,18 +1104,10 @@ def generate_site_pages(repo, poems, site_meta):
     </section>
     <section class="about-story" aria-labelledby="about-story-title">
       <p class="eyebrow">Story</p>
-      <h2 id="about-story-title">{compact_ruby_markup('俳句との出会い', 'はいくとのであい')}</h2>
-      <p>{about_story_1}</p>
-      <p>{about_story_2}</p>
-      <p>{about_story_3}</p>
-      <figure class="about-origin-poem">
-        <blockquote>{compact_ruby_markup('春風や　新天地にも　同じ月', 'はるかぜや　しんてんちにも　おなじつき')}</blockquote>
-        <figcaption>{about_origin_caption}</figcaption>
-      </figure>
-      <p>{about_story_4}</p>
-      <p>{about_story_5}</p>
-      <p>{about_story_6}</p>
-      <p>{about_story_7}</p>
+      <h1 id="about-story-title">{compact_ruby_markup('俳句との出会い', 'はいくとのであい')}</h1>
+      <ol class="about-timeline">
+{about_timeline}
+      </ol>
     </section>"""
     about_data = [
         {
