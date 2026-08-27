@@ -80,6 +80,7 @@ Generate:
 - `keyword`: one kanji, usually an image/emotion core rather than a literal noun.
 - `bgColor`: soft, low-saturation hex color.
 - `theme`: `light` unless the poem's scene is night, darkness, isolation, or heavy shadow.
+- `bgColor` and `theme` must keep readable contrast. If `theme` is `dark`, use a genuinely dark background for light text. If `theme` is `light`, use a pale background for dark text. `validate_generated_site.py` rejects weak contrast before publishing.
 
 ### Date Season Contract
 

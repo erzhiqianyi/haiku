@@ -51,6 +51,18 @@ a {
   text-decoration: none;
 }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
 .grain {
   position: fixed;
   inset: 0;
@@ -111,23 +123,43 @@ body.dark-mode .grain {
 }
 
 .readings-toggle {
-  padding: 1px 0 3px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 2px 0;
   border: 0;
-  border-bottom: 1px solid transparent;
   color: var(--muted);
   background: transparent;
   font-family: "Noto Serif JP", serif;
   font-size: 0.72rem;
   letter-spacing: 0.1em;
   cursor: pointer;
-  transition: color 180ms ease, border-color 180ms ease;
+  transition: color 180ms ease;
+}
+
+.readings-toggle::after {
+  display: inline-block;
+  width: 22px;
+  height: 12px;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 6px 50%, currentColor 0 3px, transparent 3.6px);
+  content: "";
+  opacity: 0.7;
+  transition: background-position 180ms ease, opacity 180ms ease;
 }
 
 .readings-toggle:hover,
-.readings-toggle:focus-visible,
-.readings-toggle[aria-pressed="true"] {
-  border-bottom-color: var(--accent);
+.readings-toggle:focus-visible {
   color: var(--accent);
+}
+
+.readings-toggle[aria-pressed="true"]::after {
+  background:
+    radial-gradient(circle at 16px 50%, #fff 0 3px, transparent 3.6px),
+    currentColor;
+  opacity: 0.82;
 }
 
 .archive-link:hover,

@@ -48,8 +48,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400&amp;family=Shippori+Mincho:wght@400;500&amp;family=Space+Mono&amp;display=swap" rel="stylesheet">
   <link rel="icon" href="data:,">
-  <link rel="stylesheet" href="assets/css/haiku-scroll.css?v=20260827-latest-first-v1">
-  <link rel="stylesheet" href="/assets/css/haiku-navigation.css?v=20260827-nav-v1">
+  <link rel="stylesheet" href="assets/css/haiku-scroll.css?v=20260827-reading-switch-v1">
+  <link rel="stylesheet" href="/assets/css/haiku-navigation.css?v=20260827-reading-switch-v1">
 </head>
 <body data-haiku-source="content/haiku/generated/itsuki-haiku.json">
   <div class="grain" aria-hidden="true"></div>
@@ -62,6 +62,7 @@
       <a class="archive-link" href="/kigo/">季語</a>
       <a class="archive-link" href="/location/">地図</a>
       <a class="archive-link" href="/feedback/">感想</a>
+      <a class="archive-link" href="/about/">紹介</a>
       <button class="readings-toggle" type="button" data-readings-toggle aria-pressed="true" title="漢字の読みを隠す">読み</button>
     </nav>
   </header>
@@ -69,20 +70,7 @@
   <nav class="rail" id="rail" aria-label="句の目次"></nav>
 
   <main class="track" id="track">
-    <section class="leaf intro track-item in" id="intro" data-color="#fcfbf8" data-theme="light" aria-labelledby="collection-title">
-      <div class="leaf-inner intro-inner">
-        <h1 class="intro-title" id="collection-title">樹の句帖</h1>
-        <p class="sub">itsuki の俳句</p>
-        <p class="count" id="haiku-count">一句ずつ、静かに</p>
-        <div class="intro-links">
-          <a href="archive/">全句を一行で読む</a>
-          <span aria-hidden="true">／</span>
-          <a href="kigo/">季節・季語から探す</a>
-          <span aria-hidden="true">／</span>
-          <a href="location/list/">場所から探す</a>
-        </div>
-      </div>
-    </section>
+    <h1 class="visually-hidden" id="collection-title">樹の句帖</h1>
   </main>
 
   <footer class="chrome-foot">
@@ -99,6 +87,6 @@
   <p class="load-status" id="load-status" role="status" aria-live="polite"></p>
 
   <script src="assets/js/haiku-readings.js?v=20260827-readings-v1"></script>
-  <script src="assets/js/haiku-renderer.js?v=20260827-latest-first-v1"></script>
+  <script src="assets/js/haiku-renderer.js?v=20260827-all-haiku-v1"></script>
 </body>
 </html>

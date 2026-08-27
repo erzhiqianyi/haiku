@@ -106,22 +106,42 @@ rt {
 }
 
 .readings-toggle {
-  padding: 1px 0 3px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 2px 0;
   border: 0;
-  border-bottom: 1px solid transparent;
   color: var(--muted);
   background: transparent;
   font: inherit;
   letter-spacing: inherit;
   cursor: pointer;
-  transition: color 180ms ease, border-color 180ms ease;
+  transition: color 180ms ease;
+}
+
+.readings-toggle::after {
+  display: inline-block;
+  width: 22px;
+  height: 12px;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 6px 50%, currentColor 0 3px, transparent 3.6px);
+  content: "";
+  opacity: 0.7;
+  transition: opacity 180ms ease;
 }
 
 .readings-toggle:hover,
-.readings-toggle:focus-visible,
-.readings-toggle[aria-pressed="true"] {
-  border-bottom-color: var(--accent);
+.readings-toggle:focus-visible {
   color: var(--accent);
+}
+
+.readings-toggle[aria-pressed="true"]::after {
+  background:
+    radial-gradient(circle at 16px 50%, #fff 0 3px, transparent 3.6px),
+    currentColor;
+  opacity: 0.82;
 }
 
 .site-nav a,
@@ -170,6 +190,158 @@ rt {
 .feedback-page .feedback-block {
   max-width: 900px;
   margin: 70px auto 0;
+}
+
+.about-page {
+  max-width: 980px;
+  padding-top: clamp(28px, 4vw, 46px);
+}
+
+.about-hero {
+  padding: 0;
+}
+
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  margin: clamp(28px, 4.5vw, 44px) 0 0;
+  border: 1px solid var(--rule);
+  background: var(--rule);
+}
+
+.about-stats a {
+  min-height: 124px;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.32);
+  transition: background 180ms ease, color 180ms ease;
+}
+
+.about-stats a:hover,
+.about-stats a:focus-visible {
+  color: var(--accent);
+  background: rgba(255, 255, 255, 0.58);
+}
+
+.about-stats strong {
+  display: block;
+  color: var(--ink);
+  font-family: "Space Mono", monospace;
+  font-size: clamp(2rem, 5vw, 3.8rem);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+
+.about-stats span {
+  display: block;
+  margin-top: 1rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+}
+
+.about-stats small {
+  display: block;
+  margin-top: 0.6rem;
+  color: var(--faint);
+  font-family: "Noto Serif JP", serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+}
+
+.about-story,
+.about-links {
+  margin-top: clamp(54px, 7vw, 86px);
+}
+
+.about-story h2,
+.about-links h2 {
+  margin: 0 0 30px;
+  color: var(--ink);
+  font-size: clamp(1.9rem, 4.4vw, 3.6rem);
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  line-height: 1.35;
+}
+
+.about-story p {
+  max-width: 760px;
+  margin: 0;
+  color: #3a362e;
+  font-size: clamp(1rem, 1.65vw, 1.18rem);
+  letter-spacing: 0.08em;
+  line-height: 2.35;
+}
+
+.about-story p + p {
+  margin-top: 1.35rem;
+}
+
+.about-origin-poem {
+  max-width: 760px;
+  margin: 34px 0;
+  padding: 30px 34px;
+  border: 1px solid var(--rule);
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.about-origin-poem blockquote {
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(1.65rem, 4vw, 2.7rem);
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  line-height: 1.65;
+}
+
+.about-origin-poem figcaption {
+  margin-top: 20px;
+  color: var(--muted);
+  font-family: "Noto Serif JP", serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  line-height: 2;
+}
+
+.about-link-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  border: 1px solid var(--rule);
+  background: var(--rule);
+}
+
+.about-link-grid a {
+  min-height: 128px;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.32);
+  transition: background 180ms ease, color 180ms ease;
+}
+
+.about-link-grid a:hover,
+.about-link-grid a:focus-visible {
+  color: var(--accent);
+  background: rgba(255, 255, 255, 0.58);
+}
+
+.about-link-grid span,
+.about-link-grid small {
+  display: block;
+}
+
+.about-link-grid span {
+  font-size: 1.15rem;
+  letter-spacing: 0.12em;
+}
+
+.about-link-grid small {
+  margin-top: 1rem;
+  color: var(--muted);
+  font-family: "Noto Serif JP", serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  line-height: 1.8;
 }
 
 .eyebrow {
@@ -1758,6 +1930,30 @@ body[data-current-season="冬"] .season-whisper { color: #586f82; }
 
   .feedback-action button {
     width: 100%;
+  }
+
+  .about-page {
+    padding-top: 30px;
+  }
+
+  .about-stats,
+  .about-link-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .about-stats a,
+  .about-link-grid a {
+    min-height: 112px;
+    padding: 22px 18px;
+  }
+
+  .about-story,
+  .about-links {
+    margin-top: 64px;
+  }
+
+  .about-story p {
+    line-height: 2.05;
   }
 
   .kigo-guide {

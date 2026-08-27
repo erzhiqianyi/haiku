@@ -145,6 +145,53 @@ def flatten_types(value):
     return []
 
 
+HEX_COLOR = re.compile(r"^#[0-9a-fA-F]{6}$")
+
+
+def relative_luminance(hex_color):
+    if not isinstance(hex_color, str) or not HEX_COLOR.fullmatch(hex_color):
+        raise ValueError(f"Invalid hex color: {hex_color}")
+    channels = [int(hex_color[index:index + 2], 16) / 255 for index in (1, 3, 5)]
+    linear = []
+    for channel in channels:
+        if channel <= 0.03928:
+            linear.append(channel / 12.92)
+        else:
+            linear.append(((channel + 0.055) / 1.055) ** 2.4)
+    return 0.2126 * linear[0] + 0.7152 * linear[1] + 0.0722 * linear[2]
+
+
+def contrast_ratio(luminance_a, luminance_b):
+    lighter = max(luminance_a, luminance_b)
+    darker = min(luminance_a, luminance_b)
+    return (lighter + 0.05) / (darker + 0.05)
+
+
+def validate_visual_contrast(poem):
+    bg_color = poem.get("bgColor")
+    theme = poem.get("theme")
+    try:
+        background_luminance = relative_luminance(bg_color)
+    except ValueError as error:
+        raise SystemExit(f"{poem.get('date')} {poem.get('location')} has invalid bgColor: {error}") from error
+    if theme == "dark":
+        contrast = contrast_ratio(background_luminance, 1.0)
+        if contrast < 4.5:
+            raise SystemExit(
+                f"Dark theme background is too light for {poem.get('date')} {poem.get('location')}: "
+                f"{bg_color} contrast={contrast:.2f}"
+            )
+    elif theme == "light":
+        contrast = contrast_ratio(background_luminance, relative_luminance("#211e18"))
+        if contrast < 4.5:
+            raise SystemExit(
+                f"Light theme background is too dark for {poem.get('date')} {poem.get('location')}: "
+                f"{bg_color} contrast={contrast:.2f}"
+            )
+    else:
+        raise SystemExit(f"{poem.get('date')} {poem.get('location')} has invalid theme: {theme}")
+
+
 def main():
     args = parse_args()
     repo = Path(args.repo).resolve()
@@ -254,6 +301,7 @@ def main():
                 validate_poem_season(poem)
             except (ValueError, TypeError) as error:
                 raise SystemExit(str(error)) from error
+            validate_visual_contrast(poem)
             if poem.get("kigo"):
                 generated_kigo.add(poem["kigo"])
             if poem.get("locationUrl"):
@@ -291,7 +339,7 @@ def main():
         stylesheet_paths = {urlparse(href).path for href in parser.stylesheets}
         if shared_navigation_path not in stylesheet_paths:
             raise SystemExit(f"Missing shared navigation stylesheet: {relative}")
-        expected_nav_hrefs = ["/", "/archive/", "/kigo/", "/location/", "/feedback/"]
+        expected_nav_hrefs = ["/", "/archive/", "/kigo/", "/location/", "/feedback/", "/about/"]
         if parser.site_nav_count != 1:
             raise SystemExit(f"Expected one site navigation in {relative}, found {parser.site_nav_count}")
         if parser.site_nav_hrefs != expected_nav_hrefs:
@@ -334,6 +382,7 @@ def main():
             "location/index.html",
             "location/list/index.html",
             "feedback/index.html",
+            "about/index.html",
         }
         is_section_page = relative in section_indexes or re.fullmatch(r"archive/page/\d+/index\.html", relative)
         if is_section_page and parser.breadcrumbs:

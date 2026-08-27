@@ -18,6 +18,7 @@ KANJI_CHUNKS = re.compile(r"[\u3400-\u9fff\u3005\u3006\u30f6]+|[^\u3400-\u9fff\u
 KANJI_ONLY = re.compile(r"^[\u3400-\u9fff\u3005\u3006\u30f6]+$")
 SEASON_READINGS = {"春": "はる", "夏": "なつ", "秋": "あき", "冬": "ふゆ", "新年": "しんねん"}
 ALLOWED_GENERATED_PREFIXES = (
+    "about/",
     "archive/",
     "feedback/",
     "haiku/",
@@ -84,6 +85,16 @@ def ruby_markup(value):
     if not match:
         return html.escape(source)
     return compact_ruby_markup(*match.groups())
+
+
+def ruby_sentence(parts):
+    rendered = []
+    for part in parts:
+        if isinstance(part, tuple):
+            rendered.append(compact_ruby_markup(part[0], part[1]))
+        else:
+            rendered.append(html.escape(str(part)))
+    return "".join(rendered)
 
 
 def japanese_date(value):
@@ -206,8 +217,8 @@ def page_shell(
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400&amp;family=Shippori+Mincho:wght@400;500&amp;family=Space+Mono&amp;display=swap" rel="stylesheet">
   <link rel="icon" href="data:,">
-  <link rel="stylesheet" href="/assets/css/haiku-pages.css?v=20260827-location-width-v1">
-  <link rel="stylesheet" href="/assets/css/haiku-navigation.css?v=20260827-nav-v1">
+  <link rel="stylesheet" href="/assets/css/haiku-pages.css?v=20260827-reading-switch-v1">
+  <link rel="stylesheet" href="/assets/css/haiku-navigation.css?v=20260827-reading-switch-v1">
   {extra_head}
 </head>
 <body {body_attributes}>
@@ -219,6 +230,7 @@ def page_shell(
       <a href="/kigo/">季語</a>
       <a href="/location/">地図</a>
       <a href="/feedback/">感想</a>
+      <a href="/about/">紹介</a>
       <button class="readings-toggle" type="button" data-readings-toggle aria-pressed="true" title="漢字の読みを隠す">読み</button>
     </nav>
   </header>
@@ -940,6 +952,151 @@ def generate_site_pages(repo, poems, site_meta):
         written,
     )
     canonical_paths.append(location_list_path)
+
+    about_path = "/about/"
+    about_title = "樹の句帖について｜itsukiの俳句"
+    about_description = (
+        f"樹の句帖は、itsukiが日々の場所と季節から詠んだ俳句{len(poems)}句を集めた個人句帖。"
+        f"{len(by_kigo)}の季語と{len(by_location)}の場所から読むことができます。"
+    )
+    about_story_1 = ruby_sentence([
+        ("大学", "だいがく"), "のころから、", ("俳句", "はいく"), "という", ("短", "みじか"), "い",
+        ("詩", "し"), "のかたちに", ("少", "すこ"), "し", ("興味", "きょうみ"), "がありました。はじめに",
+        ("触", "ふ"), "れたのは", ("日本語", "にほんご"), "の", ("原文", "げんぶん"), "ではなく、",
+        ("中国語", "ちゅうごくご"), "に", ("訳", "やく"), "された", ("俳句", "はいく"), "でした。"
+    ])
+    about_story_2 = ruby_sentence([
+        "2026", ("年", "ねん"), "の", ("春", "はる"), "、", ("日本", "にほん"), "へ", ("向", "む"),
+        "かう", ("日本航空", "にほんこうくう"), "の", ("機内", "きない"), "で、", ("俳句", "はいく"),
+        "を", ("紹介", "しょうかい"), "する", ("小", "ちい"), "さな", ("電子書籍", "でんししょせき"),
+        "を", ("読", "よ"), "みました。", ("俳句", "はいく"), "とは", ("何", "なに"), "か、",
+        ("何", "なに"), "を", ("表", "あらわ"), "すものなのかをやさしく", ("説明", "せつめい"),
+        "した", ("本", "ほん"), "でした。", ("十分", "じゅうぶん"), "に", ("読", "よ"), "み",
+        ("取", "と"), "れたわけではありません。それでも、ある", ("一瞬", "いっしゅん"), "の",
+        ("心持", "こころも"), "ちを、", ("少", "すく"), "ない", ("言葉", "ことば"), "と",
+        ("決", "き"), "まった", ("形", "かたち"), "に", ("託", "たく"), "すという", ("考", "かんが"),
+        "え", ("方", "かた"), "が", ("強", "つよ"), "く", ("残", "のこ"), "りました。"
+    ])
+    about_story_3 = ruby_sentence([
+        ("着陸", "ちゃくりく"), "が", ("近", "ちか"), "づくころ、", ("高", "たか"), "い",
+        ("空", "そら"), "に", ("一輪", "いちりん"), "の", ("明月", "めいげつ"), "が",
+        ("見", "み"), "えました。", ("試", "ため"), "しに", ("始", "はじ"), "めた",
+        ("日本語", "にほんご"), "が、いつの", ("間", "ま"), "にか", ("自分", "じぶん"), "を",
+        ("日本", "にほん"), "へ", ("連", "つ"), "れてきたことが、", ("少", "すこ"), "し",
+        ("夢", "ゆめ"), "のようでした。", ("異国", "いこく"), "の", ("空", "そら"), "に",
+        ("来", "き"), "ても、", ("月", "つき"), "は", ("同", "おな"), "じでした。その",
+        ("気持", "きも"), "ちから、", ("最初", "さいしょ"), "の", ("一句", "いっく"), "が",
+        ("生", "う"), "まれました。"
+    ])
+    about_origin_caption = ruby_sentence([
+        ("原案", "げんあん"), "は「", ("春", "はる"), "の", ("始", "はじ"), "まる　",
+        ("新", "あたら"), "しいところで", ("日本", "にほん"), "　", ("同", "おな"), "じ",
+        ("月", "つき"), "」。", ("俳句", "はいく"), "の", ("形", "かたち"), "からは",
+        ("遠", "とお"), "いけれど、その", ("時", "とき"), "の", ("気持", "きも"), "ちは",
+        ("確", "たし"), "かにそこにありました。"
+    ])
+    about_story_4 = ruby_sentence([
+        ("俳句", "はいく"), "を", ("書", "か"), "くことは、", ("日本語", "にほんご"), "を",
+        ("学", "まな"), "ぶひとつの", ("方法", "ほうほう"), "にもなりました。はじめは",
+        ("場面", "ばめん"), "を", ("言葉", "ことば"), "にして、", ("人工知能", "じんこうちのう"),
+        "に「この", ("景色", "けしき"), "にはどんな", ("俳句", "はいく"), "が", ("合", "あ"),
+        "うか」と", ("尋", "たず"), "ねるところから", ("始", "はじ"), "まりました。",
+        ("助言", "じょげん"), "を", ("受", "う"), "けながら、", ("単語", "たんご"), "も",
+        ("文法", "ぶんぽう"), "も", ("少", "すこ"), "しずつ", ("覚", "おぼ"), "えていきました。"
+    ])
+    about_story_5 = ruby_sentence([
+        ("来日", "らいにち"), "して", ("五日目", "いつかめ"), "の", ("午後", "ごご"), "、",
+        ("荒川土手", "あらかわどて"), "を", ("歩", "ある"), "いているとき、", ("自分", "じぶん"),
+        "の", ("俳句", "はいく"), "を", ("置", "お"), "いておく", ("場所", "ばしょ"), "を",
+        ("作", "つく"), "ろうと", ("思", "おも"), "いました。それが、この", ("樹", "いつき"),
+        "の", ("句帖", "くちょう"), "の", ("始", "はじ"), "まりです。", ("毎日", "まいにち"),
+        "の", ("新", "あたら"), "しい", ("発見", "はっけん"), "を、まだ", ("拙", "つたな"),
+        "い", ("日本語", "にほんご"), "で", ("一句", "いっく"), "にし、", ("人工知能", "じんこうちのう"),
+        "の", ("添削", "てんさく"), "と", ("対話", "たいわ"), "しながら", ("続", "つづ"), "けました。"
+    ])
+    about_story_6 = (
+        ruby_sentence([
+            "その", ("後", "ご"), "、", ("図書館", "としょかん"), "で", ("俳句", "はいく"), "の",
+            ("本", "ほん"), "を", ("借", "か"), "り、", ("少", "すこ"), "しずつ", ("本格的", "ほんかくてき"),
+            "に", ("学", "まな"), "び", ("始", "はじ"), "めました。2026", ("年", "ねん"), "4",
+            ("月", "がつ"), "19", ("日", "にち"), "には、", ("足立区", "あだちく"), "の"
+        ])
+        + '<a class="inline-link" href="https://www.adachi-chuohonchocenter.net/lecture/event/post_388.html" target="_blank" rel="noopener noreferrer">'
+        + ruby_sentence(["やよい", ("図書館", "としょかん")])
+        + "</a>"
+        + ruby_sentence([
+            "で", ("開", "ひら"), "かれた", ("俳句", "はいく"), "サロンにも", ("参加", "さんか"),
+            "しました。", ("日本語", "にほんご"), "はまだ", ("十分", "じゅうぶん"), "ではありませんでしたが、",
+            ("参加者", "さんかしゃ"), "のみなさんは", ("親切", "しんせつ"), "で、", ("特", "とく"), "に",
+            ("青樹先生", "せいじゅせんせい"), "からいただいた", ("励", "はげ"), "ましと", ("助言", "じょげん"),
+            "は、", ("大", "おお"), "きな", ("支", "ささ"), "えになりました。"
+        ])
+    )
+    about_story_7 = ruby_sentence([
+        "いまも", ("月一回", "つきいっかい"), "のサロンに", ("通", "かよ"), "いながら、",
+        ("旅行先", "りょこうさき"), "でも", ("句", "く"), "を", ("試", "こころ"), "みています。2026",
+        ("年", "ねん"), "8", ("月", "がつ"), "、JLPTの", ("教材", "きょうざい"), "を", ("買", "か"), "いに",
+        ("行", "い"), "ったとき、", ("小川軽舟先生", "おがわけいしゅうせんせい"), "の『",
+        ("俳句", "はいく"), "の", ("仕組", "しく"), "み』を", ("一冊", "いっさつ"), ("買", "か"),
+        "いました。", ("図書館", "としょかん"), "で", ("借", "か"), "りる", ("本", "ほん"),
+        "はいつか", ("返", "かえ"), "しますが、", ("手元", "てもと"), "に", ("置", "お"),
+        "ける", ("一冊", "いっさつ"), "ができたことで、いつでも", ("戻", "もど"), "れる",
+        ("学", "まな"), "びの", ("場所", "ばしょ"), "ができました。"
+    ])
+    about_body = f"""    <section class="about-hero" aria-labelledby="about-title">
+      <p class="eyebrow">About</p>
+      <h1 class="page-title" id="about-title">{compact_ruby_markup('樹の句帖について', 'いつきのくちょうについて')}</h1>
+      <p class="page-lead">{compact_ruby_markup('日々の場所、季節の言葉、ふと残った景色を、一句ずつ置いていく個人の俳句帖です。', 'ひびのばしょ、きせつのことば、ふとのこったけしきを、いっくずつおいていくこじんのはいくちょうです。')}</p>
+      <div class="about-stats" aria-label="句帖の統計">
+        <a href="/archive/" aria-label="俳句{len(poems)}句を句の一覧で読む"><strong>{len(poems)}</strong><span>俳句</span><small>句の一覧へ</small></a>
+        <a href="/kigo/" aria-label="季語{len(by_kigo)}語を季語ページで読む"><strong>{len(by_kigo)}</strong><span>季語</span><small>季語へ</small></a>
+        <a href="/location/list/" aria-label="場所{len(by_location)}件を場所一覧で読む"><strong>{len(by_location)}</strong><span>場所</span><small>場所一覧へ</small></a>
+        <a href="/location/" aria-label="地図の地点{len(location_map)}件を地図で読む"><strong>{len(location_map)}</strong><span>地図の地点</span><small>地図へ</small></a>
+      </div>
+    </section>
+    <section class="about-story" aria-labelledby="about-story-title">
+      <p class="eyebrow">Story</p>
+      <h2 id="about-story-title">{compact_ruby_markup('俳句との出会い', 'はいくとのであい')}</h2>
+      <p>{about_story_1}</p>
+      <p>{about_story_2}</p>
+      <p>{about_story_3}</p>
+      <figure class="about-origin-poem">
+        <blockquote>{compact_ruby_markup('春風や　新天地にも　同じ月', 'はるかぜや　しんてんちにも　おなじつき')}</blockquote>
+        <figcaption>{about_origin_caption}</figcaption>
+      </figure>
+      <p>{about_story_4}</p>
+      <p>{about_story_5}</p>
+      <p>{about_story_6}</p>
+      <p>{about_story_7}</p>
+    </section>"""
+    about_data = [
+        {
+            "@context": "https://schema.org",
+            "@type": "AboutPage",
+            "name": about_title,
+            "description": about_description,
+            "url": absolute_url(base_url, about_path),
+            "inLanguage": "ja",
+            "isPartOf": {"@type": "WebSite", "name": "樹の句帖", "url": absolute_url(base_url, "/")},
+            "about": {"@type": "Person", "name": author},
+        },
+        breadcrumb_data(base_url, [("樹の句帖", "/"), ("紹介", about_path)]),
+    ]
+    write_page(
+        public_root,
+        "about/index.html",
+        page_shell(
+            site_meta,
+            about_title,
+            about_description,
+            about_path,
+            about_body,
+            about_data,
+            page_class="page-shell about-page",
+        ),
+        written,
+    )
+    canonical_paths.append(about_path)
 
     feedback_path = "/feedback/"
     feedback_title = "感想を送る｜樹の句帖"

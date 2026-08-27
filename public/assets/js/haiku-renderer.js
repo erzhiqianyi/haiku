@@ -332,9 +332,12 @@
     function applyCollectionMeta(meta) {
         const title = meta.title || '樹の句帖';
         const subtitle = meta.subtitle || 'itsuki の俳句';
-        document.getElementById('collection-title').textContent = title;
-        document.querySelector('.wordmark').textContent = title;
-        document.querySelector('.sub').textContent = subtitle;
+        const collectionTitle = document.getElementById('collection-title');
+        const wordmark = document.querySelector('.wordmark');
+        const subtitleElement = document.querySelector('.sub');
+        if (collectionTitle) collectionTitle.textContent = title;
+        if (wordmark) wordmark.textContent = title;
+        if (subtitleElement) subtitleElement.textContent = subtitle;
         document.title = meta.pageTitle || `${title} | itsuki haiku`;
 
         if (meta.description) {
@@ -354,9 +357,11 @@
 
         if (meta.copyright) copyright.textContent = meta.copyright;
         const intro = document.getElementById('intro');
-        intro.dataset.color = meta.background || '#fcfbf8';
-        intro.dataset.theme = meta.theme || 'light';
-        intro.dataset.accent = accentFor(intro.dataset.color, intro.dataset.theme);
+        if (intro) {
+            intro.dataset.color = meta.background || '#fcfbf8';
+            intro.dataset.theme = meta.theme || 'light';
+            intro.dataset.accent = accentFor(intro.dataset.color, intro.dataset.theme);
+        }
     }
 
     function createPoemElement(poem, index) {
@@ -452,8 +457,9 @@
             button.className = 'rail-tick';
             button.type = 'button';
             button.dataset.index = String(index);
-            button.setAttribute('aria-label', index === 0 ? '表紙' : `${index}句目へ`);
-            const displayNumber = index === 0 ? '表' : String(index).padStart(2, '0');
+            const displayIndex = section.classList.contains('intro') ? 0 : index + 1;
+            button.setAttribute('aria-label', displayIndex === 0 ? '表紙' : `${displayIndex}句目へ`);
+            const displayNumber = displayIndex === 0 ? '表' : String(displayIndex).padStart(2, '0');
             button.innerHTML = `<span class="rail-num">${displayNumber}</span><span class="bar" aria-hidden="true"></span>`;
             button.addEventListener('click', () => {
                 sections[index].scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -559,7 +565,7 @@
                 track.appendChild(createPoemElement(poem, index));
             });
 
-            count.textContent = `${collection.poems.length} HAIKU · 一句ずつ、静かに`;
+            if (count) count.textContent = `${collection.poems.length} HAIKU · 一句ずつ、静かに`;
             poemSections = [...track.querySelectorAll('.leaf:not(.intro)')];
             sections = [...track.querySelectorAll('.track-item')];
             createRail();
