@@ -1,6 +1,25 @@
 {
   "poems": [
     {
+      "source": "content/haiku/source/2026/08/29.md",
+      "date": "2026-08-29",
+      "location": "{明治神宮|めいじじんぐう}",
+      "lines": [
+        "{神宮や|じんぐうや}",
+        "{色袖あふれ|いろそであふれ}",
+        "{身も踊る|みもおどる}"
+      ],
+      "season": "秋",
+      "kigo": null,
+      "keyword": "身",
+      "bgColor": "#ece8d9",
+      "theme": "light",
+      "slug": "2026-08-29-1",
+      "url": "/haiku/2026-08-29-1/",
+      "locationUrl": "/location/%E6%98%8E%E6%B2%BB%E7%A5%9E%E5%AE%AE/",
+      "kigoUrl": null
+    },
+    {
       "source": "content/haiku/source/2026/08/27.md",
       "date": "2026-08-27",
       "location": "{舎人|とねり}",

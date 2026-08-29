@@ -7,6 +7,7 @@
   "江北緑地": {"lat": 35.7734110, "lng": 139.7648512, "precision": "area", "prefecture": "東京都"},
   "新宿": {"lat": 35.6905828, "lng": 139.6991102, "precision": "area", "prefecture": "東京都"},
   "日暮里": {"lat": 35.7289204, "lng": 139.7713635, "precision": "area", "prefecture": "東京都"},
+  "明治神宮": {"lat": 35.6763976, "lng": 139.6993259, "precision": "point", "prefecture": "東京都"},
   "東京駅": {"lat": 35.6776775, "lng": 139.7651006, "precision": "point", "prefecture": "東京都"},
   "東大寺": {"lat": 34.6882437, "lng": 135.8397568, "precision": "point", "prefecture": "奈良県"},
   "栗林公園": {"lat": 34.3294971, "lng": 134.0439264, "precision": "point", "prefecture": "香川県"},
