@@ -1,6 +1,25 @@
 {
   "poems": [
     {
+      "source": "content/haiku/source/2026/09/03.md",
+      "date": "2026-09-03",
+      "location": "{舎人公園|とねりこうえん}",
+      "lines": [
+        "{秋や椅子|あきやいす}",
+        "{草の真ん中|くさのまんなか}",
+        "{風ばかり|かぜばかり}"
+      ],
+      "season": "秋",
+      "kigo": "秋",
+      "keyword": "風",
+      "bgColor": "#e9e5d8",
+      "theme": "light",
+      "slug": "2026-09-03-1",
+      "url": "/haiku/2026-09-03-1/",
+      "locationUrl": "/location/%E8%88%8E%E4%BA%BA%E5%85%AC%E5%9C%92/",
+      "kigoUrl": "/kigo/%E7%A7%8B/"
+    },
+    {
       "source": "content/haiku/source/2026/09/02.md",
       "date": "2026-09-02",
       "location": "{舎人公園|とねりこうえん}",
