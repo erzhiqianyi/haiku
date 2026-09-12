@@ -1,6 +1,25 @@
 {
   "poems": [
     {
+      "source": "content/haiku/source/2026/09/13.md",
+      "date": "2026-09-13",
+      "location": "{舎人公園|とねりこうえん}",
+      "lines": [
+        "{真っ白な|まっしろな}",
+        "{傘ひとつずつ|かさひとつずつ}",
+        "{茸かな|きのこかな}"
+      ],
+      "season": "秋",
+      "kigo": "茸",
+      "keyword": "傘",
+      "bgColor": "#ece9df",
+      "theme": "light",
+      "slug": "2026-09-13-1",
+      "url": "/haiku/2026-09-13-1/",
+      "locationUrl": "/location/%E8%88%8E%E4%BA%BA%E5%85%AC%E5%9C%92/",
+      "kigoUrl": "/kigo/%E8%8C%B8/"
+    },
+    {
       "source": "content/haiku/source/2026/09/03.md",
       "date": "2026-09-03",
       "location": "{舎人公園|とねりこうえん}",
