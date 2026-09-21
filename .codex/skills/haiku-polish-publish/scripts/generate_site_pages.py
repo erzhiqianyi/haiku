@@ -179,7 +179,7 @@ def page_shell(
     canonical = absolute_url(base_url, canonical_path)
     cover = site_meta.get("cover", "")
     author = site_meta.get("author", "itsuki")
-    analytics_id = site_meta.get("analyticsId", "G-QWHNC8JJ2Q")
+    analytics_id = site_meta.get("analyticsId", "G-3SX52CWWGM")
     analytics = ""
     if analytics_id:
         safe_id = html.escape(analytics_id, quote=True)
