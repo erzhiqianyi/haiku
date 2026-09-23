@@ -452,6 +452,30 @@
       ]
     },
     {
+      "name": "埼玉県",
+      "count": 1,
+      "locations": [
+        {
+          "name": "巾着田・曼珠沙華公園",
+          "nameRuby": "{巾着田・曼珠沙華公園|きんちゃくだ・まんじゅしゃげこうえん}",
+          "mapped": true,
+          "url": "/location/%E5%B7%BE%E7%9D%80%E7%94%B0%E3%83%BB%E6%9B%BC%E7%8F%A0%E6%B2%99%E8%8F%AF%E5%85%AC%E5%9C%92/",
+          "count": 1,
+          "lat": 35.8816068,
+          "lng": 139.3129653,
+          "precision": "point",
+          "prefecture": "埼玉県",
+          "season": "秋",
+          "preview": "木のうろや／猫の輪郭／曼珠沙華",
+          "previewRuby": [
+            "{木のうろや|きのうろや}",
+            "{猫の輪郭|ねこのりんかく}",
+            "{曼珠沙華|まんじゅしゃげ}"
+          ]
+        }
+      ]
+    },
+    {
       "name": "奈良県",
       "count": 1,
       "locations": [

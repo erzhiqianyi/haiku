@@ -26,5 +26,6 @@
   "谷中霊園": {"lat": 35.7243685, "lng": 139.7711364, "precision": "point", "prefecture": "東京都"},
   "赤門会日本語学校": {"lat": 35.7313490, "lng": 139.7758921, "precision": "point", "prefecture": "東京都"},
   "関ヶ原": {"lat": 35.3637794, "lng": 136.4706592, "precision": "area", "prefecture": "岐阜県"},
-  "鹿浜学習センター": {"lat": 35.7842620, "lng": 139.7580871, "precision": "point", "prefecture": "東京都"}
+  "鹿浜学習センター": {"lat": 35.7842620, "lng": 139.7580871, "precision": "point", "prefecture": "東京都"},
+  "巾着田・曼珠沙華公園": {"lat": 35.8816068, "lng": 139.3129653, "precision": "point", "prefecture": "埼玉県"}
 }
