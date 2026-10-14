@@ -1,6 +1,25 @@
 {
   "poems": [
     {
+      "source": "content/haiku/source/2026/10/14.md",
+      "date": "2026-10-14",
+      "location": "{舎人公園|とねりこうえん}",
+      "lines": [
+        "{枝先の|えださきの}",
+        "{十月桜|じゅうがつざくら}",
+        "{二つかな|ふたつかな}"
+      ],
+      "season": "秋",
+      "kigo": "十月桜",
+      "keyword": "咲",
+      "bgColor": "#eee7e4",
+      "theme": "light",
+      "slug": "2026-10-14-1",
+      "url": "/haiku/2026-10-14-1/",
+      "locationUrl": "/location/%E8%88%8E%E4%BA%BA%E5%85%AC%E5%9C%92/",
+      "kigoUrl": "/kigo/%E5%8D%81%E6%9C%88%E6%A1%9C/"
+    },
+    {
       "source": "content/haiku/source/2026/10/11.md",
       "date": "2026-10-11",
       "location": "{舎人公園|とねりこうえん}",
