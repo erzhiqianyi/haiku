@@ -291,6 +291,7 @@ def main():
     site_feedback_forms = 0
     pages_with_reading_toggle = 0
     poems_with_season = 0
+    background_images = set()
     generated_kigo = set()
     generated_location_urls = set()
 
@@ -303,8 +304,10 @@ def main():
             except (ValueError, TypeError) as error:
                 raise SystemExit(str(error)) from error
             validate_visual_contrast(poem)
-            if poem.get("backgroundImage"):
-                validate_background(public_root.parent, poem["backgroundImage"])
+            image = validate_background(public_root.parent, poem.get("backgroundImage"))
+            if image in background_images:
+                raise SystemExit(f"Background image reused by multiple poems: {image}")
+            background_images.add(image)
             if poem.get("kigo"):
                 generated_kigo.add(poem["kigo"])
             if poem.get("locationUrl"):
@@ -472,6 +475,7 @@ def main():
         "siteFeedbackForms": site_feedback_forms,
         "pagesWithReadingToggle": pages_with_reading_toggle,
         "poemsWithSeason": poems_with_season,
+        "poemsWithBackground": len(background_images),
         "kigoLibraryEntries": len(kigo_library),
         "kigoExplanationReadings": sum(2 + len(entry["imageryReadings"]) for entry in kigo_library.values()),
         "generatedKigo": len(generated_kigo),

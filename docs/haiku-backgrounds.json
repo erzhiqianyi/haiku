@@ -1,0 +1,437 @@
+{
+  "generator": "Built-in image_gen",
+  "format": "Portrait JPEG, original generated PNGs retained outside the repository",
+  "style": "Standalone illustration background for a Japanese haiku reading website, portrait 1024x1536. Minimal atmospheric Japanese watercolor / diluted sumi ink, understated paper texture, few soft shapes, lots of empty space, evocative rather than a literal detailed scene. The imagery is inspired by a poem, not a documentary view of the place. Reserve central and right-central 60% as very calm uniform low-contrast negative space for vertically overlaid text; stronger subject motifs on lower-left or edges; top and bottom calm for small navigation. No writing, no kanji, no lettering, no calligraphy, no seals, no logos, no border, no UI. ",
+  "palettes": {
+    "light": "Warm ivory paper and muted natural hues, calm central space for charcoal text.",
+    "dark": "Deep charcoal-indigo washes and dark central space for pale cream text."
+  },
+  "images": [
+    {
+      "slug": "2026-04-02-1",
+      "image": "/assets/images/haiku/2026-04-02-1.jpg",
+      "theme": "dark",
+      "scene": "A long quiet autumn night, thin tea steam dissolving over a small cup at lower-left, uncertainty conveyed by soft wandering vapor and deep empty night, no people or text."
+    },
+    {
+      "slug": "2026-04-02-2",
+      "image": "/assets/images/haiku/2026-04-02-2.jpg",
+      "theme": "dark",
+      "scene": "The same small moon above an unfamiliar new place, a quiet airport-window or distant runway edge hinted at lower-left, gentle spring breeze through sparse grasses, hope and distance, no logos or letters."
+    },
+    {
+      "slug": "2026-04-03-1",
+      "image": "/assets/images/haiku/2026-04-03-1.jpg",
+      "theme": "light",
+      "scene": "Slowly falling snow dissolving among a few spring cherry blossoms in morning light, a sparse branch at upper-left and pale snowy haze below, pink-white-gray, no crowded blossom canopy."
+    },
+    {
+      "slug": "2026-04-04-1",
+      "image": "/assets/images/haiku/2026-04-04-1.jpg",
+      "theme": "light",
+      "scene": "Spring light filling a quiet room through a window after many years, window frame only along left edge, pale luminous floor shadows low-left, warm ivory and honey light, no text or people."
+    },
+    {
+      "slug": "2026-04-05-1",
+      "image": "/assets/images/haiku/2026-04-05-1.jpg",
+      "theme": "light",
+      "scene": "Fresh spring grasses bending beside a broad riverbank breeze, faint distant human silhouettes only as tiny soft shapes, voices mingling with the scent of grass, no portrait."
+    },
+    {
+      "slug": "2026-04-06-1",
+      "image": "/assets/images/haiku/2026-04-06-1.jpg",
+      "theme": "light",
+      "scene": "Wind moving through the grass of a river embankment, a small cropped glimpse of a fluttering white dress at lower-left, airy movement, no portrait or exposed body, soft greens."
+    },
+    {
+      "slug": "2026-04-06-2",
+      "image": "/assets/images/haiku/2026-04-06-2.jpg",
+      "theme": "light",
+      "scene": "A long grassy riverbank path with a lone skateboard lying diagonally like a resting sword at lower-left, metaphorical energy but NO actual weapon, pale river air and spring greens."
+    },
+    {
+      "slug": "2026-04-06-3",
+      "image": "/assets/images/haiku/2026-04-06-3.jpg",
+      "theme": "light",
+      "scene": "A small spring bird suddenly lifting from grass as faint footsteps approach, bird and a suggestion of a shoe shadow at lower-left, light spontaneous ink movement, no full person."
+    },
+    {
+      "slug": "2026-04-06-4",
+      "image": "/assets/images/haiku/2026-04-06-4.jpg",
+      "theme": "dark",
+      "scene": "An empty elevated suburban station platform with a single tiny solitary figure, spring wind and receding track lights, no train, no station name or other text, restrained lonely night."
+    },
+    {
+      "slug": "2026-04-06-5",
+      "image": "/assets/images/haiku/2026-04-06-5.jpg",
+      "theme": "light",
+      "scene": "A bicycle wheel and pedals cropped at lower-left with soft wind-swept fresh green leaves suggesting swift movement, early-summer wind, no rider portrait, airy ivory negative space."
+    },
+    {
+      "slug": "2026-04-06-6",
+      "image": "/assets/images/haiku/2026-04-06-6.jpg",
+      "theme": "light",
+      "scene": "One tiny bee hovering over a few pale blue nemophila flowers at lower-left, intimate spring observation, light blue-green and ivory, not a huge flower meadow or macro insect."
+    },
+    {
+      "slug": "2026-04-07-1",
+      "image": "/assets/images/haiku/2026-04-07-1.jpg",
+      "theme": "light",
+      "scene": "One loose brown leaf lifted by wind above a quiet Nippori street, old neighborhood shapes barely suggested low-left; sparse airy composition, no signs or letters."
+    },
+    {
+      "slug": "2026-04-07-2",
+      "image": "/assets/images/haiku/2026-04-07-2.jpg",
+      "theme": "light",
+      "scene": "A tiny newcomer figure walking under cherry blossoms toward a school entrance, gentle morning and a sense of beginning, small figure low-left, no facial detail, no signs or words."
+    },
+    {
+      "slug": "2026-04-08-1",
+      "image": "/assets/images/haiku/2026-04-08-1.jpg",
+      "theme": "light",
+      "scene": "One long empty wooden bench standing still on a spring afternoon, low-left with a soft lengthened shadow, warm cream and pale green, no people or signage."
+    },
+    {
+      "slug": "2026-04-09-1",
+      "image": "/assets/images/haiku/2026-04-09-1.jpg",
+      "theme": "light",
+      "scene": "A cold morning loosening into spring warmth, pale sunlight spilling between a few branches, a hint of thawed wet grass at lower-left, restrained cool gray becoming warm cream."
+    },
+    {
+      "slug": "2026-04-10-1",
+      "image": "/assets/images/haiku/2026-04-10-1.jpg",
+      "theme": "light",
+      "scene": "An almost-closed plain doorway with a soft breeze lifting a light curtain, distant movement sensed beyond, pale gray-green and cream, architecture reduced to one edge on left."
+    },
+    {
+      "slug": "2026-04-11-1",
+      "image": "/assets/images/haiku/2026-04-11-1.jpg",
+      "theme": "light",
+      "scene": "A white cat sitting like a guardian on a smooth stone beside a little stream, cat and rock low-left, calm pale green setting, spare and dignified, no shrine ornament."
+    },
+    {
+      "slug": "2026-04-11-2",
+      "image": "/assets/images/haiku/2026-04-11-2.jpg",
+      "theme": "light",
+      "scene": "A small open blank notebook resting on someone's lap in tree shade, only cropped knees and page at lower-left, lush fresh green hints, quiet outdoor writing; no words or face."
+    },
+    {
+      "slug": "2026-04-12-1",
+      "image": "/assets/images/haiku/2026-04-12-1.jpg",
+      "theme": "light",
+      "scene": "A quiet sunlit spring room, a simple small computer mouse near lower-left edge and soft window shadow on a desk, the only imagined sound a click; no screen text, no people."
+    },
+    {
+      "slug": "2026-04-13-1",
+      "image": "/assets/images/haiku/2026-04-13-1.jpg",
+      "theme": "dark",
+      "scene": "A low sunset and the long solitary shadow of a distant boy on a path, figure tiny low-left, lingering hesitation and orange dusk, no face or detailed urban scenery."
+    },
+    {
+      "slug": "2026-04-13-2",
+      "image": "/assets/images/haiku/2026-04-13-2.jpg",
+      "theme": "light",
+      "scene": "A familiar spring school path with pale blossom shadows on the pavement, faint school entrance far-left, no signs or lettering, warm quiet morning light."
+    },
+    {
+      "slug": "2026-04-14-1",
+      "image": "/assets/images/haiku/2026-04-14-1.jpg",
+      "theme": "light",
+      "scene": "Quiet library suggested by a few softly washed book spines without words at far left, one unmarked page lifted by spring breeze at lower-left, ivory silence and pale gray-green shadows."
+    },
+    {
+      "slug": "2026-04-16-1",
+      "image": "/assets/images/haiku/2026-04-16-1.jpg",
+      "theme": "light",
+      "scene": "Fine sprinkler mist catching a tiny faint rainbow, one small winged insect glinting near the spray at lower-left, quiet green park edge; no oversized rainbow arc."
+    },
+    {
+      "slug": "2026-04-17-1",
+      "image": "/assets/images/haiku/2026-04-17-1.jpg",
+      "theme": "light",
+      "scene": "A small spring bird just departing toward soft high clouds, a bare slim perch at left and one distant bird silhouette, the emptiness after its song, pale blue-gray and ivory."
+    },
+    {
+      "slug": "2026-04-18-1",
+      "image": "/assets/images/haiku/2026-04-18-1.jpg",
+      "theme": "light",
+      "scene": "A small camera lens at lower-left reflecting a tiny green leaf and a dew-bright insect shape, feeling of observing life within lush fresh green, no brand or person, sparse artistic suggestion."
+    },
+    {
+      "slug": "2026-04-19-1",
+      "image": "/assets/images/haiku/2026-04-19-1.jpg",
+      "theme": "dark",
+      "scene": "Quiet spring night in an old Japanese cemetery; a few pale stone grave silhouettes low-left remain white in dim light, distant soft path, no inscriptions, no horror atmosphere."
+    },
+    {
+      "slug": "2026-04-19-2",
+      "image": "/assets/images/haiku/2026-04-19-2.jpg",
+      "theme": "light",
+      "scene": "An open unmarked book with luminous blank cream pages in spring midday window light, lower-left corner, gentle page shadow, no printed words, no library clutter."
+    },
+    {
+      "slug": "2026-04-20-1",
+      "image": "/assets/images/haiku/2026-04-20-1.jpg",
+      "theme": "light",
+      "scene": "A few spring crows near a shallow puddle: one drinking, two lightly squabbling with raised wings, tiny loose silhouettes at lower-left, natural behavior without dramatic violence."
+    },
+    {
+      "slug": "2026-04-20-2",
+      "image": "/assets/images/haiku/2026-04-20-2.jpg",
+      "theme": "light",
+      "scene": "An empty wooden adventure-play platform under a leafy tree, sunlight and the feeling of summer vacation, cropped structure low-left, no text or children in closeup."
+    },
+    {
+      "slug": "2026-04-21-1",
+      "image": "/assets/images/haiku/2026-04-21-1.jpg",
+      "theme": "light",
+      "scene": "Dappled spring midday sunlight through a sparse canopy, a tiny loosely looped pair of simple earphones in lower-left shade, immersion in sound and light, no person, no brand."
+    },
+    {
+      "slug": "2026-04-22-1",
+      "image": "/assets/images/haiku/2026-04-22-1.jpg",
+      "theme": "dark",
+      "scene": "A spring city night, windblown dust diffusing a few muted neon glows between abstract tall-building edges; soft violet and amber at left edge, no signs, no lettering, no sharp architecture."
+    },
+    {
+      "slug": "2026-04-23-1",
+      "image": "/assets/images/haiku/2026-04-23-1.jpg",
+      "theme": "dark",
+      "scene": "Two small rain umbrellas passing each other on a dim spring street, muted umbrella color like flowers against night; umbrellas and wet reflections at lower-left, no faces or neon words."
+    },
+    {
+      "slug": "2026-04-25-1",
+      "image": "/assets/images/haiku/2026-04-25-1.jpg",
+      "theme": "light",
+      "scene": "One black crow waiting beside an empty fishing spot at a spring pond, slender rod-rest and faint water ripples at lower-left, soft morning light, no fisherman closeup."
+    },
+    {
+      "slug": "2026-04-26-1",
+      "image": "/assets/images/haiku/2026-04-26-1.jpg",
+      "theme": "light",
+      "scene": "A few young reddish spring maple leaves swaying at left edge, revealing more clear pale blue sky behind; airy spring red-green and ivory, no autumn foliage carpet."
+    },
+    {
+      "slug": "2026-04-27-1",
+      "image": "/assets/images/haiku/2026-04-27-1.jpg",
+      "theme": "light",
+      "scene": "A distant fishing rod and small angler beyond a plain unmarked sign beside a spring pond; motifs low at left, subtle sense of a boundary, no written warning."
+    },
+    {
+      "slug": "2026-05-01-1",
+      "image": "/assets/images/haiku/2026-05-01-1.jpg",
+      "theme": "dark",
+      "scene": "A solitary summer moon appearing beyond the dark edge of tree shadow, small moon in upper-left with empty deep night air and a faint open park path below; no people."
+    },
+    {
+      "slug": "2026-05-04-1",
+      "image": "/assets/images/haiku/2026-05-04-1.jpg",
+      "theme": "light",
+      "scene": "A small seabird flying toward gentle early-summer waves, soft pale blue-gray sea low across the frame and bird near left edge, expansive air, no boats or buildings."
+    },
+    {
+      "slug": "2026-05-04-2",
+      "image": "/assets/images/haiku/2026-05-04-2.jpg",
+      "theme": "light",
+      "scene": "Strong early-summer green wind bending coastal grasses; faint Mount Fuji far behind and a tiny hesitant walking silhouette at lower-left, energy conveyed with sparse soft diagonal brushwork."
+    },
+    {
+      "slug": "2026-05-05-1",
+      "image": "/assets/images/haiku/2026-05-05-1.jpg",
+      "theme": "light",
+      "scene": "A tiny red cable car ascending toward a mountain ridge amid fresh spring-to-summer green, diagonal route only faintly suggested at lower-left; pale mist and ivory sky."
+    },
+    {
+      "slug": "2026-05-21-1",
+      "image": "/assets/images/haiku/2026-05-21-1.jpg",
+      "theme": "light",
+      "scene": "Rainwater beading at the tips of a few pine needles swaying in a light breeze, delicate branch entering from left, pale green and gray light, minimal droplets, no landscape clutter."
+    },
+    {
+      "slug": "2026-05-24-1",
+      "image": "/assets/images/haiku/2026-05-24-1.jpg",
+      "theme": "light",
+      "scene": "A small child waving near the red-brick Tokyo Station square beneath summer cloud, child and a spare suggestion of brick facade low and left; no detailed face, no lettering."
+    },
+    {
+      "slug": "2026-05-27-1",
+      "image": "/assets/images/haiku/2026-05-27-1.jpg",
+      "theme": "light",
+      "scene": "One yellow leaf floating down onto calm pond water on a summer morning, a few widening ripples near lower-left, pale jade and ivory, very quiet."
+    },
+    {
+      "slug": "2026-05-27-2",
+      "image": "/assets/images/haiku/2026-05-27-2.jpg",
+      "theme": "light",
+      "scene": "A child's small pond net lifting sparkling droplets over a summer pond, only cropped net and hint of small hands at lower-left, playful movement, no portraits, no detailed crowd."
+    },
+    {
+      "slug": "2026-05-27-3",
+      "image": "/assets/images/haiku/2026-05-27-3.jpg",
+      "theme": "light",
+      "scene": "Morning trees beside a school path; a small red school backpack silhouette moving away and one crow above to the left, playful distance; no faces, no branding or text."
+    },
+    {
+      "slug": "2026-05-27-4",
+      "image": "/assets/images/haiku/2026-05-27-4.jpg",
+      "theme": "light",
+      "scene": "One yellow dandelion trembling just beyond cool tree shade with a single tiny insect near it, lower-left corner, soft summer sunlight, sparse botanical detail."
+    },
+    {
+      "slug": "2026-06-10-1",
+      "image": "/assets/images/haiku/2026-06-10-1.jpg",
+      "theme": "light",
+      "scene": "Summer dawn in a quiet park, a tiny distant tanuki-like rounded animal shape half-hidden in grass at lower-left, uncertainty and a sense of overheard human voices, no closeup animal or visible crowd."
+    },
+    {
+      "slug": "2026-06-10-2",
+      "image": "/assets/images/haiku/2026-06-10-2.jpg",
+      "theme": "light",
+      "scene": "After a typhoon, wind-tossed grasses at lower-left and a small clear distant Mount Fuji emerging through washed clouds, clean cool light, spaciousness after a storm."
+    },
+    {
+      "slug": "2026-07-05-1",
+      "image": "/assets/images/haiku/2026-07-05-1.jpg",
+      "theme": "light",
+      "scene": "A low pale rainy-season cloud and wind moving through damp grasses, soft cool gray and fresh green, a few blades lower-left, suggest the scent of grass with mist and empty air."
+    },
+    {
+      "slug": "2026-07-07-1",
+      "image": "/assets/images/haiku/2026-07-07-1.jpg",
+      "theme": "light",
+      "scene": "One small yellow leaf among deep summer green leaves along a quiet park path, canopy and leaf motifs kept low and left; a restrained contrast of green and pale yellow."
+    },
+    {
+      "slug": "2026-07-07-2",
+      "image": "/assets/images/haiku/2026-07-07-2.jpg",
+      "theme": "light",
+      "scene": "A swallow calling beneath a roof eave, a tiny nest at upper-left, sparse mottled ground below suggesting bird traces only abstractly, no gross detail or lettering; lively summer air."
+    },
+    {
+      "slug": "2026-07-10-1",
+      "image": "/assets/images/haiku/2026-07-10-1.jpg",
+      "theme": "light",
+      "scene": "Summer swallows and a small nest beneath a park roof eave, hint of a plain warning plaque with NO writing, tiny birds at upper-left, airy cream sky; no people."
+    },
+    {
+      "slug": "2026-07-16-1",
+      "image": "/assets/images/haiku/2026-07-16-1.jpg",
+      "theme": "light",
+      "scene": "Fresh vivid green summer grass emerging beneath recently cut clippings, a few loose blades at lower-left, renewal and earthy fragrance, no lawn mower or gardener."
+    },
+    {
+      "slug": "2026-07-20-1",
+      "image": "/assets/images/haiku/2026-07-20-1.jpg",
+      "theme": "light",
+      "scene": "A few glass wind chimes with blank slim paper strips gently moving beside Shinobazu pond; suggestion of lotus leaves at lower-left, summer light, no written wishes."
+    },
+    {
+      "slug": "2026-08-07-1",
+      "image": "/assets/images/haiku/2026-08-07-1.jpg",
+      "theme": "light",
+      "scene": "One luminous summer cumulonimbus rising in the distance, concentrated at left edge and lower-left, airy pale blue and ivory sky, spare and expansive."
+    },
+    {
+      "slug": "2026-08-10-1",
+      "image": "/assets/images/haiku/2026-08-10-1.jpg",
+      "theme": "light",
+      "scene": "A single simple Japanese glass wind chime at upper-left with blank unmarked hanging strip, a faint old road and distant castle-like roof silhouette at lower edge, summer air, no historical person."
+    },
+    {
+      "slug": "2026-08-11-1",
+      "image": "/assets/images/haiku/2026-08-11-1.jpg",
+      "theme": "light",
+      "scene": "A wet grassy field at Sekigahara, beads of water on grass and faint distant hills suggesting an old battlefield's silence; no warriors, weapons, flags, monuments or words."
+    },
+    {
+      "slug": "2026-08-12-1",
+      "image": "/assets/images/haiku/2026-08-12-1.jpg",
+      "theme": "light",
+      "scene": "A small turtle creating widening water rings in a still green garden pond, summer cicada atmosphere suggested by dappled foliage; turtle and ripples lower-left, pale watery negative space."
+    },
+    {
+      "slug": "2026-08-14-1",
+      "image": "/assets/images/haiku/2026-08-14-1.jpg",
+      "theme": "light",
+      "scene": "Summer stillness near a large Japanese temple: a small deer on a quiet path at lower-left, suggestion of old wooden eaves behind leaves, soft tea-colored steam-like haze; no elaborate architecture."
+    },
+    {
+      "slug": "2026-08-16-1",
+      "image": "/assets/images/haiku/2026-08-16-1.jpg",
+      "theme": "dark",
+      "scene": "Kyoto Gozan summer bonfires: a tiny distant boat-shaped fire arrangement glowing low on a dark hillside, a few very small camera-holder silhouettes at lower-left, no legible symbols or text, reverent distant glow."
+    },
+    {
+      "slug": "2026-08-17-1",
+      "image": "/assets/images/haiku/2026-08-17-1.jpg",
+      "theme": "light",
+      "scene": "Summer Mount Fuji briefly revealed through a parting bank of clouds above the old Tokaido; subdued distant peak low and left, faint old road, no busy buildings."
+    },
+    {
+      "slug": "2026-08-23-1",
+      "image": "/assets/images/haiku/2026-08-23-1.jpg",
+      "theme": "dark",
+      "scene": "A summer shrine festival hinted through a few softly glowing amber paper lanterns and the edge of a rain umbrella near lower-left; no inscriptions, no crowds, nocturnal quiet."
+    },
+    {
+      "slug": "2026-08-27-1",
+      "image": "/assets/images/haiku/2026-08-27-1.jpg",
+      "theme": "dark",
+      "scene": "Exactly two broken empty chairs wet from rain in a quiet autumn night, faint puddle reflections at lower-left, lonely and still."
+    },
+    {
+      "slug": "2026-08-29-1",
+      "image": "/assets/images/haiku/2026-08-29-1.jpg",
+      "theme": "light",
+      "scene": "A glimpse of colorful flowing festival kimono sleeves in motion near a shrine grove; only a few cropped abstract cloth shapes at lower-left, subdued vermilion and indigo, no detailed faces, joyful gentle rhythm."
+    },
+    {
+      "slug": "2026-09-02-1",
+      "image": "/assets/images/haiku/2026-09-02-1.jpg",
+      "theme": "light",
+      "scene": "One fallen branch on a quiet autumn morning park path, playfully resembling a long magical staff but entirely natural, light mist, no fantasy props; small branch lower-left."
+    },
+    {
+      "slug": "2026-09-03-1",
+      "image": "/assets/images/haiku/2026-09-03-1.jpg",
+      "theme": "light",
+      "scene": "One solitary empty wooden park bench in the middle of gently moving autumn grass, wind and absence. Bench small at lower-left, broad pale ivory space."
+    },
+    {
+      "slug": "2026-09-13-1",
+      "image": "/assets/images/haiku/2026-09-13-1.jpg",
+      "theme": "light",
+      "scene": "A few tiny pure-white mushrooms rising separately like little umbrellas from damp park moss; sparse delicate stems along the lower-left, quiet pale gray-green autumn morning."
+    },
+    {
+      "slug": "2026-09-19-1",
+      "image": "/assets/images/haiku/2026-09-19-1.jpg",
+      "theme": "light",
+      "scene": "A cat's quiet silhouette nestled in a hollow at the base of an old tree, a few red spider lilies near it; autumn stillness. Cat and hollow at lower-left, never a portrait or crowded flower field."
+    },
+    {
+      "slug": "2026-10-11-1",
+      "image": "/assets/images/haiku/2026-10-11-1.jpg",
+      "theme": "light",
+      "scene": "Autumn grasses bending gently in a sunset breeze; low ochre grass stems and a last apricot glow at the lower-left, almost empty cream sky."
+    },
+    {
+      "slug": "2026-10-14-1",
+      "image": "/assets/images/haiku/2026-10-14-1.jpg",
+      "theme": "light",
+      "scene": "Exactly two pale October cherry blossoms at a sparse branch tip on the left, a few muted autumn leaves, warm ivory negative space."
+    },
+    {
+      "slug": "2026-10-29-1",
+      "image": "/assets/images/haiku/2026-10-29-1.jpg",
+      "theme": "light",
+      "scene": "Autumn lights along a path of glowing traditional paper umbrellas, warm amber and muted vermilion near the lower-left, pale lavender-ivory evening mist."
+    },
+    {
+      "slug": "2026-10-31-1",
+      "image": "/assets/images/haiku/2026-10-31-1.jpg",
+      "theme": "light",
+      "scene": "Autumn passing rain and a mountain-sized cloud bank over Mount Takao; muted sage-gray layered mountains dissolving into ivory mist, calm central reading space."
+    }
+  ]
+}

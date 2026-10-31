@@ -7,7 +7,7 @@ This repository is a static haiku site. The published scroll reader is `public/i
 Haiku content has two layers:
 
 - `public/content/haiku/source/YYYY/MM/DD.md`: human-maintained daily source files.
-- `public/assets/images/haiku/`: generated per-poem background images, referenced by `backgroundImage` in month JSON. New selected poems must include an image; legacy poems may use a solid-color fallback.
+- `public/assets/images/haiku/`: generated per-poem background images, referenced by `backgroundImage` in month JSON. Every poem must include its own image; retain solid-color fallback for runtime load failures.
 - `public/content/haiku/generated/`: site data consumed by the page, including `itsuki-haiku.json`, `site.json`, and monthly `YYYY/MM.json` files.
 - `public/content/haiku/kigo-seasons.json` and `public/content/haiku/location-map.json`: curated season and map metadata used by generated discovery pages.
 

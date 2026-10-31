@@ -78,7 +78,7 @@ Generate:
 - `season`: the season of the poem date, generated deterministically from the date boundary contract below.
 - `kigo`: the reviewed seasonal word exactly as it appears in the three displayed lines, or `null` when no reliable seasonal word is present. Do not infer a kigo from the date, location, general mood, or the one-character keyword.
 - `keyword`: one kanji, usually an image/emotion core rather than a literal noun; retained as metadata, never rendered as a giant background character.
-- `backgroundImage`: local root-relative URL such as `/assets/images/haiku/2026-10-31-1.jpg`. Required for new selected poems; older poems without an image retain their solid-color fallback. Regeneration must preserve this field and validate the referenced asset.
+- `backgroundImage`: local root-relative URL such as `/assets/images/haiku/2026-10-31-1.jpg`. Required for every poem; the complete archive now has one distinct image per poem. Regeneration must preserve this field and validate the referenced asset.
 - `bgColor`: soft, low-saturation hex color.
 - `theme`: `light` unless the poem's scene is night, darkness, isolation, or heavy shadow.
 - `bgColor` and `theme` must keep readable contrast. If `theme` is `dark`, use a genuinely dark background for light text. If `theme` is `light`, use a pale background for dark text. `validate_generated_site.py` rejects weak contrast before publishing.
@@ -152,12 +152,12 @@ Before publishing, regenerate generated data from daily source. This writes `gen
 python3 .codex/skills/haiku-polish-publish/scripts/regenerate_generated.py --repo /Users/itsuki/AI/haiku
 ```
 
-If it reports incomplete ruby or missing metadata, correct the source poem first; then add any missing `kigo`, `keyword`, `bgColor`, `theme`, and (for new poems) `backgroundImage` through the selected-version workflow. Pass `--kigo none` only after review confirms that the poem has no reliable seasonal word; this writes JSON `null`.
+If it reports incomplete ruby or missing metadata, correct the source poem first; then add any missing `kigo`, `keyword`, `bgColor`, `theme`, and `backgroundImage` through the selected-version workflow. Pass `--kigo none` only after review confirms that the poem has no reliable seasonal word; this writes JSON `null`.
 
 If publishing, inspect `git status --short`, stage only relevant files, commit with a clear message, push, then report that deployment should update `https://haiku.erzhiqian.cc/`.
 
 ## Reading Layout Contract
 
-Keep the source and JSON three-line authoring structure. On the homepage and individual poem page, render all three lines consecutively as one unbroken vertical column (`writing-mode: vertical-rl`), without phrase gaps, staircase indents, or seasonal-word underlines. Keep ruby and the persistent reading toggle working. Size the poem against its actual displayed character count and available viewport height so long poems remain one column. Use decorative background images with empty alt text; preserve solid-color fallbacks for legacy poems or image load failures. Inspect mobile and desktop, both reading settings, and scrolling between image-backed and legacy poems when browser access is available.
+Keep the source and JSON three-line authoring structure. On the homepage and individual poem page, render all three lines consecutively as one unbroken vertical column (`writing-mode: vertical-rl`), without phrase gaps, staircase indents, or seasonal-word underlines. Keep ruby and the persistent reading toggle working. Size the poem against its actual displayed character count and available viewport height so long poems remain one column. Use decorative background images with empty alt text; preserve solid-color fallbacks for image load failures. Inspect mobile and desktop, both reading settings, and scrolling between light and dark image-backed poems when browser access is available.
 
 Archive and other lists built with `archive_row` keep horizontal continuous poem text, without five-seven-five slash separators or inserted phrase spaces. Allow natural wrapping on narrow screens instead of truncation; keep date and location subordinate and the reading toggle intact.

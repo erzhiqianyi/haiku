@@ -119,8 +119,7 @@ def main():
             "bgColor": visual["bgColor"],
             "theme": visual["theme"],
         })
-        if visual.get("backgroundImage"):
-            poem["backgroundImage"] = validate_background(repo, visual["backgroundImage"])
+        poem["backgroundImage"] = validate_background(repo, visual.get("backgroundImage"))
         regenerated.append(poem)
 
     if missing:
