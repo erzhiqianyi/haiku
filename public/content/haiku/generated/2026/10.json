@@ -1,6 +1,25 @@
 {
   "poems": [
     {
+      "source": "content/haiku/source/2026/10/31.md",
+      "date": "2026-10-31",
+      "location": "{高尾山|たかおさん}",
+      "lines": [
+        "{秋時雨|あきしぐれ}",
+        "{山ほどの雲|やまほどのくも}",
+        "{待つばかり|まつばかり}"
+      ],
+      "season": "秋",
+      "kigo": "秋時雨",
+      "keyword": "待",
+      "bgColor": "#e4e4df",
+      "theme": "light",
+      "slug": "2026-10-31-1",
+      "url": "/haiku/2026-10-31-1/",
+      "locationUrl": "/location/%E9%AB%98%E5%B0%BE%E5%B1%B1/",
+      "kigoUrl": "/kigo/%E7%A7%8B%E6%99%82%E9%9B%A8/"
+    },
+    {
       "source": "content/haiku/source/2026/10/29.md",
       "date": "2026-10-29",
       "location": "{昭和記念公園|しょうわきねんこうえん}",

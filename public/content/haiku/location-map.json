@@ -28,5 +28,6 @@
   "関ヶ原": {"lat": 35.3637794, "lng": 136.4706592, "precision": "area", "prefecture": "岐阜県"},
   "鹿浜学習センター": {"lat": 35.7842620, "lng": 139.7580871, "precision": "point", "prefecture": "東京都"},
   "巾着田・曼珠沙華公園": {"lat": 35.8816068, "lng": 139.3129653, "precision": "point", "prefecture": "埼玉県"},
-  "昭和記念公園": {"lat": 35.7134, "lng": 139.3991, "precision": "point", "prefecture": "東京都"}
+  "昭和記念公園": {"lat": 35.7134, "lng": 139.3991, "precision": "point", "prefecture": "東京都"},
+  "高尾山": {"lat": 35.6252778, "lng": 139.2436111, "precision": "area", "prefecture": "東京都"}
 }
