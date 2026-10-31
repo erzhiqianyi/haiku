@@ -1,13 +1,13 @@
 ---
 name: haiku-polish-publish
-description: Review, polish, annotate readings for, and publish Japanese haiku drafts for itsuki's haiku website. Use when the user provides a haiku draft, dated haiku note, rough 5-7-5 text, or asks for 俳句润色, 俳句添削, five style variants, automatic ruby generation, writing haiku source files, updating generated site data, preparing a deployable static page, or committing/publishing to https://haiku.erzhiqian.cc/.
+description: Review, polish, annotate readings, generate themed background images for, and publish Japanese haiku drafts for itsuki's haiku website. Use when the user provides a haiku draft, dated haiku note, rough 5-7-5 text, or asks for 俳句润色, 俳句添削, five style variants, automatic ruby generation, writing haiku source files, updating generated site data, preparing a deployable static page, or committing/publishing to https://haiku.erzhiqian.cc/.
 ---
 
 # Haiku Polish Publish
 
 ## Overview
 
-Use this skill for itsuki's personal haiku site workflow: critique a draft as a haiku reviewer, propose five distinct polished versions, wait for the user's selection, then write the selected version into the site source and generated metadata.
+Use this skill for itsuki's personal haiku site workflow: critique a draft as a haiku reviewer, propose five distinct polished versions, wait for the user's selection, then generate its themed background image and write the selected version into the site source and generated metadata.
 
 ## Project Shape
 
@@ -47,7 +47,7 @@ Users should write plain text drafts. Codex is responsible for adding full-line 
    - 余韻重視: quieter, more suggestive ending.
 5. For each version, include the location and three lines with full-text ruby notation using `{表示全文|ぜんぶのよみ}` (including kana already present), `中文解释`, `优化点`, suggested `kigo`, `keyword`, `bgColor`, and `theme`.
 6. Stop and ask the user to choose one version before editing files. Do not write project files at the review stage.
-7. After the user selects a version, write it to the date source file and update the generated index plus the relevant month JSON. Derive `season` from the poem date; never ask the user to supply it.
+7. After the user selects a version, generate one theme-matched background image per poem using the built-in image generation tool and the imagegen skill. Follow [references/background-images.md](references/background-images.md). Save the reviewed image under `public/assets/images/haiku/`, then write the date source file and generated metadata with its `backgroundImage` URL. Derive `season` from the poem date; never ask the user to supply it. The selection authorizes this routine image generation; do not add another approval gate. If generation fails, report the gap and do not claim the poem is ready to publish.
 8. Validate the page data and, if a preview server is available, verify browser rendering.
 9. Commit and push only when the user explicitly asks to commit, submit, publish, deploy, or says 提交/发布. Cloudflare deployment is expected to follow from Git deployment to `https://haiku.erzhiqian.cc/`.
 
@@ -77,7 +77,8 @@ Generate:
 
 - `season`: the season of the poem date, generated deterministically from the date boundary contract below.
 - `kigo`: the reviewed seasonal word exactly as it appears in the three displayed lines, or `null` when no reliable seasonal word is present. Do not infer a kigo from the date, location, general mood, or the one-character keyword.
-- `keyword`: one kanji, usually an image/emotion core rather than a literal noun.
+- `keyword`: one kanji, usually an image/emotion core rather than a literal noun; retained as metadata, never rendered as a giant background character.
+- `backgroundImage`: local root-relative URL such as `/assets/images/haiku/2026-10-31-1.jpg`. Required for new selected poems; older poems without an image retain their solid-color fallback. Regeneration must preserve this field and validate the referenced asset.
 - `bgColor`: soft, low-saturation hex color.
 - `theme`: `light` unless the poem's scene is night, darkness, isolation, or heavy shadow.
 - `bgColor` and `theme` must keep readable contrast. If `theme` is `dark`, use a genuinely dark background for light text. If `theme` is `light`, use a pale background for dark text. `validate_generated_site.py` rejects weak contrast before publishing.
@@ -115,7 +116,7 @@ When landing or correcting a location, follow the schema and precision rules in 
 
 ## Landing Selected Version
 
-Use `scripts/add_selected_haiku.py` after the user selects. Pass the location and final three lines with Codex-generated full-text ruby notation, and metadata.
+Use `scripts/add_selected_haiku.py` after the user selects and the background asset has been generated and inspected. Its required `--background-image` argument validates the local file before any source write. Pass the location and final three lines with Codex-generated full-text ruby notation, and metadata.
 
 Example:
 
@@ -130,7 +131,8 @@ python3 .codex/skills/haiku-polish-publish/scripts/add_selected_haiku.py \
   --kigo 夏曇 \
   --keyword 手 \
   --bg-color '#e6e8e4' \
-  --theme light
+  --theme light \
+  --background-image /assets/images/haiku/2026-05-24-1.jpg
 ```
 
 The script appends to `source/YYYY/MM/DD.md`, derives `season`, inserts the poem into the relevant `generated/YYYY/MM.json`, updates the `generated/itsuki-haiku.json` index, and keeps the site deployable. Regenerate JSON from daily source before publishing when many edits have accumulated.
@@ -150,6 +152,12 @@ Before publishing, regenerate generated data from daily source. This writes `gen
 python3 .codex/skills/haiku-polish-publish/scripts/regenerate_generated.py --repo /Users/itsuki/AI/haiku
 ```
 
-If it reports incomplete ruby or missing metadata, correct the source poem first; then add any missing `kigo`, `keyword`, `bgColor`, and `theme` through the selected-version workflow. Pass `--kigo none` only after review confirms that the poem has no reliable seasonal word; this writes JSON `null`.
+If it reports incomplete ruby or missing metadata, correct the source poem first; then add any missing `kigo`, `keyword`, `bgColor`, `theme`, and (for new poems) `backgroundImage` through the selected-version workflow. Pass `--kigo none` only after review confirms that the poem has no reliable seasonal word; this writes JSON `null`.
 
 If publishing, inspect `git status --short`, stage only relevant files, commit with a clear message, push, then report that deployment should update `https://haiku.erzhiqian.cc/`.
+
+## Reading Layout Contract
+
+Keep the source and JSON three-line authoring structure. On the homepage and individual poem page, render all three lines consecutively as one unbroken vertical column (`writing-mode: vertical-rl`), without phrase gaps, staircase indents, or seasonal-word underlines. Keep ruby and the persistent reading toggle working. Size the poem against its actual displayed character count and available viewport height so long poems remain one column. Use decorative background images with empty alt text; preserve solid-color fallbacks for legacy poems or image load failures. Inspect mobile and desktop, both reading settings, and scrolling between image-backed and legacy poems when browser access is available.
+
+Archive and other lists built with `archive_row` keep horizontal continuous poem text, without five-seven-five slash separators or inserted phrase spaces. Allow natural wrapping on narrow screens instead of truncation; keep date and location subordinate and the reading toggle intact.

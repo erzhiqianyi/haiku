@@ -635,11 +635,12 @@ rt {
 }
 
 .row-poem {
-  overflow: hidden;
+  min-width: 0;
   font-size: clamp(1rem, 2.25vw, 1.42rem);
   letter-spacing: 0.06em;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  line-height: 2;
+  overflow-wrap: anywhere;
+  white-space: normal;
 }
 
 .row-divider {
@@ -650,14 +651,21 @@ rt {
 
 .row-meta {
   display: flex;
-  min-width: 230px;
+  flex-wrap: wrap;
+  align-items: baseline;
+  min-width: 0;
   justify-content: flex-end;
-  gap: 20px;
+  gap: 10px 14px;
   color: var(--muted);
   font-family: "Noto Serif JP", serif;
   font-size: 0.76rem;
   letter-spacing: 0.1em;
   white-space: nowrap;
+}
+
+.row-meta > span::before {
+  margin-right: 14px;
+  content: "·";
 }
 
 .pager {
@@ -757,23 +765,8 @@ rt {
   letter-spacing: 0.13em;
 }
 
-.detail-title {
-  display: grid;
-  gap: clamp(12px, 2vh, 22px);
-  margin: 0;
-  font-size: clamp(2.2rem, 7vw, 5.3rem);
-  font-weight: 500;
-  letter-spacing: 0.055em;
-  line-height: 1.38;
-}
 
-.detail-title span:nth-child(2) {
-  margin-left: clamp(1.2rem, 5vw, 4rem);
-}
 
-.detail-title span:nth-child(3) {
-  margin-left: clamp(2.4rem, 10vw, 8rem);
-}
 
 .detail-tags {
   display: flex;
@@ -1968,9 +1961,6 @@ body[data-current-season="冬"] .season-whisper { color: #586f82; }
     padding: 70px 22px;
   }
 
-  .detail-title {
-    font-size: clamp(2.15rem, 10.5vw, 3.2rem);
-  }
 
   .detail-context {
     width: calc(100% - 40px);
@@ -2179,4 +2169,72 @@ body[data-current-season="冬"] .season-whisper { color: #586f82; }
     opacity: 0.26;
     animation: none;
   }
+}
+
+/* Traditional single-column reading with a decorative, optional themed image. */
+.detail-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 42px 32px;
+}
+
+.detail-hero .poem-background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.62;
+  mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 66%, transparent);
+  pointer-events: none;
+  user-select: none;
+}
+
+.detail-poem {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 26px;
+}
+
+.detail-meta {
+  justify-content: center;
+  margin: 0;
+  font-size: 0.75rem;
+}
+
+.detail-title {
+  width: auto;
+  margin: 0;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  white-space: nowrap;
+  font-size: min(2.7rem, calc((100svh - 290px) / var(--poem-length, 18)));
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  line-height: 1.8;
+}
+
+.detail-title rt {
+  font-size: 0.3em;
+  letter-spacing: 0;
+}
+
+.detail-tags {
+  justify-content: center;
+  margin: 0;
+}
+
+.detail-tags .tag-link {
+  border: 0;
+  padding: 4px 8px;
+  background: transparent;
+  text-decoration: underline;
+  text-decoration-color: var(--rule);
+  text-underline-offset: 0.35em;
 }

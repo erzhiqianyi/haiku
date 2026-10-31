@@ -376,11 +376,17 @@
         section.dataset.accent = accentFor(section.dataset.color, section.dataset.theme);
         section.setAttribute('aria-label', `${formatDate(poem.date)} ${plainText(poem.location)}`);
 
-        const ghost = document.createElement('div');
-        ghost.className = 'ghost';
-        ghost.setAttribute('aria-hidden', 'true');
-        ghost.textContent = poem.keyword || '';
-        section.appendChild(ghost);
+        if (poem.backgroundImage) {
+            const background = document.createElement('img');
+            background.className = 'poem-background';
+            background.src = poem.backgroundImage;
+            background.alt = '';
+            background.setAttribute('aria-hidden', 'true');
+            background.loading = index === 0 ? 'eager' : 'lazy';
+            background.decoding = 'async';
+            background.addEventListener('error', () => background.remove());
+            section.appendChild(background);
+        }
 
         const inner = document.createElement('div');
         inner.className = 'leaf-inner';
@@ -401,16 +407,12 @@
 
         const poemBlock = document.createElement('div');
         poemBlock.className = 'poem';
-        let kigoMarked = false;
-        poem.lines.slice(0, 3).forEach((line, lineIndex) => {
-            const lineElement = document.createElement('div');
-            lineElement.className = `line l${lineIndex + 1}`;
-            lineElement.innerHTML = formatRubyLine(line);
-            if (!kigoMarked) {
-                kigoMarked = markKigoText(lineElement, poem.kigo);
-            }
-            poemBlock.appendChild(lineElement);
-        });
+        const text = poem.lines.map(plainText).join('');
+        poemBlock.style.setProperty('--poem-length', String([...text].length * 1.08));
+        const lineElement = document.createElement('div');
+        lineElement.className = 'line';
+        lineElement.innerHTML = poem.lines.map(formatRubyLine).join('');
+        poemBlock.appendChild(lineElement);
         inner.appendChild(poemBlock);
 
         const seasonalMeta = document.createElement('div');

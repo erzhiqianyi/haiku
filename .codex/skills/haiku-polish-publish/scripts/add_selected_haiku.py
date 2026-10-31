@@ -4,6 +4,7 @@ import json
 import re
 from pathlib import Path
 
+from haiku_background import validate_background
 from haiku_season import season_for_date
 
 
@@ -17,8 +18,9 @@ def parse_args():
     parser.add_argument("--location", required=True)
     parser.add_argument("--line", action="append", required=True, help="Haiku line. Pass exactly three times.")
     parser.add_argument("--kigo", required=True, help="Reviewed seasonal word as displayed in the poem, or 'none'.")
-    parser.add_argument("--keyword", required=True, help="One kanji watermark keyword.")
+    parser.add_argument("--keyword", required=True, help="One kanji mood keyword (metadata only).")
     parser.add_argument("--bg-color", required=True, help="Hex background color.")
+    parser.add_argument("--background-image", required=True, help="Generated local background URL under /assets/images/haiku/.")
     parser.add_argument("--theme", choices=["light", "dark"], required=True)
     parser.add_argument("--generated", default="public/content/haiku/generated/itsuki-haiku.json")
     parser.add_argument("--dry-run", action="store_true")
@@ -99,6 +101,7 @@ def main():
     args = parse_args()
     validate(args)
     repo = Path(args.repo).resolve()
+    validate_background(repo, args.background_image)
     generated_path = repo / args.generated
     src_path = source_path(repo, args.date)
     poem = {
@@ -110,6 +113,7 @@ def main():
         "keyword": args.keyword,
         "bgColor": args.bg_color,
         "theme": args.theme,
+        "backgroundImage": args.background_image,
         "lines": args.line,
     }
 

@@ -217,8 +217,8 @@ def page_shell(
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400&amp;family=Shippori+Mincho:wght@400;500&amp;family=Space+Mono&amp;display=swap" rel="stylesheet">
   <link rel="icon" href="data:,">
-  <link rel="stylesheet" href="/assets/css/haiku-pages.css?v=20260827-reading-switch-v1">
-  <link rel="stylesheet" href="/assets/css/haiku-navigation.css?v=20260827-reading-switch-v1">
+  <link rel="stylesheet" href="/assets/css/haiku-pages.css?v=20261031-poem-background-v1">
+  <link rel="stylesheet" href="/assets/css/haiku-navigation.css?v=20261031-poem-background-v1">
   {extra_head}
 </head>
 <body {body_attributes}>
@@ -250,7 +250,7 @@ def page_shell(
 
 def archive_row(poem):
     lines = [ruby_markup(line) for line in poem["lines"]]
-    joined = '<span class="row-divider" aria-hidden="true">／</span>'.join(lines)
+    joined = "".join(lines)
     location = ruby_markup(poem["location"])
     date = html.escape(poem["date"])
     return f"""      <a class="archive-row" href="{html.escape(poem['url'], quote=True)}">
@@ -580,7 +580,7 @@ def generate_site_pages(repo, poems, site_meta):
             )
         body = f"""    <p class="eyebrow">Archive</p>
     <h1 class="page-title">句の一覧</h1>
-    <p class="page-lead">一句を一行にまとめ、日付と場所から辿れる目次です。各行から、その句だけを読むページへ移動できます。</p>
+    <p class="page-lead">日付と場所から、一句ずつ辿る目次です。気になる句を選ぶと、その句のページが開きます。</p>
     <div class="archive-summary"><span>{len(poems)} HAIKU</span><span>{page_number} / {total_pages}</span></div>
     <div class="archive-list">
 {chr(10).join(archive_row(poem) for poem in page_poems)}
@@ -1207,7 +1207,12 @@ def generate_site_pages(repo, poems, site_meta):
             f"--detail-ink:{'#f1eee5' if theme_dark else '#24211b'};"
             f"--detail-muted:{'#bbb7ae' if theme_dark else '#5f5a50'};"
         )
-        lines_markup = "".join(f"<span>{ruby_markup(line)}</span>" for line in poem["lines"])
+        lines_markup = "".join(ruby_markup(line) for line in poem["lines"])
+        detail_style += f"--poem-length:{len(''.join(plain_lines)) * 1.08};"
+        background_markup = ""
+        if poem.get("backgroundImage"):
+            image = html.escape(poem["backgroundImage"], quote=True)
+            background_markup = f'      <img class="poem-background" src="{image}" alt="" aria-hidden="true" decoding="async">'
         about = f"{date_label}、{location}で詠んだ一句です。"
         if poem.get("kigo"):
             about += f"季語は「{poem['kigo']}」。"
@@ -1215,6 +1220,7 @@ def generate_site_pages(repo, poems, site_meta):
         feedback_markup, feedback_scripts = feedback_section(poem, joined_lines, site_meta)
 
         body = f"""    <section class="detail-hero" style="{detail_style}">
+{background_markup}
       <article class="detail-poem">
         <div class="detail-meta"><span>{ruby_markup(poem['location'])}</span><time datetime="{html.escape(poem['date'])}">{html.escape(date_label)}</time></div>
         <h1 class="detail-title">{lines_markup}</h1>

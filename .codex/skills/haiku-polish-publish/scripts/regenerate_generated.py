@@ -5,6 +5,7 @@ import re
 from pathlib import Path
 
 from generate_site_pages import assign_routes, generate_site_pages
+from haiku_background import validate_background
 from haiku_season import season_for_date
 
 
@@ -118,6 +119,8 @@ def main():
             "bgColor": visual["bgColor"],
             "theme": visual["theme"],
         })
+        if visual.get("backgroundImage"):
+            poem["backgroundImage"] = validate_background(repo, visual["backgroundImage"])
         regenerated.append(poem)
 
     if missing:

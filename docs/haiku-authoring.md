@@ -6,7 +6,7 @@
 - 页面数据：`public/content/haiku/generated/itsuki-haiku.json` 和 `public/content/haiku/generated/YYYY/MM.json`
 - 静态发现页：`public/archive/`、`public/haiku/`、`public/kigo/`、`public/location/` 和 `public/sitemap.xml`
 
-你平时只维护 `source` 里的原始 Markdown。`kigo / keyword / bgColor / theme` 不写在原始文档里，由 Codex 读取原文、审校季语后生成到 JSON。假名标注也由 Codex 在润色和落地时生成，草稿不用手动写。
+你平时只维护 `source` 里的原始 Markdown。`kigo / keyword / bgColor / theme / backgroundImage` 不写在原始文档里，由 Codex 读取原文、审校季语后生成到 JSON。假名标注也由 Codex 在润色和落地时生成，草稿不用手动写。
 
 ## 目录结构
 
@@ -110,7 +110,8 @@ Codex 会根据每首俳句的地点和正文生成页面需要的视觉字段�
   "kigo": null,
   "keyword": "雨",
   "bgColor": "#dfe9ec",
-  "theme": "light"
+  "theme": "light",
+  "backgroundImage": "/assets/images/haiku/2026-10-31-1.jpg"
 }
 ```
 
@@ -118,11 +119,12 @@ Codex 会根据每首俳句的地点和正文生成页面需要的视觉字段�
 
 - `season` 根据作句日期自动生成，使用俳句季节的固定边界：春 2月4日—5月5日、夏 5月6日—8月7日、秋 8月8日—11月6日、冬 11月7日—2月3日。
 - `kigo` 是经审校、且实际出现在三句正文中的季语；没有可靠季语时必须为 `null`。它不从日期、地点、氛围或 `keyword` 猜测。
-- `keyword` 用一个汉字表达意境核心。
+- `keyword` 用一个汉字表达意境核心，仅保留为元数据，不再渲染背景大字。
+- `backgroundImage` 是每首定稿后生成的专属意境图，保存在 `public/assets/images/haiku/YYYY-MM-DD-N.jpg`，JSON 使用站点根路径。背景不含文字，细节简约，给中央及偏右的竖排正文留白。新增俳句必须配图；旧作没有图片时使用纯色背景。
 - `bgColor` 用柔和、低饱和背景色。
 - `theme` 只在夜、孤独、夕暗、深色水面等低明度场景用 `dark`。
 
-新增或修改原始 Markdown 后，让 Codex 在发布前重新读取 `source` 日文件，并更新 `generated/itsuki-haiku.json` 以及对应月份 JSON。生成脚本会从日期重新计算 `season`，校验所有地点和句子均为完整读音标记，并校验非空 `kigo` 确实出现在正文中；只更新读音时，原有的 `kigo / keyword / bgColor / theme` 会被保留。
+新增或修改原始 Markdown 后，让 Codex 在发布前重新读取 `source` 日文件，并更新 `generated/itsuki-haiku.json` 以及对应月份 JSON。生成脚本会从日期重新计算 `season`，校验所有地点和句子均为完整读音标记，并校验非空 `kigo` 确实出现在正文中；只更新读音时，原有的 `kigo / keyword / bgColor / theme / backgroundImage` 会被保留。
 
 发布前可运行：
 
@@ -149,7 +151,7 @@ python3 .codex/skills/haiku-polish-publish/scripts/validate_generated_site.py --
 
 `public/content/haiku/kigo-seasons.json` 维护季语本身的春夏秋冬归属；它与按作句日期生成的 `season` 是两个独立概念。首页先按日期季节筛选，再把该季节记录中实际存在的季语作为二级选项。`public/content/haiku/location-map.json` 只保存能够可靠定位的地点坐标、精度和区域；“街角”“部屋”等不应被强行定位的地点继续以文字索引展示。地图初始只打开句数最多的区域，通过区域按钮切换，并把邻近地点聚合为带句数的气泡。
 
-如果脚本提示缺少 metadata，说明某首源俳句还没有 `kigo / keyword / bgColor / theme`，需要先由 Codex 补齐再发布。季语审校记录见 `docs/kigo-audit.md`。
+如果脚本提示缺少 metadata，说明某首源俳句还没有 `kigo / keyword / bgColor / theme / backgroundImage`，需要先由 Codex 补齐再发布。季语审校记录见 `docs/kigo-audit.md`。
 
 `generated/itsuki-haiku.json` 是索引文件，只保存站点信息和月份列表。具体作品数据在 `generated/YYYY/MM.json` 里。
 
@@ -184,7 +186,7 @@ Turnstile 的 Site Key 本来就是公开值，将它写入 `public/content/haik
 /haiku/2026-08-27-1/
 ```
 
-详情页标题由首句、地点和日期共同组成；描述中包含完整句文、日期、地点和经审校的季语。`keyword` 仍只是页面背景使用的一个汉字，不作为 SEO 关键词。搜索主题来自页面上真实可见的句文、季语、地点和内部链接；不生成 `meta keywords`。
+详情页标题由首句、地点和日期共同组成；描述中包含完整句文、日期、地点和经审校的季语。`keyword` 仅为意境元数据，不再显示为背景大字，也不作为 SEO 关键词。搜索主题来自页面上真实可见的句文、季语、地点和内部链接；不生成 `meta keywords`。
 
 ## 润色与发布 Skill
 
@@ -198,7 +200,7 @@ Turnstile 的 Site Key 本来就是公开值，将它写入 `public/content/haik
 2. Codex 给出具体修改建议。
 3. Codex 给出五种风格版本；每个版本都包含中文解释、优化点，并在需要时补假名标注。
 4. 你选择一个版本。
-5. Codex 写入 `source/YYYY/MM/DD.md`，更新 `generated/itsuki-haiku.json` 和对应月份 JSON。
+5. Codex 根据选定俳句生成并检查一张主题背景图，保存到 `public/assets/images/haiku/`；再写入 `source/YYYY/MM/DD.md`，更新生成数据及 `backgroundImage`。新增脚本必须传入 `--background-image`；重建保留该字段并检查文件。
 6. 需要发布时，再让 Codex 提交并推送 Git，站点部署到 `https://haiku.erzhiqian.cc/`。
 
 ## 首页数据源
@@ -208,3 +210,7 @@ Turnstile 的 Site Key 本来就是公开值，将它写入 `public/content/haik
 ```html
 <body data-haiku-source="content/haiku/generated/itsuki-haiku.json">
 ```
+
+## 正文与背景排版
+
+首页和单句页将源文件中的三行连续渲染为一句竖排一列，不插入五七五分段空白或阶梯缩进。振假名和「読み」开关继续保留。背景图是无替代文字的装饰层；正文保持可选择的 HTML 文本，字号按实际字数与视口高度缩放。最近三首已接入配图，其他旧作用纯色回退；图片文件不存在或为空会阻止重建/校验通过。

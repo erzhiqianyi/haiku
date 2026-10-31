@@ -7,6 +7,7 @@ from pathlib import Path
 from urllib.parse import unquote, urljoin, urlparse
 from xml.etree import ElementTree
 
+from haiku_background import validate_background
 from haiku_season import validate_poem_season
 
 
@@ -302,6 +303,8 @@ def main():
             except (ValueError, TypeError) as error:
                 raise SystemExit(str(error)) from error
             validate_visual_contrast(poem)
+            if poem.get("backgroundImage"):
+                validate_background(public_root.parent, poem["backgroundImage"])
             if poem.get("kigo"):
                 generated_kigo.add(poem["kigo"])
             if poem.get("locationUrl"):
