@@ -3,7 +3,7 @@
   "prefectures": [
     {
       "name": "東京都",
-      "count": 63,
+      "count": 64,
       "locations": [
         {
           "name": "やよい図書館",
@@ -226,17 +226,17 @@
           "nameRuby": "{舎人公園|とねりこうえん}",
           "mapped": true,
           "url": "/location/%E8%88%8E%E4%BA%BA%E5%85%AC%E5%9C%92/",
-          "count": 28,
+          "count": 29,
           "lat": 35.7986629,
           "lng": 139.7733174,
           "precision": "point",
           "prefecture": "東京都",
           "season": "春",
-          "preview": "枝先の／十月桜／二つかな",
+          "preview": "階段に／かわいいタヌキ／来ないでね",
           "previewRuby": [
-            "{枝先の|えださきの}",
-            "{十月桜|じゅうがつざくら}",
-            "{二つかな|ふたつかな}"
+            "{階段に|かいだんに}",
+            "{かわいいタヌキ|かわいいたぬき}",
+            "{来ないでね|こないでね}"
           ]
         },
         {

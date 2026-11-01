@@ -1,0 +1,24 @@
+{
+  "poems": [
+    {
+      "source": "content/haiku/source/2026/11/01.md",
+      "date": "2026-11-01",
+      "location": "{舎人公園|とねりこうえん}",
+      "lines": [
+        "{階段に|かいだんに}",
+        "{かわいいタヌキ|かわいいたぬき}",
+        "{来ないでね|こないでね}"
+      ],
+      "season": "秋",
+      "kigo": "タヌキ",
+      "keyword": "距",
+      "bgColor": "#e5e3dc",
+      "theme": "light",
+      "backgroundImage": "/assets/images/haiku/2026-11-01-1.jpg",
+      "slug": "2026-11-01-1",
+      "url": "/haiku/2026-11-01-1/",
+      "locationUrl": "/location/%E8%88%8E%E4%BA%BA%E5%85%AC%E5%9C%92/",
+      "kigoUrl": "/kigo/%E3%82%BF%E3%83%8C%E3%82%AD/"
+    }
+  ]
+}
