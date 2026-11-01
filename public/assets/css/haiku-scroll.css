@@ -754,3 +754,95 @@ rt {
     padding-bottom: 20px;
   }
 }
+
+/* Desktop spread: retain the portrait artwork and give the verse its own space. */
+@media (min-width: 961px) {
+  .leaf:not(.intro) .leaf-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr auto auto;
+    width: min(1040px, calc(100% - 176px));
+    height: min(760px, calc(100svh - 196px));
+    min-height: 300px;
+    gap: 20px 64px;
+    padding: 0;
+    margin-top: 24px;
+  }
+
+  .leaf:not(.intro) .poem-background {
+    inset: 104px auto 72px max(24px, calc((100% - 1180px) / 2));
+    width: min(48vw, calc((100svh - 176px) * 2 / 3));
+    height: calc(100% - 176px);
+    object-fit: contain;
+    opacity: 0.72;
+    mask-image: radial-gradient(ellipse at center, #000 42%, transparent 72%);
+  }
+
+  .leaf:not(.intro) .meta-top {
+    grid-column: 1;
+    grid-row: 1;
+    justify-content: flex-start;
+    align-self: start;
+    flex-wrap: wrap;
+    gap: 12px 20px;
+  }
+
+  .leaf:not(.intro) .place {
+    font-size: 1.05rem;
+  }
+
+  .leaf:not(.intro) .poem {
+    grid-column: 2;
+    grid-row: 1 / -1;
+    align-self: center;
+    justify-self: center;
+  }
+
+  .leaf:not(.intro) .line {
+    font-size: min(2rem, calc((min(760px, 100svh - 196px) - 16px) / var(--poem-length, 18)));
+    letter-spacing: 0.06em;
+  }
+
+  .leaf:not(.intro) .kigo {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  .leaf:not(.intro) .poem-links {
+    grid-column: 1;
+    grid-row: 4;
+    justify-content: flex-start;
+    line-height: 1.9;
+  }
+
+  .rail {
+    top: 50%;
+    right: 24px;
+    bottom: auto;
+    height: 252px;
+    width: 76px;
+    gap: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    transform: translateY(-50%);
+    mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 82%, transparent);
+  }
+
+  .rail-tick {
+    min-height: 36px;
+    width: 100%;
+    padding-right: 6px;
+  }
+
+  .rail-tick.active .bar {
+    width: 28px;
+  }
+
+  .rail-num {
+    font-size: 0.65rem;
+  }
+
+  .chrome-foot {
+    padding: 24px max(32px, calc((100% - 1180px) / 2));
+  }
+}

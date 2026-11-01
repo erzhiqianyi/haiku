@@ -18,11 +18,13 @@
     let sectionObserver = null;
     const sectionRatios = new Map();
 
-    function convertToKanji(numStr) {
-        return String(numStr)
-            .split('')
-            .map(character => /[0-9]/.test(character) ? kanjiMap[parseInt(character, 10)] : character)
-            .join('');
+    function convertToKanji(value) {
+        const number = Number(value);
+        if (!Number.isInteger(number) || number < 1 || number > 31) return String(value);
+        const tens = Math.floor(number / 10);
+        const ones = number % 10;
+        return (tens ? `${tens > 1 ? kanjiMap[tens] : ''}十` : '')
+            + (ones ? kanjiMap[ones] : '');
     }
 
     function escapeHtml(value) {
