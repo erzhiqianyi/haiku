@@ -48,7 +48,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400&amp;family=Shippori+Mincho:wght@400;500&amp;family=Space+Mono&amp;display=swap" rel="stylesheet">
   <link rel="icon" href="data:,">
-  <link rel="stylesheet" href="assets/css/haiku-scroll.css?v=20261031-desktop-spread-v2">
+  <link rel="stylesheet" href="assets/css/haiku-scroll.css?v=20261101-gallery-spread">
   <link rel="stylesheet" href="/assets/css/haiku-navigation.css?v=20261031-poem-background-v1">
 </head>
 <body data-haiku-source="content/haiku/generated/itsuki-haiku.json">
@@ -68,6 +68,11 @@
   </header>
 
   <nav class="rail" id="rail" aria-label="句の目次"></nav>
+  <nav class="poem-navigation" aria-label="句をめくる" hidden>
+    <button id="previous-poem" type="button" aria-label="前の句">前へ</button>
+    <span class="poem-position" id="poem-position" aria-live="polite" aria-atomic="true"></span>
+    <button id="next-poem" type="button" aria-label="次の句">次へ</button>
+  </nav>
 
   <main class="track" id="track">
     <h1 class="visually-hidden" id="collection-title">樹の句帖</h1>
@@ -87,6 +92,6 @@
   <p class="load-status" id="load-status" role="status" aria-live="polite"></p>
 
   <script src="assets/js/haiku-readings.js?v=20260827-readings-v1"></script>
-  <script src="assets/js/haiku-renderer.js?v=20261031-japanese-dates-v1"></script>
+  <script src="assets/js/haiku-renderer.js?v=20261101-gallery-navigation"></script>
 </body>
 </html>

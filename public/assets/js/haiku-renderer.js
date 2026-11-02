@@ -5,6 +5,10 @@
     const body = document.body;
     const track = document.getElementById('track');
     const rail = document.getElementById('rail');
+    const poemNavigation = document.querySelector('.poem-navigation');
+    const previousPoem = document.getElementById('previous-poem');
+    const nextPoem = document.getElementById('next-poem');
+    const poemPosition = document.getElementById('poem-position');
     const count = document.getElementById('haiku-count');
     const copyright = document.getElementById('copyright');
     const loadStatus = document.getElementById('load-status');
@@ -481,6 +485,9 @@
     function setActiveSection(index) {
         if (!sections[index]) return;
         activeIndex = index;
+        if (poemPosition) poemPosition.textContent = `${String(index + 1).padStart(2, '0')} / ${sections.length}`;
+        if (previousPoem) previousPoem.disabled = index === 0;
+        if (nextPoem) nextPoem.disabled = index === sections.length - 1;
         const section = sections[index];
         body.style.backgroundColor = section.dataset.color || '#fcfbf8';
         body.style.setProperty('--accent', section.dataset.accent || '#7a6a44');
@@ -527,6 +534,7 @@
             if (target instanceof HTMLInputElement || target instanceof HTMLTextAreaElement || target instanceof HTMLSelectElement) {
                 return;
             }
+            if (target instanceof Element && target.closest('button, a, [contenteditable="true"]')) return;
 
             if (['ArrowDown', 'PageDown', ' '].includes(event.key)) {
                 event.preventDefault();
@@ -573,6 +581,9 @@
             poemSections = [...track.querySelectorAll('.leaf:not(.intro)')];
             sections = [...track.querySelectorAll('.track-item')];
             createRail();
+            if (poemNavigation) poemNavigation.hidden = false;
+            if (previousPoem) previousPoem.addEventListener('click', () => navigateBy(-1));
+            if (nextPoem) nextPoem.addEventListener('click', () => navigateBy(1));
             observeSections();
             bindKeyboardNavigation();
             setActiveSection(0);
