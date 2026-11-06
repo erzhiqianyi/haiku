@@ -1,6 +1,26 @@
 {
   "poems": [
     {
+      "source": "content/haiku/source/2026/11/06.md",
+      "date": "2026-11-06",
+      "location": "{舎人公園|とねりこうえん}",
+      "lines": [
+        "{朝霧や|あさぎりや}",
+        "{鴨の遊びに|かものあそびに}",
+        "{ほどけゆく|ほどけゆく}"
+      ],
+      "season": "秋",
+      "kigo": "朝霧",
+      "keyword": "解",
+      "bgColor": "#e5e8e3",
+      "theme": "light",
+      "backgroundImage": "/assets/images/haiku/2026-11-06-1.jpg",
+      "slug": "2026-11-06-1",
+      "url": "/haiku/2026-11-06-1/",
+      "locationUrl": "/location/%E8%88%8E%E4%BA%BA%E5%85%AC%E5%9C%92/",
+      "kigoUrl": "/kigo/%E6%9C%9D%E9%9C%A7/"
+    },
+    {
       "source": "content/haiku/source/2026/11/01.md",
       "date": "2026-11-01",
       "location": "{舎人公園|とねりこうえん}",
