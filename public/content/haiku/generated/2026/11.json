@@ -1,6 +1,26 @@
 {
   "poems": [
     {
+      "source": "content/haiku/source/2026/11/11.md",
+      "date": "2026-11-11",
+      "location": "{舎人公園|とねりこうえん}",
+      "lines": [
+        "{水澄むや|みずすむや}",
+        "{揺らめく光|ゆらめくひかり}",
+        "{梢まで|こずえまで}"
+      ],
+      "season": "冬",
+      "kigo": "水澄む",
+      "keyword": "光",
+      "bgColor": "#e3e9e6",
+      "theme": "light",
+      "backgroundImage": "/assets/images/haiku/2026-11-11-1.jpg",
+      "slug": "2026-11-11-1",
+      "url": "/haiku/2026-11-11-1/",
+      "locationUrl": "/location/%E8%88%8E%E4%BA%BA%E5%85%AC%E5%9C%92/",
+      "kigoUrl": "/kigo/%E6%B0%B4%E6%BE%84%E3%82%80/"
+    },
+    {
       "source": "content/haiku/source/2026/11/06.md",
       "date": "2026-11-06",
       "location": "{舎人公園|とねりこうえん}",
